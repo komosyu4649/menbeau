@@ -1,6 +1,34 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.5rem 6rem;
+}
 .menu {
-  display: block;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
   width: 6.4rem;
   height: 6.4rem;
   background-color: var(--color-black);
+  border-radius: 50%;
+}
+.menuLine {
+  position: absolute;
+  top: 50%;
+  left: calc(50% - 1.2rem);
+  display: block;
+  width: 2.4rem;
+  height: 1px;
+  background-color: var(--color-white);
+  &:nth-child(1) {
+    transform: translateY(-0.35rem);
+  }
+  &:nth-child(2) {
+    transform: translateY(0.35rem);
+  }
 }
