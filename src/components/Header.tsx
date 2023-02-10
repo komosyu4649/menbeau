@@ -1,8 +1,23 @@
-import Link from 'next/link'
-import React from 'react'
-import style from './Header.module.scss'
+// 'use client'
 
-export const Header = () => {
+import Link from 'next/link'
+import React, { use, cache } from 'react'
+import style from './Header.module.scss'
+import { client } from 'src/lib/microcms/apis'
+
+// async function getData() {
+//   const res = await client.getList({ endpoint: 'categories' })
+//   return res
+// }
+const getData = cache(async () => {
+  const res = await client.getList({ endpoint: 'categories' })
+  return res
+})
+
+export const Header = async () => {
+  const data = await getData()
+  const { contents } = data
+
   return (
     <header className={style.container}>
       {/* logo */}
