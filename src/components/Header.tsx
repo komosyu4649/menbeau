@@ -5,10 +5,12 @@ import React, { use, cache } from 'react'
 import style from './Header.module.scss'
 import { client } from 'src/lib/microcms/apis'
 import { getMicroCMSData } from 'src/lib/microcms/getData'
+import type { MicroCMSCategoryData, MicroCMSKeywordsData } from 'src/lib/microcms/getData'
 
 export const Header = async () => {
-  const data = await getMicroCMSData('categories')
-  const { contents } = data
+  const categoriesData: MicroCMSCategoryData = await getMicroCMSData('categories')
+
+  const keywordsData: MicroCMSKeywordsData = await getMicroCMSData('keywords')
 
   return (
     <header className={style.container}>
@@ -38,7 +40,7 @@ export const Header = async () => {
         {/* categories */}
         <div className=''>
           <ul className=''>
-            {contents.map((content) => (
+            {categoriesData.contents.map((content) => (
               <li key={content.id} className=''>
                 <Link href=''>{content.japanese}</Link>
               </li>
@@ -46,6 +48,15 @@ export const Header = async () => {
           </ul>
         </div>
         {/* keywords */}
+        <div className=''>
+          <ul className=''>
+            {keywordsData.contents.map((content) => (
+              <li key={content.id} className=''>
+                <Link href=''>{content.name}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
         {/* others */}
       </nav>
     </header>
