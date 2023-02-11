@@ -4,19 +4,10 @@ import Link from 'next/link'
 import React, { use, cache } from 'react'
 import style from './Header.module.scss'
 import { client } from 'src/lib/microcms/apis'
-
-// async function getData() {
-//   const res = await client.getList({ endpoint: 'categories' })
-//   return res
-// }
-const getData = cache(async () => {
-  const res = await client.getList({ endpoint: 'categories' })
-  return res
-})
+import { getMicroCMSData } from 'src/lib/microcms/getData'
 
 export const Header = async () => {
-  const data = await getData()
-  const { contents } = data
+  const data = await getMicroCMSData('categories')
 
   return (
     <header className={style.container}>
