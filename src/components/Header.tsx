@@ -8,6 +8,7 @@ import { getMicroCMSData } from 'src/lib/microcms/getData'
 
 export const Header = async () => {
   const data = await getMicroCMSData('categories')
+  const { contents } = data
 
   return (
     <header className={style.container}>
@@ -28,10 +29,25 @@ export const Header = async () => {
         </svg>
       </Link>
       {/* menu */}
-      <button className={style.menu}>
-        <span className={style.menuLine}></span>
-        <span className={style.menuLine}></span>
-      </button>
+      <nav className={style.menu}>
+        {/* button */}
+        <button className={style.menuButton}>
+          <span className={style.menuButtonLine}></span>
+          <span className={style.menuButtonLine}></span>
+        </button>
+        {/* categories */}
+        <div className=''>
+          <ul className=''>
+            {contents.map((content) => (
+              <li key={content.id} className=''>
+                <Link href=''>{content.japanese}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+        {/* keywords */}
+        {/* others */}
+      </nav>
     </header>
   )
 }
