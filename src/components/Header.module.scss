@@ -1,11 +1,12 @@
 .container {
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 2.5rem 6rem;
 }
-.menu {
+.buttonToggleMenu {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -17,7 +18,7 @@
   background-color: var(--color-black);
   border-radius: 50%;
 }
-.menuLine {
+.buttonToggleMenuLine {
   position: absolute;
   top: 50%;
   left: calc(50% - 1.2rem);
@@ -31,4 +32,18 @@
   &:nth-child(2) {
     transform: translateY(0.35rem);
   }
+}
+.menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '';
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-key);
+  z-index: 5;
+}
+.menuCategoryItemEn {
+}
+.menuCategoryItemJa {
 }
