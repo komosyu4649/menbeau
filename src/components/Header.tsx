@@ -5,12 +5,11 @@ import React, { use, cache } from 'react'
 import style from './Header.module.scss'
 import { client } from 'src/lib/microcms/apis'
 import { getMicroCMSData } from 'src/lib/microcms/getData'
-import type { MicroCMSCategoryData, MicroCMSKeywordsData } from 'src/lib/microcms/getData'
 
 export const Header = async () => {
-  const categoriesData: MicroCMSCategoryData = await getMicroCMSData('categories')
+  const categoriesData = await getMicroCMSData('categories')
 
-  const keywordsData: MicroCMSKeywordsData = await getMicroCMSData('keywords')
+  const keywordsData = await getMicroCMSData('keywords')
 
   return (
     <header className={style.container}>
