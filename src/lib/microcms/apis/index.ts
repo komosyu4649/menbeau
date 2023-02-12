@@ -1,12 +1,6 @@
-import { createClient } from 'microcms-ts-sdk'
+import { createClient } from 'microcms-js-sdk'
 
-export type Endpoints = {
-  list: {
-    contents: any
-  }
-}
-
-export const client = createClient<Endpoints>({
+export const client = createClient({
   serviceDomain: process.env.MICROCMS_SERVICE_DOMAIN ?? '',
   apiKey: process.env.MICROCMS_API_KEY ?? '',
 })
