@@ -30,34 +30,54 @@ export const Header = async () => {
           />
         </svg>
       </Link>
+      {/* button */}
+      <button className={style.buttonToggleMenu}>
+        <span className={style.buttonToggleMenuLine}></span>
+        <span className={style.buttonToggleMenuLine}></span>
+      </button>
       {/* menu */}
       <nav className={style.menu}>
-        {/* button */}
-        <button className={style.menuButton}>
-          <span className={style.menuButtonLine}></span>
-          <span className={style.menuButtonLine}></span>
-        </button>
         {/* categories */}
-        <div className=''>
-          <ul className=''>
+        <div className={style.menuCategory}>
+          <ul className={style.menuCategoryList}>
             {categoriesData.contents.map((content) => (
-              <li key={content.id} className=''>
-                <Link href=''>{content.japanese}</Link>
+              <li key={content.id} className={style.menuCategoryItem}>
+                <Link href={content.id} className={style.menuCategoryItemLink}>
+                  <span className={style.menuCategoryItemEn}>{content.english}</span>
+                  <span className={style.menuCategoryItemJa}>{content.japanese}</span>
+                </Link>
               </li>
             ))}
           </ul>
         </div>
         {/* keywords */}
-        <div className=''>
-          <ul className=''>
+        <div className={style.menuKeyword}>
+          <ul className={style.menuKeywordList}>
             {keywordsData.contents.map((content) => (
-              <li key={content.id} className=''>
-                <Link href=''>{content.name}</Link>
+              <li key={content.id} className={style.menuKeywordItem}>
+                <Link href={content.id} className={style.menuKeywordItemLink}>
+                  {content.name}
+                </Link>
               </li>
             ))}
           </ul>
         </div>
         {/* others */}
+        <div className={style.menuOthers}>
+          {/* menu */}
+          <div className={style.menuOthersNav}>
+            <ul className={style.menuOthersNavList}>
+              <li className={style.menuOthersNavItem}>
+                <Link href='' className={style.menuOthersNavItemLink}></Link>
+              </li>
+            </ul>
+          </div>
+          {/* search */}
+          <form action='' className={style.menuSearch}>
+            <input type='text' className={style.menuSearchInput} />
+            <button className={style.menuSearchButton}></button>
+          </form>
+        </div>
       </nav>
     </header>
   )
