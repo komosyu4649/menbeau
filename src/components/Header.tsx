@@ -3,13 +3,14 @@
 import Link from 'next/link'
 import React, { use, cache } from 'react'
 import style from './Header.module.scss'
+import { MicroCMSCategoryData, MicroCMSKeywordsData } from 'src/lib/microcms'
 import { client } from 'src/lib/microcms/apis'
 import { getMicroCMSData } from 'src/lib/microcms/getData'
 
 export const Header = async () => {
-  const categoriesData = await getMicroCMSData('categories')
+  const categoriesData: MicroCMSCategoryData = await getMicroCMSData('categories')
 
-  const keywordsData = await getMicroCMSData('keywords')
+  const keywordsData: MicroCMSKeywordsData = await getMicroCMSData('keywords')
 
   return (
     <header className={style.container}>
