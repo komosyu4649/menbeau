@@ -2,6 +2,8 @@ import { Noto_Sans, Lexend } from '@next/font/google'
 import { Suspense } from 'react'
 import '@/styles/index.scss'
 import { Header } from '@/components/Header'
+import { MicroCMSCategoryData, MicroCMSKeywordsData } from '@/lib/microcms'
+import { getMicroCMSData } from '@/lib/microcms/getData'
 
 export const notoSans = Noto_Sans({
   variable: '--font-notoSans',
@@ -16,7 +18,10 @@ export const lexend = Lexend({
   weight: ['600'],
 })
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const categoriesData: MicroCMSCategoryData = await getMicroCMSData('categories')
+  const keywordsData: MicroCMSKeywordsData = await getMicroCMSData('keywords')
+
   return (
     <html lang='ja' className={`${notoSans.className} ${notoSans.variable} ${lexend.variable}`}>
       {/*
@@ -25,10 +30,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       */}
       <head />
       <body>
-        <Suspense fallback={null}>
-          {/* @ts-expect-error Server Component */}
-          <Header />
-        </Suspense>
+        {/* <Suspense fallback={null}> */}
+        <Header categoriesData={categoriesData} keywordsData={keywordsData} />
+        {/* <Header props='test' /> */}
+        {/* </Suspense> */}
       </body>
     </html>
   )

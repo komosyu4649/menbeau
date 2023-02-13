@@ -1,6 +1,6 @@
 import { createClient } from 'microcms-js-sdk'
 
 export const client = createClient({
-  serviceDomain: process.env.MICROCMS_SERVICE_DOMAIN ?? '',
-  apiKey: process.env.MICROCMS_API_KEY ?? '',
+  serviceDomain: 'menbeau',
+  apiKey: 'QBZIY2mGj44xP5pWSgh4a8OqDAhT2PaLLqit',
 })

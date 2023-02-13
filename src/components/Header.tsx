@@ -1,12 +1,26 @@
-// 'use client'
+'use client'
 
 import Link from 'next/link'
+import { ClientCom } from './ClientCom'
 import style from './Header.module.scss'
+import { HeaderCategoryMenu } from './HeaderCategoryMenu'
+import { HeaderKeywordMenu } from './HeaderKeywordMenu'
 import { Keyword } from './Keyword'
 import { MicroCMSCategoryData, MicroCMSKeywordsData } from '@/lib/microcms'
-import { getMicroCMSData } from '@/lib/microcms/getData'
 
-export const Header = async () => {
+type Props = {
+  categoriesData: MicroCMSCategoryData
+  keywordsData: MicroCMSKeywordsData
+}
+
+/**
+ * TODO: categoryとkeywordsをrscに書き換えたい。バケツリレーになるからグローバルで持っておく
+ * @param props
+ * @returns
+ */
+export const Header: React.FC<Props> = (props) => {
+  const { categoriesData, keywordsData } = props
+
   type OtherMenus = {
     href: string
     name: string
@@ -26,8 +40,7 @@ export const Header = async () => {
     },
   ]
 
-  const categoriesData: MicroCMSCategoryData = await getMicroCMSData('categories')
-  const keywordsData: MicroCMSKeywordsData = await getMicroCMSData('keywords')
+  function handleClickMenuButton() {}
 
   return (
     <header className={style.container}>
@@ -48,7 +61,8 @@ export const Header = async () => {
         </svg>
       </Link>
       {/* button */}
-      <button className={style.buttonToggleMenu}>
+      <button className={style.buttonToggleMenu} onClick={handleClickMenuButton}>
+        {/* <button className={style.buttonToggleMenu}> */}
         <span className={style.buttonToggleMenuLine}></span>
         <span className={style.buttonToggleMenuLine}></span>
       </button>
@@ -56,32 +70,13 @@ export const Header = async () => {
       <nav className={style.menu}>
         <div className={style.menuInner}>
           {/* categories */}
-          <div className={style.menuCategory}>
-            <ul className={style.menuCategoryList}>
-              {categoriesData.contents.map((content) => (
-                <li key={content.id} className={style.menuCategoryItem}>
-                  <Link href={content.id} className={style.menuCategoryItemLink}>
-                    <span className={style.menuCategoryItemEn}>{content.english}</span>
-                    <span className={style.menuCategoryItemJa}>{content.japanese}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <ClientCom>
+            <HeaderCategoryMenu categoriesData={categoriesData} />
+          </ClientCom>
           {/* keywords */}
-          <div className={style.menuKeyword}>
-            <ul className={style.menuKeywordList}>
-              {keywordsData.contents.map((content) => (
-                // console.log(1, content),
-                <li key={content.id} className={style.menuKeywordItem}>
-                  <Keyword id={content.id} name={content.name} />
-                  {/* <Link href={content.id} className={style.menuKeywordItemLink}>
-                  {content.name}
-                </Link> */}
-                </li>
-              ))}
-            </ul>
-          </div>
+          <ClientCom>
+            <HeaderKeywordMenu keywordsData={keywordsData} />
+          </ClientCom>
           {/* others */}
           <div className={style.menuOthers}>
             {/* menu */}
