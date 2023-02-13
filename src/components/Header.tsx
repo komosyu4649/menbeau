@@ -54,52 +54,54 @@ export const Header = async () => {
       </button>
       {/* menu */}
       <nav className={style.menu}>
-        {/* categories */}
-        <div className={style.menuCategory}>
-          <ul className={style.menuCategoryList}>
-            {categoriesData.contents.map((content) => (
-              <li key={content.id} className={style.menuCategoryItem}>
-                <Link href={content.id} className={style.menuCategoryItemLink}>
-                  <span className={style.menuCategoryItemEn}>{content.english}</span>
-                  <span className={style.menuCategoryItemJa}>{content.japanese}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-        {/* keywords */}
-        <div className={style.menuKeyword}>
-          <ul className={style.menuKeywordList}>
-            {keywordsData.contents.map((content) => (
-              // console.log(1, content),
-              <li key={content.id} className={style.menuKeywordItem}>
-                <Keyword id={content.id} name={content.name} />
-                {/* <Link href={content.id} className={style.menuKeywordItemLink}>
-                  {content.name}
-                </Link> */}
-              </li>
-            ))}
-          </ul>
-        </div>
-        {/* others */}
-        <div className={style.menuOthers}>
-          {/* menu */}
-          <div className={style.menuOthersNav}>
-            <ul className={style.menuOthersNavList}>
-              {otherMenus.map((otherMenu) => (
-                <li key={otherMenu.name} className={style.menuOthersNavItem}>
-                  <Link href={otherMenu.href} className={style.menuOthersNavItemLink}>
-                    {otherMenu.name}
+        <div className={style.menuInner}>
+          {/* categories */}
+          <div className={style.menuCategory}>
+            <ul className={style.menuCategoryList}>
+              {categoriesData.contents.map((content) => (
+                <li key={content.id} className={style.menuCategoryItem}>
+                  <Link href={content.id} className={style.menuCategoryItemLink}>
+                    <span className={style.menuCategoryItemEn}>{content.english}</span>
+                    <span className={style.menuCategoryItemJa}>{content.japanese}</span>
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
-          {/* search */}
-          <form action='' className={style.menuSearch}>
-            <input type='text' className={style.menuSearchInput} />
-            <button className={style.menuSearchButton}></button>
-          </form>
+          {/* keywords */}
+          <div className={style.menuKeyword}>
+            <ul className={style.menuKeywordList}>
+              {keywordsData.contents.map((content) => (
+                // console.log(1, content),
+                <li key={content.id} className={style.menuKeywordItem}>
+                  <Keyword id={content.id} name={content.name} />
+                  {/* <Link href={content.id} className={style.menuKeywordItemLink}>
+                  {content.name}
+                </Link> */}
+                </li>
+              ))}
+            </ul>
+          </div>
+          {/* others */}
+          <div className={style.menuOthers}>
+            {/* menu */}
+            <div className={style.menuOthersNav}>
+              <ul className={style.menuOthersNavList}>
+                {otherMenus.map((otherMenu) => (
+                  <li key={otherMenu.name} className={style.menuOthersNavItem}>
+                    <Link href={otherMenu.href} className={style.menuOthersNavItemLink}>
+                      {otherMenu.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {/* search */}
+            <form action='' className={style.menuSearch}>
+              <input type='text' className={style.menuSearchInput} />
+              <button className={style.menuSearchButton}></button>
+            </form>
+          </div>
         </div>
       </nav>
     </header>
