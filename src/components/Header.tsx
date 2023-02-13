@@ -3,9 +3,10 @@
 import Link from 'next/link'
 import React, { use, cache } from 'react'
 import style from './Header.module.scss'
-import { MicroCMSCategoryData, MicroCMSKeywordsData } from 'src/lib/microcms'
-import { client } from 'src/lib/microcms/apis'
-import { getMicroCMSData } from 'src/lib/microcms/getData'
+import { MicroCMSCategoryData, MicroCMSKeywordsData } from '@/lib/microcms'
+import { client } from '@/lib/microcms/apis'
+import { getMicroCMSData } from '@/lib/microcms/getData'
+// import { MicroCMSCategoryData, MicroCMSKeywordsData } from 'src/lib/microcms'
 
 export const Header = async () => {
   const categoriesData: MicroCMSCategoryData = await getMicroCMSData('categories')

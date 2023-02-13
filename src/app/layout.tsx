@@ -1,7 +1,7 @@
-import '@styles/index.scss'
 import { Noto_Sans_Javanese, Lexend } from '@next/font/google'
 import { Suspense } from 'react'
-import { Header } from '@components/Header'
+import '@styles/index.scss'
+import { Header } from '@/components/Header'
 
 const notoSansJa = Noto_Sans_Javanese({
   variable: '--font-notoSansJa',
