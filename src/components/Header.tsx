@@ -1,16 +1,31 @@
 // 'use client'
 
 import Link from 'next/link'
-import React, { use, cache } from 'react'
 import style from './Header.module.scss'
 import { MicroCMSCategoryData, MicroCMSKeywordsData } from '@/lib/microcms'
-import { client } from '@/lib/microcms/apis'
 import { getMicroCMSData } from '@/lib/microcms/getData'
-// import { MicroCMSCategoryData, MicroCMSKeywordsData } from 'src/lib/microcms'
 
 export const Header = async () => {
-  const categoriesData: MicroCMSCategoryData = await getMicroCMSData('categories')
+  type OtherMenus = {
+    href: string
+    name: string
+  }
+  const otherMenus: OtherMenus[] = [
+    {
+      href: '/',
+      name: 'ホーム',
+    },
+    {
+      href: '/about/',
+      name: 'MINBIYOについて',
+    },
+    {
+      href: '/contact/',
+      name: 'お問い合わせ',
+    },
+  ]
 
+  const categoriesData: MicroCMSCategoryData = await getMicroCMSData('categories')
   const keywordsData: MicroCMSKeywordsData = await getMicroCMSData('keywords')
 
   return (
@@ -68,9 +83,13 @@ export const Header = async () => {
           {/* menu */}
           <div className={style.menuOthersNav}>
             <ul className={style.menuOthersNavList}>
-              <li className={style.menuOthersNavItem}>
-                <Link href='' className={style.menuOthersNavItemLink}></Link>
-              </li>
+              {otherMenus.map((otherMenu) => (
+                <li key={otherMenu.name} className={style.menuOthersNavItem}>
+                  <Link href={otherMenu.href} className={style.menuOthersNavItemLink}>
+                    {otherMenu.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
           {/* search */}
