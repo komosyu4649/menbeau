@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import style from './Header.module.scss'
+import { Keyword } from './Keyword'
 import { MicroCMSCategoryData, MicroCMSKeywordsData } from '@/lib/microcms'
 import { getMicroCMSData } from '@/lib/microcms/getData'
 
@@ -70,10 +71,12 @@ export const Header = async () => {
         <div className={style.menuKeyword}>
           <ul className={style.menuKeywordList}>
             {keywordsData.contents.map((content) => (
+              // console.log(1, content),
               <li key={content.id} className={style.menuKeywordItem}>
-                <Link href={content.id} className={style.menuKeywordItemLink}>
+                <Keyword id={content.id} name={content.name} />
+                {/* <Link href={content.id} className={style.menuKeywordItemLink}>
                   {content.name}
-                </Link>
+                </Link> */}
               </li>
             ))}
           </ul>
