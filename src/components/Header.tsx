@@ -6,6 +6,8 @@ import { ClientCom } from './ClientCom'
 import style from './Header.module.scss'
 import { HeaderCategoryMenu } from './HeaderCategoryMenu'
 import { HeaderKeywordMenu } from './HeaderKeywordMenu'
+import { MicroCMSCategoryData } from '@/lib/microcms'
+import { getMicroCMSData } from '@/lib/microcms/getData'
 
 /**
  * TODO: categoryとkeywordsをrscに書き換えたい。バケツリレーになるからグローバルで持っておく
@@ -63,16 +65,9 @@ export const Header: React.FC = () => {
         <nav className={style.menu}>
           <div className={style.menuInner}>
             {/* categories */}
-            {/* <Suspense fallback={null}> */}
-            {/* <HeaderCategoryMenu /> */}
-            {/* </Suspense> */}
+            <HeaderCategoryMenu />
             {/* keywords */}
-            {/* <Suspense fallback={null}> */}
-            {/* <ClientCom> */}
-            {/* @ts-expect-error Server Component */}
-            {/* <HeaderKeywordMenu /> */}
-            {/* </ClientCom> */}
-            {/* </Suspense> */}
+            <HeaderKeywordMenu />
             {/* others */}
             <div className={style.menuOthers}>
               {/* menu */}
