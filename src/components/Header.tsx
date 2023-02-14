@@ -1,7 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import { Suspense } from 'react'
+import { Suspense, useCallback, useState } from 'react'
+import { ClientCom } from './ClientCom'
 import style from './Header.module.scss'
 import { HeaderCategoryMenu } from './HeaderCategoryMenu'
 import { HeaderKeywordMenu } from './HeaderKeywordMenu'
@@ -30,7 +31,8 @@ export const Header: React.FC = () => {
     },
   ]
 
-  function handleClickMenuButton() {}
+  const [menuHidden, setMenuHidden] = useState(false)
+  const handleClickVisibleMenu = useCallback(() => setMenuHidden((prev) => !prev), [])
 
   return (
     <header className={style.container}>
@@ -51,68 +53,73 @@ export const Header: React.FC = () => {
         </svg>
       </Link>
       {/* button */}
-      <button className={style.buttonToggleMenu} onClick={handleClickMenuButton}>
+      <button className={style.buttonToggleMenu} onClick={handleClickVisibleMenu}>
         {/* <button className={style.buttonToggleMenu}> */}
         <span className={style.buttonToggleMenuLine}></span>
         <span className={style.buttonToggleMenuLine}></span>
       </button>
       {/* menu */}
-      <nav className={style.menu}>
-        <div className={style.menuInner}>
-          {/* categories */}
-          <Suspense fallback={null}>
-            <HeaderCategoryMenu />
-          </Suspense>
-          {/* keywords */}
-          <Suspense fallback={null}>
-            <HeaderKeywordMenu />
-          </Suspense>
-          {/* others */}
-          <div className={style.menuOthers}>
-            {/* menu */}
-            <div className={style.menuOthersNav}>
-              <ul className={style.menuOthersNavList}>
-                {otherMenus.map((otherMenu) => (
-                  <li key={otherMenu.name} className={style.menuOthersNavItem}>
-                    <Link href={otherMenu.href} className={style.menuOthersNavItemLink}>
-                      {otherMenu.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+      {menuHidden && (
+        <nav className={style.menu}>
+          <div className={style.menuInner}>
+            {/* categories */}
+            {/* <Suspense fallback={null}> */}
+            {/* <HeaderCategoryMenu /> */}
+            {/* </Suspense> */}
+            {/* keywords */}
+            {/* <Suspense fallback={null}> */}
+            {/* <ClientCom> */}
+            {/* @ts-expect-error Server Component */}
+            {/* <HeaderKeywordMenu /> */}
+            {/* </ClientCom> */}
+            {/* </Suspense> */}
+            {/* others */}
+            <div className={style.menuOthers}>
+              {/* menu */}
+              <div className={style.menuOthersNav}>
+                <ul className={style.menuOthersNavList}>
+                  {otherMenus.map((otherMenu) => (
+                    <li key={otherMenu.name} className={style.menuOthersNavItem}>
+                      <Link href={otherMenu.href} className={style.menuOthersNavItemLink}>
+                        {otherMenu.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              {/* search */}
+              <form action='' className={style.menuSearch}>
+                <input
+                  type='text'
+                  className={style.menuSearchInput}
+                  placeholder='キーワードを入力してください'
+                />
+                <button className={style.menuSearchButton}>
+                  <svg
+                    width='40'
+                    height='40'
+                    viewBox='0 0 40 40'
+                    fill='none'
+                    xmlns='http://www.w3.org/2000/svg'
+                  >
+                    <circle cx='20' cy='20' r='20' fill='#231815' />
+                    <circle cx='19.0057' cy='18.0057' r='8.00567' fill='white' />
+                    <circle cx='19.0056' cy='18.0057' r='6.40454' fill='#231815' />
+                    <line
+                      x1='24.5162'
+                      y1='23.7031'
+                      x2='28.7588'
+                      y2='27.9457'
+                      stroke='white'
+                      strokeWidth='2'
+                    />
+                  </svg>
+                </button>
+              </form>
             </div>
-            {/* search */}
-            <form action='' className={style.menuSearch}>
-              <input
-                type='text'
-                className={style.menuSearchInput}
-                placeholder='キーワードを入力してください'
-              />
-              <button className={style.menuSearchButton}>
-                <svg
-                  width='40'
-                  height='40'
-                  viewBox='0 0 40 40'
-                  fill='none'
-                  xmlns='http://www.w3.org/2000/svg'
-                >
-                  <circle cx='20' cy='20' r='20' fill='#231815' />
-                  <circle cx='19.0057' cy='18.0057' r='8.00567' fill='white' />
-                  <circle cx='19.0056' cy='18.0057' r='6.40454' fill='#231815' />
-                  <line
-                    x1='24.5162'
-                    y1='23.7031'
-                    x2='28.7588'
-                    y2='27.9457'
-                    stroke='white'
-                    strokeWidth='2'
-                  />
-                </svg>
-              </button>
-            </form>
           </div>
-        </div>
-      </nav>
+        </nav>
+      )}
     </header>
   )
 }
