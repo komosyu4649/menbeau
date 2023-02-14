@@ -83,8 +83,32 @@ export const Header: React.FC = () => {
             </div>
             {/* search */}
             <form action='' className={style.menuSearch}>
-              <input type='text' className={style.menuSearchInput} />
-              <button className={style.menuSearchButton}></button>
+              <input
+                type='text'
+                className={style.menuSearchInput}
+                placeholder='キーワードを入力してください'
+              />
+              <button className={style.menuSearchButton}>
+                <svg
+                  width='40'
+                  height='40'
+                  viewBox='0 0 40 40'
+                  fill='none'
+                  xmlns='http://www.w3.org/2000/svg'
+                >
+                  <circle cx='20' cy='20' r='20' fill='#231815' />
+                  <circle cx='19.0057' cy='18.0057' r='8.00567' fill='white' />
+                  <circle cx='19.0056' cy='18.0057' r='6.40454' fill='#231815' />
+                  <line
+                    x1='24.5162'
+                    y1='23.7031'
+                    x2='28.7588'
+                    y2='27.9457'
+                    stroke='white'
+                    strokeWidth='2'
+                  />
+                </svg>
+              </button>
             </form>
           </div>
         </div>
