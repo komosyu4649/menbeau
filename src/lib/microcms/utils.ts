@@ -12,6 +12,7 @@ type DateType = {
   revisedAt: string
 }
 
+export type BaseStructure<T> = { id: string } & DateType & T
 export type ContentStructure<T> = GetType<{ id: string } & Date & T>
 // export type Structure<T, P> = T extends 'get'
 //   ? { id: string } & DateType & P
