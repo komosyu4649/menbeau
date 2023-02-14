@@ -1,4 +1,4 @@
-import type { ContentStructure } from './utils'
+import type { BaseStructure, ContentStructure } from './utils'
 
 export type MicroCMSCategoryData = ContentStructure<{
   japanese: string
@@ -35,6 +35,13 @@ export type MicroCMSContentsData = ContentStructure<{
         contents: string
       }
       related: []
+    }[]
+  >
+  pickup: boolean
+  category: BaseStructure<{ japanese: string; english: string }>
+  keywords: BaseStructure<
+    {
+      name: string
     }[]
   >
 }>
