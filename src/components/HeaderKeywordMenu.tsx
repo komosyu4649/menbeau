@@ -1,11 +1,12 @@
+import { use } from 'react'
 import style from './HeaderKeywordMenu.module.scss'
 import { Keyword } from './Keyword'
 import { MicroCMSKeywordsData } from '@/lib/microcms'
 import { getMicroCMSData } from '@/lib/microcms/getData'
 
-type Props = { keywordsData: MicroCMSKeywordsData }
+export const HeaderKeywordMenu: React.FC = () => {
+  const keywordsData: MicroCMSKeywordsData = use(getMicroCMSData('keywords'))
 
-export const HeaderKeywordMenu: React.FC<Props> = ({ keywordsData }) => {
   return (
     <div className={style.container}>
       <ul className={style.list}>

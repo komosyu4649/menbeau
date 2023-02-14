@@ -1,26 +1,16 @@
 'use client'
 
 import Link from 'next/link'
-import { ClientCom } from './ClientCom'
+import { Suspense } from 'react'
 import style from './Header.module.scss'
 import { HeaderCategoryMenu } from './HeaderCategoryMenu'
 import { HeaderKeywordMenu } from './HeaderKeywordMenu'
-import { Keyword } from './Keyword'
-import { MicroCMSCategoryData, MicroCMSKeywordsData } from '@/lib/microcms'
-
-type Props = {
-  categoriesData: MicroCMSCategoryData
-  keywordsData: MicroCMSKeywordsData
-}
 
 /**
  * TODO: categoryとkeywordsをrscに書き換えたい。バケツリレーになるからグローバルで持っておく
- * @param props
  * @returns
  */
-export const Header: React.FC<Props> = (props) => {
-  const { categoriesData, keywordsData } = props
-
+export const Header: React.FC = () => {
   type OtherMenus = {
     href: string
     name: string
@@ -70,13 +60,13 @@ export const Header: React.FC<Props> = (props) => {
       <nav className={style.menu}>
         <div className={style.menuInner}>
           {/* categories */}
-          <ClientCom>
-            <HeaderCategoryMenu categoriesData={categoriesData} />
-          </ClientCom>
+          <Suspense fallback={null}>
+            <HeaderCategoryMenu />
+          </Suspense>
           {/* keywords */}
-          <ClientCom>
-            <HeaderKeywordMenu keywordsData={keywordsData} />
-          </ClientCom>
+          <Suspense fallback={null}>
+            <HeaderKeywordMenu />
+          </Suspense>
           {/* others */}
           <div className={style.menuOthers}>
             {/* menu */}
