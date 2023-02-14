@@ -1,12 +1,12 @@
 import Link from 'next/link'
-import { cache } from 'react'
+import { use } from 'react'
 import style from './HeaderCategoryMenu.module.scss'
 import { MicroCMSCategoryData } from '@/lib/microcms'
 import { getMicroCMSData } from '@/lib/microcms/getData'
 
-type Props = { categoriesData: MicroCMSCategoryData }
+export const HeaderCategoryMenu = () => {
+  const categoriesData: MicroCMSCategoryData = use(getMicroCMSData('categories'))
 
-export const HeaderCategoryMenu: React.FC<Props> = ({ categoriesData }) => {
   return (
     <div className={style.container}>
       <ul className={style.list}>
