@@ -4,7 +4,7 @@
 // kv
 .kv {
   // margin: 21.5rem auto 18rem;
-  margin: 12rem auto 18rem;
+  margin-top: 12rem;
 }
 .kvItemLink {
   display: flex;
@@ -48,4 +48,63 @@
 .kvItemContentIntroduction {
   width: 52rem;
   margin-top: 3.5rem;
+}
+
+// new contents
+.new {
+  margin-top: 18rem;
+}
+.newMain {
+  margin-top: 4rem;
+}
+.newMainList {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+.newMainItem {
+  height: 40rem;
+  border-radius: 3rem;
+  overflow: hidden;
+}
+.newsMainItemLink {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+  height: 100%;
+  padding: 0 1.5rem 3rem;
+}
+.newMainItemImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.newMainItemContent {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  z-index: 1;
+}
+.newMainItemContentDate {
+  display: inline-block;
+  width: fit-content;
+  padding: 0.5rem 1.5rem;
+  background-color: var(--color-white);
+  border: 3px solid var(--color-black);
+  border-radius: 1rem 1rem 0 0;
+  font-size: 1.2rem;
+  font-family: var(--font-lexend);
+  font-weight: bold;
+}
+.newMainItemContentTitle {
+  display: inline-block;
+  margin-top: -3px;
+  padding: 2rem 1.5rem;
+  background-color: var(--color-white);
+  border: 3px solid var(--color-black);
+  border-radius: 0 2rem 2rem 2rem;
 }
