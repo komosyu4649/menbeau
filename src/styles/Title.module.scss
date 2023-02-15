@@ -1,0 +1,21 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.sectionEn {
+  font-size: 1.4rem;
+  font-family: var(--font-lexend);
+  font-weight: bold;
+  color: var(--color-key);
+  text-transform: uppercase;
+}
+.sectionJa {
+  font-size: 2.8rem;
+  font-weight: bold;
+}
+.jaMd {
+  font-size: 1.8rem;
+  font-weight: bold;
+  line-height: 1.5;
+}

@@ -39,6 +39,10 @@ a {
   text-decoration: none;
 }
 
+img {
+  object-fit: cover;
+}
+
 * {
   box-sizing: border-box;
 }
