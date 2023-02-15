@@ -5,6 +5,7 @@
 .kv {
   // margin: 21.5rem auto 18rem;
   margin-top: 12rem;
+  // margin-top: 16rem;
 }
 .kvItemLink {
   display: flex;
@@ -14,9 +15,12 @@
   gap: 5rem;
 }
 .kvItemImage {
-  width: 60rem;
-  height: 60rem;
-  border-radius: 8rem;
+  // width: 60rem;
+  // height: 60rem;
+  width: 58rem;
+  height: 58rem;
+  // border-radius: 8rem;
+  border-radius: 12rem;
 }
 .kvItemContentTitle {
   display: inline-flex;
