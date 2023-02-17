@@ -9,31 +9,31 @@ export type MicroCMSKeywordsData = ContentStructure<{
   name: string
 }>
 
+type Thumbnail = {
+  url: string
+  height: number
+  width: number
+}
+
+type ContentsCustomfield = {
+  fieldId: string
+  name: string
+  icon: Thumbnail
+  contents: string
+  interviewer: false
+}
+
 export type MicroCMSContentsData = ContentStructure<{
-  thumbnail: {
-    url: string
-    height: number
-    width: number
-  }
+  thumbnail: Thumbnail
   title: string
   introduction: string
-  mainContents: {
-    fieldId: string
-    contents: string
-  }[]
+  mainContents: ContentsCustomfield[]
   related: ContentStructure<
     {
-      thumbnail: {
-        url: string
-        height: number
-        width: number
-      }
+      thumbnail: Thumbnail
       title: string
       introduction: string
-      mainContents: {
-        fieldId: string
-        contents: string
-      }
+      mainContents: ContentsCustomfield[]
       related: []
     }[]
   >
@@ -44,4 +44,5 @@ export type MicroCMSContentsData = ContentStructure<{
       name: string
     }[]
   >
+  interviewee: ContentsCustomfield
 }>
