@@ -97,6 +97,9 @@ export default async function Home() {
                 ),
             )}
           </ul>
+          <Link href='/' className={`${buttonStyle.default} ${style.newMainButton}`}>
+            すべての記事一覧
+          </Link>
         </div>
       </section>
 
