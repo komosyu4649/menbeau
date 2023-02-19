@@ -145,7 +145,7 @@ export default async function Home() {
                 ),
             )}
             <Link href='' className={`${buttonStyle.default} ${style.interviewMainFeatureButton}`}>
-              インタビュー一覧
+              インタビュー記事一覧
             </Link>
           </div>
           <ul className={style.interviewMainList}>
