@@ -127,7 +127,7 @@ export default async function Home() {
                       height={content.thumbnail.height}
                     />
                     <div className={style.interviewMainFeatureContent}>
-                      <h2 className={style.interviewMainFeatureContentTitle}>{content.title}</h2>.
+                      <h2 className={style.interviewMainFeatureContentTitle}>{content.title}</h2>
                       <div className={style.interviewMainFeatureContentProfile}>
                         <Image
                           className={style.interviewMainFeatureContentProfileImage}
@@ -145,7 +145,7 @@ export default async function Home() {
                 ),
             )}
             <Link href='' className={`${buttonStyle.default} ${style.interviewMainFeatureButton}`}>
-              インタビュー記事一覧
+              インタビュー一覧
             </Link>
           </div>
           <ul className={style.interviewMainList}>
