@@ -1,0 +1,14 @@
+.default {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  min-width: 24rem;
+  min-height: 7rem;
+  padding: 1.5rem 3rem;
+  background-color: var(--color-key);
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-white);
+  border-radius: 5rem;
+}
