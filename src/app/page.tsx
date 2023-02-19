@@ -74,7 +74,7 @@ export default async function Home() {
             {contentsData.contents.flatMap(
               (content, index) =>
                 !content.pickup &&
-                index <= 4 && (
+                index < 4 && (
                   <li key={content.id} className={style.newMainItem}>
                     <Link href={content.id} className={style.newsMainItemLink}>
                       <Image
@@ -245,7 +245,7 @@ export default async function Home() {
           <ul className={style.entertainmentMainList}>
             {categoryFilteredContents('Entertainment').map(
               (content, index) =>
-                index <= 4 && (
+                index < 4 && (
                   <li key={content.id} className={style.entertainmentMainItem}>
                     <Link href={content.id} className={style.entertainmentMainItemLink}>
                       <Image
@@ -256,7 +256,11 @@ export default async function Home() {
                         height={content.thumbnail.height}
                       />
                       <div className={style.entertainmentMainItemContent}>
-                        <h2 className={style.entertainmentMainItemContentTitle}>{content.title}</h2>
+                        <h2
+                          className={`${titleStyle.jaMd} ${style.entertainmentMainItemContentTitle}`}
+                        >
+                          {content.title}
+                        </h2>
                       </div>
                     </Link>
                   </li>
