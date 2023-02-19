@@ -15,12 +15,12 @@
   gap: 5rem;
 }
 .kvItemImage {
-  // width: 60rem;
-  // height: 60rem;
-  width: 58rem;
-  height: 58rem;
-  // border-radius: 8rem;
-  border-radius: 12rem;
+  width: 60rem;
+  height: 60rem;
+  // width: 58rem;
+  // height: 58rem;
+  border-radius: 8rem;
+  // border-radius: 12rem;
 }
 .kvItemContentTitle {
   display: inline-flex;
@@ -111,4 +111,117 @@
   background-color: var(--color-white);
   border: 3px solid var(--color-black);
   border-radius: 0 2rem 2rem 2rem;
+}
+
+// interview
+.interview {
+  margin-top: 15rem;
+}
+.interviewMain {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 5.5rem;
+  margin-top: 4rem;
+}
+.interviewMainFeature {
+  // position: sticky;
+  // top: 2.5rem;
+  // right: 0;
+  height: fit-content;
+}
+.interviewMainFeatureLink {
+  // position: sticky;
+  // top: 5rem;
+  // right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 58rem;
+  // padding: 4.5rem 2.5rem 5.5rem;
+  padding: 4.5rem 1.5rem 5.5rem;
+  border: 8px solid var(--color-key);
+  border-radius: 3rem;
+}
+.interviewMainFeatureButton {
+  margin: 5rem auto 0;
+}
+.interviewMainFeatureImage {
+  width: 42rem;
+  height: 42rem;
+}
+.interviewMainFeatureContent {
+  // width: 100%;
+  width: 52rem;
+  margin-top: 4rem;
+}
+.interviewMainFeatureContentTitle {
+  font-size: 2.4rem;
+  font-weight: bold;
+}
+.interviewMainFeatureContentProfile {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 1rem;
+  width: 42rem;
+  margin: 3rem auto 0;
+  padding-top: 3rem;
+  border-top: 2px solid var(--color-black);
+}
+.interviewMainFeatureContentProfileImage {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+}
+.interviewMainFeatureContentProfileName {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+.interviewMainList {
+  // display: flex;
+  // flex-direction: row;
+  // flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+.interviewMainItemLink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 3rem 2rem 3.5rem;
+  background-color: var(--color-key);
+  border-radius: 3rem;
+}
+.interviewMainItemImage {
+  width: 26rem;
+  height: 26rem;
+}
+.interviewMainItemImageContent {
+  width: 30rem;
+  margin-top: 3rem;
+}
+.interviewMainItemImageContentTitle {
+  color: var(--color-white);
+}
+.interviewMainItemImageContentProfile {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 1rem;
+  width: 26rem;
+  margin: 2rem auto 0;
+  padding-top: 2rem;
+  border-top: 2px solid var(--color-white);
+}
+.interviewMainItemImageContentProfileImage {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+}
+.interviewMainItemImageContentProfileName {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--color-white);
 }
