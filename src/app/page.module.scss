@@ -228,3 +228,40 @@
   font-weight: bold;
   color: var(--color-white);
 }
+
+// entertainment
+.entertainment {
+  // margin-top: 15rem;
+  margin: 15rem 0 0 calc((50vw - 61.25rem) * 0.5);
+}
+.entertainmentMain {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 5.5rem;
+  margin-top: 4rem;
+}
+.entertainmentFunction {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 14.5rem;
+}
+.entertainmentFunctionArrows {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+}
+.entertainmentMainList {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  overflow: scroll;
+}
+.entertainmentMainItemImage {
+  width: 48rem;
+  height: 31rem;
+}
+.entertainmentMainItemContent {
+  width: 36rem;
+  margin: 1.5rem 0 0 1.5rem;
+}
