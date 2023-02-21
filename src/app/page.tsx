@@ -62,7 +62,6 @@ export default async function Home() {
           )}
         </ul>
       </section>
-
       {/* new contents */}
       <section className={`${layoutStyle.default} ${style.new}`}>
         <h2 className={`${titleStyle.section} ${style.newTitle}`}>
@@ -102,7 +101,6 @@ export default async function Home() {
           </Link>
         </div>
       </section>
-
       {/* interview */}
       <section className={`${layoutStyle.default} ${style.interview}`}>
         <h2 className={`${titleStyle.section} ${style.interviewTitle}`}>
@@ -188,7 +186,6 @@ export default async function Home() {
           </ul>
         </div>
       </section>
-
       {/* entertainment */}
       <section className={style.entertainment}>
         <h2 className={`${titleStyle.section} ${style.entertainmentTitle}`}>
@@ -267,6 +264,39 @@ export default async function Home() {
                 ),
             )}
           </ul>
+        </div>
+      </section>
+      {/* knowhow */}
+      <section className={`${layoutStyle.default} ${style.knowhow}`}>
+        <h2 className={`${titleStyle.section} ${style.knowhowTitle}`}>
+          <span className={`${titleStyle.sectionEn} ${style.knowhowTitleEn}`}>Knowhow</span>
+          <span className={`${titleStyle.sectionJa} ${style.knowhowTitleJa}`}>美容知識</span>
+        </h2>
+        <div className={style.knowhowMain}>
+          <ul className={style.knowhowMainList}>
+            {categoryFilteredContents('Knowhow').map(
+              (content, index) =>
+                index < 4 && (
+                  <li key={content.id} className={style.knowhowMainItem}>
+                    <Link href={content.id} className={style.knowhowMainItemLink}>
+                      <Image
+                        className={style.knowhowMainItemImage}
+                        src={content.thumbnail.url}
+                        alt={content.title}
+                        width={content.thumbnail.width}
+                        height={content.thumbnail.height}
+                      />
+                      <h2 className={`${titleStyle.jaMd} ${style.knowhowMainItemTitle}`}>
+                        {content.title}
+                      </h2>
+                    </Link>
+                  </li>
+                ),
+            )}
+          </ul>
+          <Link href='/' className={`${buttonStyle.default} ${style.knowhowMainButton}`}>
+            美容知識一覧
+          </Link>
         </div>
       </section>
     </main>
