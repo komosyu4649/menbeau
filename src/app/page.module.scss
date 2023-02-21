@@ -265,3 +265,36 @@
   width: 36rem;
   margin: 1.5rem 0 0 1.5rem;
 }
+
+// knowhow
+.knowhow {
+  margin-top: 15rem;
+}
+.knowhowMain {
+  margin-top: 4rem;
+}
+.knowhowMainList {
+  // display: flex;
+  // flex-direction: row;
+  // flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+}
+.knowhowMainItemLink {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 2rem;
+  padding: 2.5rem 3rem;
+  border: 3px solid var(--color-black);
+  border-radius: 2.5rem;
+}
+.knowhowMainItemImage {
+  width: 16rem;
+  height: 16rem;
+  border-radius: 1.5rem;
+}
+.knowhowMainButton {
+  margin: 7rem auto 0;
+}
