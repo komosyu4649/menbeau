@@ -298,3 +298,28 @@
 .knowhowMainButton {
   margin: 7rem auto 0;
 }
+
+// products
+.products {
+  margin-top: 15rem;
+}
+.productsMain {
+  margin-top: 4rem;
+}
+.productsMainList {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4rem;
+}
+.productsMainItemImage {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 4rem;
+}
+.productsMainItemContent {
+  margin-top: 2rem;
+}
+.productsMainButton {
+  margin: 7rem auto 0;
+}

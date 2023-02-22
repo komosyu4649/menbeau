@@ -286,9 +286,11 @@ export default async function Home() {
                         width={content.thumbnail.width}
                         height={content.thumbnail.height}
                       />
-                      <h2 className={`${titleStyle.jaMd} ${style.knowhowMainItemTitle}`}>
-                        {content.title}
-                      </h2>
+                      <div className={style.knowhowMainItemContent}>
+                        <h2 className={`${titleStyle.jaMd} ${style.knowhowMainItemContentTitle}`}>
+                          {content.title}
+                        </h2>
+                      </div>
                     </Link>
                   </li>
                 ),
@@ -296,6 +298,41 @@ export default async function Home() {
           </ul>
           <Link href='/' className={`${buttonStyle.default} ${style.knowhowMainButton}`}>
             美容知識一覧
+          </Link>
+        </div>
+      </section>
+      {/* products */}
+      <section className={`${layoutStyle.default} ${style.products}`}>
+        <h2 className={`${titleStyle.section} ${style.productsTitle}`}>
+          <span className={`${titleStyle.sectionEn} ${style.productsTitleEn}`}>Products</span>
+          <span className={`${titleStyle.sectionJa} ${style.productsTitleJa}`}>おすすめ商品</span>
+        </h2>
+        <div className={style.productsMain}>
+          <ul className={style.productsMainList}>
+            {categoryFilteredContents('Products').map(
+              (content, index) =>
+                index < 4 && (
+                  <li key={content.id} className={style.productsMainItem}>
+                    <Link href={content.id} className={style.productsMainItemLink}>
+                      <Image
+                        className={style.productsMainItemImage}
+                        src={content.thumbnail.url}
+                        alt={content.title}
+                        width={content.thumbnail.width}
+                        height={content.thumbnail.height}
+                      />
+                      <div className={style.productsMainItemContent}>
+                        <h2 className={`${titleStyle.jaMd} ${style.productsMainItemContentTitle}`}>
+                          {content.title}
+                        </h2>
+                      </div>
+                    </Link>
+                  </li>
+                ),
+            )}
+          </ul>
+          <Link href='/' className={`${buttonStyle.default} ${style.productsMainButton}`}>
+            おすすめ商品一覧
           </Link>
         </div>
       </section>
