@@ -336,6 +336,81 @@ export default async function Home() {
           </Link>
         </div>
       </section>
+      {/* progress */}
+      <section className={style.progress}>
+        <h2 className={`${titleStyle.section} ${style.progressTitle}`}>
+          <span className={`${titleStyle.sectionEn} ${style.progressTitleEn}`}>Progress</span>
+          <span className={`${titleStyle.sectionJa} ${style.progressTitleJa}`}>顔進捗</span>
+        </h2>
+        <div className={style.progressMain}>
+          <ul className={style.progressMainList}>
+            {categoryFilteredContents('Progress').map(
+              (content, index) =>
+                index < 10 && (
+                  <li key={content.id} className={style.progressMainItem}>
+                    <Link href='' className={style.progressMainItemLink}>
+                      <Image
+                        className={style.progressMainItemImage}
+                        src={content.thumbnail.url}
+                        alt={content.title}
+                        width={content.thumbnail.width}
+                        height={content.thumbnail.height}
+                      />
+                      <time className={`${titleStyle.jaMd} ${style.progressMainItemDate}`}>
+                        {formatDate(content.publishedAt)}
+                      </time>
+                    </Link>
+                  </li>
+                ),
+            )}
+          </ul>
+          <div className={style.progressFunction}>
+            <div className={style.progressFunctionArrows}>
+              <button className={`${style.progressFunctionArrow} ${style.left}`}>
+                <svg
+                  width='72'
+                  height='72'
+                  viewBox='0 0 72 72'
+                  fill='none'
+                  xmlns='http://www.w3.org/2000/svg'
+                >
+                  <circle cx='36' cy='36' r='34.5' fill='white' stroke='#231815' stroke-width='3' />
+                  <path
+                    d='M15.2929 35.2929C14.9024 35.6834 14.9024 36.3166 15.2929 36.7071L21.6569 43.0711C22.0474 43.4616 22.6805 43.4616 23.0711 43.0711C23.4616 42.6805 23.4616 42.0474 23.0711 41.6569L17.4142 36L23.0711 30.3431C23.4616 29.9526 23.4616 29.3195 23.0711 28.9289C22.6805 28.5384 22.0474 28.5384 21.6569 28.9289L15.2929 35.2929ZM56 35L16 35L16 37L56 37L56 35Z'
+                    fill='#231815'
+                  />
+                </svg>
+              </button>
+              <button className={`${style.progressFunctionArrow} ${style.right}`}>
+                <svg
+                  width='72'
+                  height='72'
+                  viewBox='0 0 72 72'
+                  fill='none'
+                  xmlns='http://www.w3.org/2000/svg'
+                >
+                  <circle
+                    cx='36'
+                    cy='36'
+                    r='34.5'
+                    transform='rotate(-180 36 36)'
+                    fill='white'
+                    stroke='#231815'
+                    stroke-width='3'
+                  />
+                  <path
+                    d='M56.7071 36.7071C57.0976 36.3166 57.0976 35.6834 56.7071 35.2929L50.3431 28.9289C49.9526 28.5384 49.3195 28.5384 48.9289 28.9289C48.5384 29.3195 48.5384 29.9526 48.9289 30.3431L54.5858 36L48.9289 41.6569C48.5384 42.0474 48.5384 42.6805 48.9289 43.0711C49.3195 43.4616 49.9526 43.4616 50.3431 43.0711L56.7071 36.7071ZM16 37L56 37L56 35L16 35L16 37Z'
+                    fill='#231815'
+                  />
+                </svg>
+              </button>
+            </div>
+            <Link href='' className={`${buttonStyle.default} ${style.progressFunctionButton}`}>
+              顔進捗一覧
+            </Link>
+          </div>
+        </div>
+      </section>
     </main>
   )
 }
