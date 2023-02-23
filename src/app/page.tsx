@@ -3,6 +3,7 @@ import type { GetStaticProps, NextPage } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import style from './page.module.scss'
+import { PostInterviewItem } from '@/components/PostInterviewItem'
 import { PostNewItem } from '@/components/PostNewItem'
 import { MicroCMSContentsData } from '@/lib/microcms'
 import { client } from '@/lib/microcms/apis'
@@ -72,7 +73,7 @@ export default async function Home() {
               (content, index) =>
                 !content.pickup &&
                 index < 4 && (
-                  <PostNewItem content={content} />
+                  <PostNewItem key={content.id} content={content} />
                   // <li key={content.id} className={style.newMainItem}>
                   //   <Link href={content.id} className={style.newMainItemLink}>
                   //     <Image
@@ -150,36 +151,37 @@ export default async function Home() {
               (content, index) =>
                 index >= 1 &&
                 index <= 4 && (
-                  <li key={content.id} className={style.interviewMainItem}>
-                    <Link href={content.id} className={style.interviewMainItemLink}>
-                      <Image
-                        className={style.interviewMainItemImage}
-                        src={content.thumbnail.url}
-                        alt={content.title}
-                        width={content.thumbnail.width}
-                        height={content.thumbnail.height}
-                      />
-                      <div className={style.interviewMainItemImageContent}>
-                        <h2
-                          className={`${titleStyle.jaMd} ${style.interviewMainItemImageContentTitle}`}
-                        >
-                          {content.title}
-                        </h2>
-                        <div className={style.interviewMainItemImageContentProfile}>
-                          <Image
-                            className={style.interviewMainItemImageContentProfileImage}
-                            src={content.interviewee?.icon.url}
-                            alt={content.interviewee?.name}
-                            width={content.interviewee?.icon.width}
-                            height={content.interviewee?.icon.height}
-                          />
-                          <span className={style.interviewMainItemImageContentProfileName}>
-                            {content.interviewee?.name}
-                          </span>
-                        </div>
-                      </div>
-                    </Link>
-                  </li>
+                  <PostInterviewItem key={content.id} content={content} />
+                  // <li key={content.id} className={style.interviewMainItem}>
+                  //   <Link href={content.id} className={style.interviewMainItemLink}>
+                  //     <Image
+                  //       className={style.interviewMainItemImage}
+                  //       src={content.thumbnail.url}
+                  //       alt={content.title}
+                  //       width={content.thumbnail.width}
+                  //       height={content.thumbnail.height}
+                  //     />
+                  //     <div className={style.interviewMainItemImageContent}>
+                  //       <h2
+                  //         className={`${titleStyle.jaMd} ${style.interviewMainItemImageContentTitle}`}
+                  //       >
+                  //         {content.title}
+                  //       </h2>
+                  //       <div className={style.interviewMainItemImageContentProfile}>
+                  //         <Image
+                  //           className={style.interviewMainItemImageContentProfileImage}
+                  //           src={content.interviewee?.icon.url}
+                  //           alt={content.interviewee?.name}
+                  //           width={content.interviewee?.icon.width}
+                  //           height={content.interviewee?.icon.height}
+                  //         />
+                  //         <span className={style.interviewMainItemImageContentProfileName}>
+                  //           {content.interviewee?.name}
+                  //         </span>
+                  //       </div>
+                  //     </div>
+                  //   </Link>
+                  // </li>
                 ),
             )}
           </ul>
