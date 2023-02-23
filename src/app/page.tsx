@@ -102,7 +102,7 @@ export default async function Home() {
         </div>
       </section>
       {/* interview */}
-      <section className={`${layoutStyle.default} ${style.interview}`}>
+      <section className={`${layoutStyle.lg} ${style.interview}`}>
         <h2 className={`${titleStyle.section} ${style.interviewTitle}`}>
           <span className={`${titleStyle.sectionEn} ${style.interviewTitleEn}`}>Interview</span>
           <span className={`${titleStyle.sectionJa} ${style.interviewTitleJa}`}>インタビュー</span>
