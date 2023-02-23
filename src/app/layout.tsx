@@ -1,4 +1,5 @@
 import '@/styles/index.scss'
+import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import { lexend, notoSans } from '@/fonts'
 
@@ -13,6 +14,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   )
