@@ -4,7 +4,11 @@ import style from './Footer.module.scss'
 import layoutStyle from '@/styles/Layout.module.scss'
 
 export const Footer = () => {
-  const menus = [
+  type Menu = {
+    href: string
+    name: string
+  }
+  const menus: Menu[] = [
     { href: '/', name: 'ホーム' },
     { href: '/about/', name: 'MENBIYOについて' },
     { href: '/contact/', name: 'お問い合わせ' },
