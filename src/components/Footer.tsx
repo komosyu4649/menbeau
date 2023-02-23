@@ -10,7 +10,7 @@ export const Footer = () => {
     { href: '/contact/', name: 'お問い合わせ' },
   ]
   return (
-    <footer className={`${layoutStyle.default} ${style.container}`}>
+    <footer className={style.container}>
       <nav className={style.menu}>
         <ul className={style.menuList}>
           {menus.map((menu) => (
