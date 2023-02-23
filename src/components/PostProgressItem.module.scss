@@ -1,0 +1,27 @@
+.itemLink {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24rem;
+  height: 24rem;
+  background-color: var(--color-key);
+  border: 3px solid var(--color-black);
+  border-radius: 2rem;
+  overflow: hidden;
+}
+.itemImage {
+  position: absolute;
+  top: calc(50% - 7rem);
+  left: calc(50% - 7rem);
+  width: 14rem;
+  height: 14rem;
+  border-radius: 50%;
+}
+.itemDate {
+  padding: 1rem 3rem;
+  background-color: var(--color-white);
+  border: 3px solid var(--color-black);
+  border-radius: 1.5rem;
+  z-index: 1;
+}
