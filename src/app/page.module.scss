@@ -323,3 +323,61 @@
 .productsMainButton {
   margin: 7rem auto 0;
 }
+
+// progress
+.progress {
+  margin: 15rem 0 0 calc((50vw - 61.25rem) * 0.5);
+}
+.progressMain {
+  position: relative;
+  margin-top: 4rem;
+}
+.progressMainList {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  overflow: scroll;
+}
+.progressMainItemLink {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24rem;
+  height: 24rem;
+  background-color: var(--color-key);
+  border: 3px solid var(--color-black);
+  border-radius: 2rem;
+  overflow: hidden;
+}
+.progressMainItemImage {
+  position: absolute;
+  top: calc(50% - 7rem);
+  left: calc(50% - 7rem);
+  width: 14rem;
+  height: 14rem;
+  border-radius: 50%;
+}
+.progressMainItemDate {
+  padding: 1rem 3rem;
+  background-color: var(--color-white);
+  border: 3px solid var(--color-black);
+  border-radius: 1.5rem;
+  z-index: 1;
+}
+.progressFunctionArrow {
+  position: absolute;
+  top: calc(50% - 3.6rem);
+  z-index: 1;
+}
+.progressFunctionArrow.left {
+  left: 0;
+}
+.progressFunctionArrow.right {
+  right: calc((50vw - 61.25rem) * 0.5);
+}
+.progressFunctionButton {
+  position: absolute;
+  top: -11rem;
+  right: calc((50vw - 61.25rem) * 0.5);
+}
