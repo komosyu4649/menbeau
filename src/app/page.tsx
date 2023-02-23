@@ -37,29 +37,30 @@ export default async function Home() {
             (content) =>
               content.pickup && (
                 <li key={content.id} className={style.kvItem}>
-                  <Link href={content.id} className={style.kvItemLink}>
-                    {/* img */}
+                  {/* <Link href={content.id} className={style.kvItemLink}> */}
+                  {/* img */}
+                  <Link href={content.id} className={style.kvItemImage}>
                     <Image
-                      className={style.kvItemImage}
+                      className={style.kvItemImageInside}
                       src={content.thumbnail.url}
                       alt={content.title}
                       width={content.thumbnail.width}
                       height={content.thumbnail.height}
-                      // fill
                     />
-                    {/* content */}
-                    <div className={style.kvItemContent}>
-                      <div className={style.kvItemContentTitle}>
-                        <span className={style.kvItemContentTitleCategory}>
-                          {content.category?.english}
-                        </span>
-                        <h1 className={style.kvItemContentTitleInside}>{content.title}</h1>
-                      </div>
-                      <p className={`${textStyle.md} ${style.kvItemContentIntroduction}`}>
-                        {content.introduction}
-                      </p>
-                    </div>
                   </Link>
+                  {/* content */}
+                  <Link href={content.id} className={style.kvItemContent}>
+                    <div className={style.kvItemContentTitle}>
+                      <span className={style.kvItemContentTitleCategory}>
+                        {content.category?.english}
+                      </span>
+                      <h1 className={style.kvItemContentTitleInside}>{content.title}</h1>
+                    </div>
+                    <p className={`${textStyle.md} ${style.kvItemContentIntroduction}`}>
+                      {content.introduction}
+                    </p>
+                  </Link>
+                  {/* </Link> */}
                 </li>
               ),
           )}
@@ -75,29 +76,7 @@ export default async function Home() {
           <ul className={style.newMainList}>
             {contentsData.contents.flatMap(
               (content, index) =>
-                !content.pickup &&
-                index < 4 && (
-                  <PostNewItem key={content.id} content={content} />
-                  // <li key={content.id} className={style.newMainItem}>
-                  //   <Link href={content.id} className={style.newMainItemLink}>
-                  //     <Image
-                  //       className={style.newMainItemImage}
-                  //       src={content.thumbnail.url}
-                  //       alt={content.title}
-                  //       width={content.thumbnail.width}
-                  //       height={content.thumbnail.height}
-                  //     />
-                  //     <div className={style.newMainItemContent}>
-                  //       <time className={style.newMainItemContentDate}>
-                  //         {formatDate(content.publishedAt)}
-                  //       </time>
-                  //       <p className={`${titleStyle.jaMd} ${style.newMainItemContentTitle}`}>
-                  //         {content.title}
-                  //       </p>
-                  //     </div>
-                  //   </Link>
-                  // </li>
-                ),
+                !content.pickup && index < 4 && <PostNewItem key={content.id} content={content} />,
             )}
           </ul>
           <Link href='/' className={`${buttonStyle.default} ${style.newMainButton}`}>
@@ -154,39 +133,7 @@ export default async function Home() {
             {categoryFilteredContents('Interview').map(
               (content, index) =>
                 index >= 1 &&
-                index <= 4 && (
-                  <PostInterviewItem key={content.id} content={content} />
-                  // <li key={content.id} className={style.interviewMainItem}>
-                  //   <Link href={content.id} className={style.interviewMainItemLink}>
-                  //     <Image
-                  //       className={style.interviewMainItemImage}
-                  //       src={content.thumbnail.url}
-                  //       alt={content.title}
-                  //       width={content.thumbnail.width}
-                  //       height={content.thumbnail.height}
-                  //     />
-                  //     <div className={style.interviewMainItemImageContent}>
-                  //       <h2
-                  //         className={`${titleStyle.jaMd} ${style.interviewMainItemImageContentTitle}`}
-                  //       >
-                  //         {content.title}
-                  //       </h2>
-                  //       <div className={style.interviewMainItemImageContentProfile}>
-                  //         <Image
-                  //           className={style.interviewMainItemImageContentProfileImage}
-                  //           src={content.interviewee?.icon.url}
-                  //           alt={content.interviewee?.name}
-                  //           width={content.interviewee?.icon.width}
-                  //           height={content.interviewee?.icon.height}
-                  //         />
-                  //         <span className={style.interviewMainItemImageContentProfileName}>
-                  //           {content.interviewee?.name}
-                  //         </span>
-                  //       </div>
-                  //     </div>
-                  //   </Link>
-                  // </li>
-                ),
+                index <= 4 && <PostInterviewItem key={content.id} content={content} />,
             )}
           </ul>
         </div>
@@ -247,27 +194,7 @@ export default async function Home() {
           <ul className={style.entertainmentMainList}>
             {categoryFilteredContents('Entertainment').map(
               (content, index) =>
-                index < 4 && (
-                  <PostEntertainment key={content.id} content={content} />
-                  // <li key={content.id} className={style.entertainmentMainItem}>
-                  //   <Link href={content.id} className={style.entertainmentMainItemLink}>
-                  //     <Image
-                  //       className={style.entertainmentMainItemImage}
-                  //       src={content.thumbnail.url}
-                  //       alt={content.title}
-                  //       width={content.thumbnail.width}
-                  //       height={content.thumbnail.height}
-                  //     />
-                  //     <div className={style.entertainmentMainItemContent}>
-                  //       <h2
-                  //         className={`${titleStyle.jaMd} ${style.entertainmentMainItemContentTitle}`}
-                  //       >
-                  //         {content.title}
-                  //       </h2>
-                  //     </div>
-                  //   </Link>
-                  // </li>
-                ),
+                index < 4 && <PostEntertainment key={content.id} content={content} />,
             )}
           </ul>
         </div>
@@ -282,25 +209,7 @@ export default async function Home() {
           <ul className={style.knowhowMainList}>
             {categoryFilteredContents('Knowhow').map(
               (content, index) =>
-                index < 4 && (
-                  <PostKnowhowItem key={content.id} content={content} />
-                  // <li key={content.id} className={style.knowhowMainItem}>
-                  //   <Link href={content.id} className={style.knowhowMainItemLink}>
-                  //     <Image
-                  //       className={style.knowhowMainItemImage}
-                  //       src={content.thumbnail.url}
-                  //       alt={content.title}
-                  //       width={content.thumbnail.width}
-                  //       height={content.thumbnail.height}
-                  //     />
-                  //     <div className={style.knowhowMainItemContent}>
-                  //       <h2 className={`${titleStyle.jaMd} ${style.knowhowMainItemContentTitle}`}>
-                  //         {content.title}
-                  //       </h2>
-                  //     </div>
-                  //   </Link>
-                  // </li>
-                ),
+                index < 4 && <PostKnowhowItem key={content.id} content={content} />,
             )}
           </ul>
           <Link href='/' className={`${buttonStyle.default} ${style.knowhowMainButton}`}>
@@ -318,25 +227,7 @@ export default async function Home() {
           <ul className={style.productsMainList}>
             {categoryFilteredContents('Products').map(
               (content, index) =>
-                index < 4 && (
-                  <PostProductsItem key={content.id} content={content} />
-                  // <li key={content.id} className={style.productsMainItem}>
-                  //   <Link href={content.id} className={style.productsMainItemLink}>
-                  //     <Image
-                  //       className={style.productsMainItemImage}
-                  //       src={content.thumbnail.url}
-                  //       alt={content.title}
-                  //       width={content.thumbnail.width}
-                  //       height={content.thumbnail.height}
-                  //     />
-                  //     <div className={style.productsMainItemContent}>
-                  //       <h2 className={`${titleStyle.jaMd} ${style.productsMainItemContentTitle}`}>
-                  //         {content.title}
-                  //       </h2>
-                  //     </div>
-                  //   </Link>
-                  // </li>
-                ),
+                index < 4 && <PostProductsItem key={content.id} content={content} />,
             )}
           </ul>
           <Link href='/' className={`${buttonStyle.default} ${style.productsMainButton}`}>
@@ -354,23 +245,7 @@ export default async function Home() {
           <ul className={style.progressMainList}>
             {categoryFilteredContents('Progress').map(
               (content, index) =>
-                index < 10 && (
-                  <PostProgressItem key={content.id} content={content} />
-                  // <li key={content.id} className={style.progressMainItem}>
-                  //   <Link href='' className={style.progressMainItemLink}>
-                  //     <Image
-                  //       className={style.progressMainItemImage}
-                  //       src={content.thumbnail.url}
-                  //       alt={content.title}
-                  //       width={content.thumbnail.width}
-                  //       height={content.thumbnail.height}
-                  //     />
-                  //     <time className={`${titleStyle.jaMd} ${style.progressMainItemDate}`}>
-                  //       {formatDate(content.publishedAt)}
-                  //     </time>
-                  //   </Link>
-                  // </li>
-                ),
+                index < 10 && <PostProgressItem key={content.id} content={content} />,
             )}
           </ul>
           <div className={style.progressFunction}>

@@ -14,11 +14,11 @@ import { getMicroCMSData } from '@/lib/microcms/getData'
  * @returns
  */
 export const Header: React.FC = () => {
-  type OtherMenus = {
+  type OtherMenu = {
     href: string
     name: string
   }
-  const otherMenus: OtherMenus[] = [
+  const otherMenus: OtherMenu[] = [
     {
       href: '/',
       name: 'ホーム',
