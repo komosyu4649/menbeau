@@ -3,6 +3,7 @@ import type { GetStaticProps, NextPage } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import style from './page.module.scss'
+import { PostEntertainment } from '@/components/PostEntertainment'
 import { PostInterviewItem } from '@/components/PostInterviewItem'
 import { PostNewItem } from '@/components/PostNewItem'
 import { MicroCMSContentsData } from '@/lib/microcms'
@@ -244,24 +245,25 @@ export default async function Home() {
             {categoryFilteredContents('Entertainment').map(
               (content, index) =>
                 index < 4 && (
-                  <li key={content.id} className={style.entertainmentMainItem}>
-                    <Link href={content.id} className={style.entertainmentMainItemLink}>
-                      <Image
-                        className={style.entertainmentMainItemImage}
-                        src={content.thumbnail.url}
-                        alt={content.title}
-                        width={content.thumbnail.width}
-                        height={content.thumbnail.height}
-                      />
-                      <div className={style.entertainmentMainItemContent}>
-                        <h2
-                          className={`${titleStyle.jaMd} ${style.entertainmentMainItemContentTitle}`}
-                        >
-                          {content.title}
-                        </h2>
-                      </div>
-                    </Link>
-                  </li>
+                  <PostEntertainment key={content.id} content={content} />
+                  // <li key={content.id} className={style.entertainmentMainItem}>
+                  //   <Link href={content.id} className={style.entertainmentMainItemLink}>
+                  //     <Image
+                  //       className={style.entertainmentMainItemImage}
+                  //       src={content.thumbnail.url}
+                  //       alt={content.title}
+                  //       width={content.thumbnail.width}
+                  //       height={content.thumbnail.height}
+                  //     />
+                  //     <div className={style.entertainmentMainItemContent}>
+                  //       <h2
+                  //         className={`${titleStyle.jaMd} ${style.entertainmentMainItemContentTitle}`}
+                  //       >
+                  //         {content.title}
+                  //       </h2>
+                  //     </div>
+                  //   </Link>
+                  // </li>
                 ),
             )}
           </ul>
