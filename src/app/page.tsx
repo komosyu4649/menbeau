@@ -3,6 +3,7 @@ import type { GetStaticProps, NextPage } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import style from './page.module.scss'
+import { PostNewItem } from '@/components/PostNewItem'
 import { MicroCMSContentsData } from '@/lib/microcms'
 import { client } from '@/lib/microcms/apis'
 import { formatDate } from '@/lib/microcms/dayjs'
@@ -19,11 +20,8 @@ export default async function Home() {
   fs.writeFileSync('public/json/microCMSKeywordData.json', JSON.stringify(keywordsData))
   const contentsData: MicroCMSContentsData = await getMicroCMSData('contents')
   const { contents } = contentsData
-  // console.log(contents)
   const categoryFilteredContents = (category: string) =>
     contents.filter((content) => content.category?.english === category)
-
-  // console.log(categoryFilteredContents('Interview'))
 
   return (
     <main className={style.main}>
@@ -74,25 +72,26 @@ export default async function Home() {
               (content, index) =>
                 !content.pickup &&
                 index < 4 && (
-                  <li key={content.id} className={style.newMainItem}>
-                    <Link href={content.id} className={style.newsMainItemLink}>
-                      <Image
-                        className={style.newMainItemImage}
-                        src={content.thumbnail.url}
-                        alt={content.title}
-                        width={content.thumbnail.width}
-                        height={content.thumbnail.height}
-                      />
-                      <div className={style.newMainItemContent}>
-                        <time className={style.newMainItemContentDate}>
-                          {formatDate(content.publishedAt)}
-                        </time>
-                        <p className={`${titleStyle.jaMd} ${style.newMainItemContentTitle}`}>
-                          {content.title}
-                        </p>
-                      </div>
-                    </Link>
-                  </li>
+                  <PostNewItem content={content} />
+                  // <li key={content.id} className={style.newMainItem}>
+                  //   <Link href={content.id} className={style.newMainItemLink}>
+                  //     <Image
+                  //       className={style.newMainItemImage}
+                  //       src={content.thumbnail.url}
+                  //       alt={content.title}
+                  //       width={content.thumbnail.width}
+                  //       height={content.thumbnail.height}
+                  //     />
+                  //     <div className={style.newMainItemContent}>
+                  //       <time className={style.newMainItemContentDate}>
+                  //         {formatDate(content.publishedAt)}
+                  //       </time>
+                  //       <p className={`${titleStyle.jaMd} ${style.newMainItemContentTitle}`}>
+                  //         {content.title}
+                  //       </p>
+                  //     </div>
+                  //   </Link>
+                  // </li>
                 ),
             )}
           </ul>
