@@ -3,8 +3,9 @@ import type { GetStaticProps, NextPage } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import style from './page.module.scss'
-import { PostEntertainment } from '@/components/PostEntertainment'
+import { PostEntertainment } from '@/components/PostEntertainmentItem'
 import { PostInterviewItem } from '@/components/PostInterviewItem'
+import { PostKnowhowItem } from '@/components/PostKnowhowItem'
 import { PostNewItem } from '@/components/PostNewItem'
 import { MicroCMSContentsData } from '@/lib/microcms'
 import { client } from '@/lib/microcms/apis'
@@ -280,22 +281,23 @@ export default async function Home() {
             {categoryFilteredContents('Knowhow').map(
               (content, index) =>
                 index < 4 && (
-                  <li key={content.id} className={style.knowhowMainItem}>
-                    <Link href={content.id} className={style.knowhowMainItemLink}>
-                      <Image
-                        className={style.knowhowMainItemImage}
-                        src={content.thumbnail.url}
-                        alt={content.title}
-                        width={content.thumbnail.width}
-                        height={content.thumbnail.height}
-                      />
-                      <div className={style.knowhowMainItemContent}>
-                        <h2 className={`${titleStyle.jaMd} ${style.knowhowMainItemContentTitle}`}>
-                          {content.title}
-                        </h2>
-                      </div>
-                    </Link>
-                  </li>
+                  <PostKnowhowItem key={content.id} content={content} />
+                  // <li key={content.id} className={style.knowhowMainItem}>
+                  //   <Link href={content.id} className={style.knowhowMainItemLink}>
+                  //     <Image
+                  //       className={style.knowhowMainItemImage}
+                  //       src={content.thumbnail.url}
+                  //       alt={content.title}
+                  //       width={content.thumbnail.width}
+                  //       height={content.thumbnail.height}
+                  //     />
+                  //     <div className={style.knowhowMainItemContent}>
+                  //       <h2 className={`${titleStyle.jaMd} ${style.knowhowMainItemContentTitle}`}>
+                  //         {content.title}
+                  //       </h2>
+                  //     </div>
+                  //   </Link>
+                  // </li>
                 ),
             )}
           </ul>
