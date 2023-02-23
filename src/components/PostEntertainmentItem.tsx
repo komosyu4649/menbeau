@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import style from './PostEntertainment.module.scss'
+import style from './PostEntertainmentItem.module.scss'
 import { MicroCMSContent } from '@/lib/microcms'
 import titleStyle from '@/styles/Title.module.scss'
 
