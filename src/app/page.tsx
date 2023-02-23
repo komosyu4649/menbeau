@@ -8,6 +8,7 @@ import { PostInterviewItem } from '@/components/PostInterviewItem'
 import { PostKnowhowItem } from '@/components/PostKnowhowItem'
 import { PostNewItem } from '@/components/PostNewItem'
 import { PostProductsItem } from '@/components/PostProductsItem'
+import { PostProgressItem } from '@/components/PostProgressItem'
 import { MicroCMSContentsData } from '@/lib/microcms'
 import { client } from '@/lib/microcms/apis'
 import { formatDate } from '@/lib/microcms/dayjs'
@@ -354,20 +355,21 @@ export default async function Home() {
             {categoryFilteredContents('Progress').map(
               (content, index) =>
                 index < 10 && (
-                  <li key={content.id} className={style.progressMainItem}>
-                    <Link href='' className={style.progressMainItemLink}>
-                      <Image
-                        className={style.progressMainItemImage}
-                        src={content.thumbnail.url}
-                        alt={content.title}
-                        width={content.thumbnail.width}
-                        height={content.thumbnail.height}
-                      />
-                      <time className={`${titleStyle.jaMd} ${style.progressMainItemDate}`}>
-                        {formatDate(content.publishedAt)}
-                      </time>
-                    </Link>
-                  </li>
+                  <PostProgressItem key={content.id} content={content} />
+                  // <li key={content.id} className={style.progressMainItem}>
+                  //   <Link href='' className={style.progressMainItemLink}>
+                  //     <Image
+                  //       className={style.progressMainItemImage}
+                  //       src={content.thumbnail.url}
+                  //       alt={content.title}
+                  //       width={content.thumbnail.width}
+                  //       height={content.thumbnail.height}
+                  //     />
+                  //     <time className={`${titleStyle.jaMd} ${style.progressMainItemDate}`}>
+                  //       {formatDate(content.publishedAt)}
+                  //     </time>
+                  //   </Link>
+                  // </li>
                 ),
             )}
           </ul>
