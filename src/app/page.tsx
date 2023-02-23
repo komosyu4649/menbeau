@@ -7,6 +7,7 @@ import { PostEntertainment } from '@/components/PostEntertainmentItem'
 import { PostInterviewItem } from '@/components/PostInterviewItem'
 import { PostKnowhowItem } from '@/components/PostKnowhowItem'
 import { PostNewItem } from '@/components/PostNewItem'
+import { PostProductsItem } from '@/components/PostProductsItem'
 import { MicroCMSContentsData } from '@/lib/microcms'
 import { client } from '@/lib/microcms/apis'
 import { formatDate } from '@/lib/microcms/dayjs'
@@ -317,22 +318,23 @@ export default async function Home() {
             {categoryFilteredContents('Products').map(
               (content, index) =>
                 index < 4 && (
-                  <li key={content.id} className={style.productsMainItem}>
-                    <Link href={content.id} className={style.productsMainItemLink}>
-                      <Image
-                        className={style.productsMainItemImage}
-                        src={content.thumbnail.url}
-                        alt={content.title}
-                        width={content.thumbnail.width}
-                        height={content.thumbnail.height}
-                      />
-                      <div className={style.productsMainItemContent}>
-                        <h2 className={`${titleStyle.jaMd} ${style.productsMainItemContentTitle}`}>
-                          {content.title}
-                        </h2>
-                      </div>
-                    </Link>
-                  </li>
+                  <PostProductsItem key={content.id} content={content} />
+                  // <li key={content.id} className={style.productsMainItem}>
+                  //   <Link href={content.id} className={style.productsMainItemLink}>
+                  //     <Image
+                  //       className={style.productsMainItemImage}
+                  //       src={content.thumbnail.url}
+                  //       alt={content.title}
+                  //       width={content.thumbnail.width}
+                  //       height={content.thumbnail.height}
+                  //     />
+                  //     <div className={style.productsMainItemContent}>
+                  //       <h2 className={`${titleStyle.jaMd} ${style.productsMainItemContentTitle}`}>
+                  //         {content.title}
+                  //       </h2>
+                  //     </div>
+                  //   </Link>
+                  // </li>
                 ),
             )}
           </ul>
