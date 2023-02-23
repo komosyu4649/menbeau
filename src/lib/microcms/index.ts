@@ -23,7 +23,7 @@ type ContentsCustomfield = {
   interviewer: false
 }
 
-export type MicroCMSContentsData = ContentStructure<{
+type MicroCMSContentBase = {
   thumbnail: Thumbnail
   title: string
   introduction: string
@@ -45,4 +45,8 @@ export type MicroCMSContentsData = ContentStructure<{
     }[]
   >
   interviewee: ContentsCustomfield
-}>
+}
+
+export type MicroCMSContent = BaseStructure<MicroCMSContentBase>
+
+export type MicroCMSContentsData = ContentStructure<MicroCMSContentBase>

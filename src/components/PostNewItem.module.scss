@@ -1,0 +1,47 @@
+.item {
+  height: auto;
+  aspect-ratio: 1 / 1.414;
+  border-radius: 3rem;
+  overflow: hidden;
+}
+.itemLink {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+  height: 100%;
+  padding: 0 1.5rem 3rem;
+}
+.itemImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.itemContent {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  z-index: 1;
+}
+.itemContentDate {
+  display: inline-block;
+  width: fit-content;
+  padding: 0.5rem 1.5rem;
+  background-color: var(--color-white);
+  border: 3px solid var(--color-black);
+  border-radius: 1rem 1rem 0 0;
+  font-size: 1.2rem;
+  font-family: var(--font-lexend);
+  font-weight: bold;
+}
+.itemContentTitle {
+  display: inline-block;
+  margin-top: -3px;
+  padding: 2rem 1.5rem;
+  background-color: var(--color-white);
+  border: 3px solid var(--color-black);
+  border-radius: 0 2rem 2rem 2rem;
+}
