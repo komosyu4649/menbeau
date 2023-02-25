@@ -11,8 +11,8 @@ import { PostProductsItem } from '@/components/PostProductsItem'
 import { PostProgressItem } from '@/components/PostProgressItem'
 import { MicroCMSContentsData } from '@/lib/microcms'
 import { client } from '@/lib/microcms/apis'
-import { formatDate } from '@/lib/microcms/dayjs'
 import { getMicroCMSData } from '@/lib/microcms/getData'
+import { BasicSwiper } from '@/lib/swiper/BaseicSwiper'
 import buttonStyle from '@/styles/Button.module.scss'
 import layoutStyle from '@/styles/Layout.module.scss'
 import textStyle from '@/styles/Text.module.scss'
@@ -149,7 +149,7 @@ export default async function Home() {
         <div className={style.entertainmentMain}>
           <div className={style.entertainmentFunction}>
             <div className={style.entertainmentFunctionArrows}>
-              <button className={style.entertainmentFunctionArrow}>
+              <button id='entertainment_swiper_prev' className={style.entertainmentFunctionArrow}>
                 <svg
                   width='72'
                   height='72'
@@ -164,7 +164,7 @@ export default async function Home() {
                   />
                 </svg>
               </button>
-              <button className={style.entertainmentFunctionArrow}>
+              <button id='entertainment_swiper_next' className={style.entertainmentFunctionArrow}>
                 <svg
                   width='72'
                   height='72'
@@ -191,12 +191,12 @@ export default async function Home() {
               エンタメ一覧
             </Link>
           </div>
-          <ul className={style.entertainmentMainList}>
-            {categoryFilteredContents('Entertainment').map(
-              (content, index) =>
-                index < 4 && <PostEntertainment key={content.id} content={content} />,
-            )}
-          </ul>
+          <BasicSwiper
+            name='entertainment'
+            spaceBetween={15}
+            slidesPerView={2.234}
+            contents={categoryFilteredContents('Entertainment')}
+          />
         </div>
       </section>
       {/* knowhow */}
@@ -242,15 +242,24 @@ export default async function Home() {
           <span className={`${titleStyle.sectionJa} ${style.progressTitleJa}`}>顔進捗</span>
         </h2>
         <div className={style.progressMain}>
-          <ul className={style.progressMainList}>
+          {/* <ul className={style.progressMainList}>
             {categoryFilteredContents('Progress').map(
               (content, index) =>
                 index < 10 && <PostProgressItem key={content.id} content={content} />,
             )}
-          </ul>
+          </ul> */}
+          <BasicSwiper
+            name='progress'
+            spaceBetween={11}
+            slidesPerView={5.5}
+            contents={categoryFilteredContents('Progress')}
+          />
           <div className={style.progressFunction}>
             <div className={style.progressFunctionArrows}>
-              <button className={`${style.progressFunctionArrow} ${style.left}`}>
+              <button
+                id='progress_swiper_prev'
+                className={`${style.progressFunctionArrow} ${style.left}`}
+              >
                 <svg
                   width='72'
                   height='72'
@@ -265,7 +274,10 @@ export default async function Home() {
                   />
                 </svg>
               </button>
-              <button className={`${style.progressFunctionArrow} ${style.right}`}>
+              <button
+                id='progress_swiper_next'
+                className={`${style.progressFunctionArrow} ${style.right}`}
+              >
                 <svg
                   width='72'
                   height='72'

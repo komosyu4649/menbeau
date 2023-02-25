@@ -2,8 +2,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import style from './PostNewItem.module.scss'
+import { formatDate } from '@/lib/dayjs'
 import { MicroCMSContent, MicroCMSContentsData } from '@/lib/microcms'
-import { formatDate } from '@/lib/microcms/dayjs'
 import titleStyle from '@/styles/Title.module.scss'
 
 type Props = MicroCMSContent

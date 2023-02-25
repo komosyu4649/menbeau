@@ -136,6 +136,7 @@
   grid-template-columns: auto 1fr;
   gap: 5.5rem;
   margin-top: 4rem;
+  overflow: hidden;
 }
 .entertainmentFunction {
   display: flex;
@@ -148,12 +149,18 @@
   flex-direction: row;
   gap: 1.5rem;
 }
-.entertainmentMainList {
-  display: flex;
-  flex-direction: row;
-  gap: 1.5rem;
-  overflow: scroll;
+.entertainmentFunctionArrow:disabled {
+  opacity: 0.25;
 }
+// .entertainmentMainContents {
+//   overflow: hidden;
+// }
+// .entertainmentMainList {
+//   display: flex;
+//   flex-direction: row;
+//   gap: 1.5rem;
+//   overflow: scroll;
+// }
 
 // knowhow
 .knowhow {
