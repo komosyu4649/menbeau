@@ -10,20 +10,18 @@ type Props = MicroCMSContent
 
 export const PostNewItem: React.FC<{ content: Props }> = ({ content }) => {
   return (
-    <li key={content.id} className={style.item}>
-      <Link href={content.id} className={style.itemLink}>
-        <Image
-          className={style.itemImage}
-          src={content.thumbnail.url}
-          alt={content.title}
-          width={content.thumbnail.width}
-          height={content.thumbnail.height}
-        />
-        <div className={style.itemContent}>
-          <time className={style.itemContentDate}>{formatDate(content.publishedAt)}</time>
-          <p className={`${titleStyle.jaMd} ${style.itemContentTitle}`}>{content.title}</p>
-        </div>
-      </Link>
-    </li>
+    <Link href={content.id} className={style.itemLink}>
+      <Image
+        className={style.itemImage}
+        src={content.thumbnail.url}
+        alt={content.title}
+        width={content.thumbnail.width}
+        height={content.thumbnail.height}
+      />
+      <div className={style.itemContent}>
+        <time className={style.itemContentDate}>{formatDate(content.publishedAt)}</time>
+        <p className={`${titleStyle.jaMd} ${style.itemContentTitle}`}>{content.title}</p>
+      </div>
+    </Link>
   )
 }

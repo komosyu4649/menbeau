@@ -7,6 +7,7 @@ import { MicroCMSContent } from '../microcms'
 import style from './BaseSwiper.module.scss'
 import { PostEntertainment } from '@/components/PostEntertainmentItem'
 import 'swiper/css'
+import { PostProgressItem } from '@/components/PostProgressItem'
 
 type Props = {
   name: string
@@ -16,6 +17,17 @@ type Props = {
 }
 
 export const BasicSwiper: React.FC<Props> = ({ name, spaceBetween, slidesPerView, contents }) => {
+  const PostItem = (content: MicroCMSContent) => {
+    switch (name) {
+      case 'progress':
+        return <PostProgressItem content={content} />
+        break
+      case 'entertainment':
+        return <PostEntertainment content={content} />
+        break
+    }
+  }
+
   return (
     <div className={style.container}>
       <Swiper
@@ -28,10 +40,7 @@ export const BasicSwiper: React.FC<Props> = ({ name, spaceBetween, slidesPerView
         slidesPerView={slidesPerView}
       >
         {contents.map((content) => (
-          <SwiperSlide key={content.id}>
-            {/* childrenを親から渡すようにしましょう */}
-            <PostEntertainment content={content} />
-          </SwiperSlide>
+          <SwiperSlide key={content.id}>{PostItem(content)}</SwiperSlide>
         ))}
       </Swiper>
     </div>

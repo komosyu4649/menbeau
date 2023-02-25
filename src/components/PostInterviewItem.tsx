@@ -9,29 +9,27 @@ type Props = MicroCMSContent
 
 export const PostInterviewItem: React.FC<{ content: Props }> = ({ content }) => {
   return (
-    <li key={content.id} className={style.item}>
-      <Link href={content.id} className={style.itemLink}>
-        <Image
-          className={style.itemImage}
-          src={content.thumbnail.url}
-          alt={content.title}
-          width={content.thumbnail.width}
-          height={content.thumbnail.height}
-        />
-        <div className={style.itemImageContent}>
-          <h2 className={`${titleStyle.jaMd} ${style.itemImageContentTitle}`}>{content.title}</h2>
-          <div className={style.itemImageContentProfile}>
-            <Image
-              className={style.itemImageContentProfileImage}
-              src={content.interviewee?.icon.url}
-              alt={content.interviewee?.name}
-              width={content.interviewee?.icon.width}
-              height={content.interviewee?.icon.height}
-            />
-            <span className={style.itemImageContentProfileName}>{content.interviewee?.name}</span>
-          </div>
+    <Link href={content.id} className={style.itemLink}>
+      <Image
+        className={style.itemImage}
+        src={content.thumbnail.url}
+        alt={content.title}
+        width={content.thumbnail.width}
+        height={content.thumbnail.height}
+      />
+      <div className={style.itemImageContent}>
+        <h2 className={`${titleStyle.jaMd} ${style.itemImageContentTitle}`}>{content.title}</h2>
+        <div className={style.itemImageContentProfile}>
+          <Image
+            className={style.itemImageContentProfileImage}
+            src={content.interviewee?.icon.url}
+            alt={content.interviewee?.name}
+            width={content.interviewee?.icon.width}
+            height={content.interviewee?.icon.height}
+          />
+          <span className={style.itemImageContentProfileName}>{content.interviewee?.name}</span>
         </div>
-      </Link>
-    </li>
+      </div>
+    </Link>
   )
 }
