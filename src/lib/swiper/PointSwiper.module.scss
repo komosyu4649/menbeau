@@ -3,11 +3,15 @@
   flex-direction: row;
   align-items: center;
   gap: 5rem;
+  background-color: var(--color-white);
 }
 .itemImageInside {
   width: 60rem;
   height: 60rem;
   border-radius: 8rem;
+}
+.itemContent {
+  margin-left: -1rem;
 }
 .itemContentTitle {
   display: inline-flex;
