@@ -13,6 +13,7 @@ import { MicroCMSContentsData } from '@/lib/microcms'
 import { client } from '@/lib/microcms/apis'
 import { getMicroCMSData } from '@/lib/microcms/getData'
 import { BasicSwiper } from '@/lib/swiper/BaseSwiper'
+import { PointSwiper } from '@/lib/swiper/PointSwiper'
 import buttonStyle from '@/styles/Button.module.scss'
 import layoutStyle from '@/styles/Layout.module.scss'
 import swiperStyle from '@/styles/Swiper.module.scss'
@@ -33,13 +34,12 @@ export default async function Home() {
     <main className={style.main}>
       {/* kv */}
       <section className={`${layoutStyle.default} ${style.kv}`}>
-        <ul className={style.kvList}>
+        <PointSwiper contents={contentsData.contents} />
+        {/* <ul className={style.kvList}>
           {contentsData.contents.flatMap(
             (content) =>
               content.pickup && (
                 <li key={content.id} className={style.kvItem}>
-                  {/* <Link href={content.id} className={style.kvItemLink}> */}
-                  {/* img */}
                   <Link href={content.id} className={style.kvItemImage}>
                     <Image
                       className={style.kvItemImageInside}
@@ -49,7 +49,6 @@ export default async function Home() {
                       height={content.thumbnail.height}
                     />
                   </Link>
-                  {/* content */}
                   <Link href={content.id} className={style.kvItemContent}>
                     <div className={style.kvItemContentTitle}>
                       <span className={style.kvItemContentTitleCategory}>
@@ -61,11 +60,10 @@ export default async function Home() {
                       {content.introduction}
                     </p>
                   </Link>
-                  {/* </Link> */}
                 </li>
               ),
           )}
-        </ul>
+        </ul> */}
       </section>
       {/* new contents */}
       <section className={`${layoutStyle.default} ${style.new}`}>
