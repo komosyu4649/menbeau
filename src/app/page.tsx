@@ -211,6 +211,8 @@ export default async function Home() {
             name='entertainment'
             spaceBetween={15}
             slidesPerView={2.234}
+            slidesOffsetBefore={0}
+            slidesOffsetAfter={0.04}
             contents={categoryFilteredContents('Entertainment')}
           />
         </div>
@@ -270,6 +272,8 @@ export default async function Home() {
             name='progress'
             spaceBetween={10}
             slidesPerView={5.58}
+            slidesOffsetBefore={0.04}
+            slidesOffsetAfter={0.04}
             contents={categoryFilteredContents('Progress')}
           />
           <div className={style.progressFunction}>

@@ -13,10 +13,20 @@ type Props = {
   name: string
   spaceBetween: number
   slidesPerView: number
+  slidesOffsetAfter: number
+  slidesOffsetBefore: number
   contents: MicroCMSContent[]
 }
 
-export const BasicSwiper: React.FC<Props> = ({ name, spaceBetween, slidesPerView, contents }) => {
+export const BasicSwiper: React.FC<Props> = ({
+  name,
+  spaceBetween,
+  slidesPerView,
+  slidesOffsetAfter,
+  slidesOffsetBefore,
+  contents,
+}) => {
+  console.log(slidesOffsetAfter)
   const PostItem = (content: MicroCMSContent) => {
     switch (name) {
       case 'progress':
@@ -38,6 +48,8 @@ export const BasicSwiper: React.FC<Props> = ({ name, spaceBetween, slidesPerView
         }}
         spaceBetween={spaceBetween}
         slidesPerView={slidesPerView}
+        slidesOffsetAfter={slidesOffsetAfter * window.innerWidth}
+        slidesOffsetBefore={slidesOffsetBefore * window.innerWidth}
       >
         {contents.map((content) => (
           <SwiperSlide key={content.id}>{PostItem(content)}</SwiperSlide>
