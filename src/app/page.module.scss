@@ -136,6 +136,7 @@
   grid-template-columns: auto 1fr;
   gap: 5.5rem;
   margin-top: 4rem;
+  overflow: hidden;
 }
 .entertainmentFunction {
   display: flex;
@@ -148,12 +149,18 @@
   flex-direction: row;
   gap: 1.5rem;
 }
-.entertainmentMainList {
-  display: flex;
-  flex-direction: row;
-  gap: 1.5rem;
-  overflow: scroll;
-}
+// .entertainmentFunctionArrow:disabled {
+//   opacity: 0.25;
+// }
+// .entertainmentMainContents {
+//   overflow: hidden;
+// }
+// .entertainmentMainList {
+//   display: flex;
+//   flex-direction: row;
+//   gap: 1.5rem;
+//   overflow: scroll;
+// }
 
 // knowhow
 .knowhow {
@@ -189,7 +196,11 @@
 
 // progress
 .progress {
-  margin: 15rem 0 0 calc((50vw - 61.25rem) * 0.5);
+  margin-top: 15rem;
+  // margin: 15rem 0 0 calc((50vw - 61.25rem) * 0.5);
+}
+.progressTitle {
+  margin-left: calc((50vw - 61.25rem) * 0.5);
 }
 .progressMain {
   position: relative;
@@ -207,7 +218,8 @@
   z-index: 1;
 }
 .progressFunctionArrow.left {
-  left: 0;
+  // left: 0;
+  left: calc((50vw - 61.25rem) * 0.5);
 }
 .progressFunctionArrow.right {
   right: calc((50vw - 61.25rem) * 0.5);
