@@ -3,10 +3,11 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import { EffectFade, Autoplay, Virtual } from 'swiper'
+import { EffectFade, Autoplay, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/effect-fade'
+import 'swiper/css/pagination'
 import { MicroCMSContentsData } from '../microcms'
 import style from './PointSwiper.module.scss'
 import textStyle from '@/styles/Text.module.scss'
@@ -16,11 +17,14 @@ type Props = Pick<MicroCMSContentsData, 'contents'>
 export const PointSwiper: React.FC<Props> = ({ contents }) => {
   return (
     <Swiper
-      modules={[EffectFade, Autoplay]}
+      modules={[EffectFade, Autoplay, Pagination]}
       effect='fade'
       slidesPerView={1}
       loop
       speed={1500}
+      pagination={{
+        clickable: true,
+      }}
       autoplay={{
         delay: 5000,
         disableOnInteraction: false,

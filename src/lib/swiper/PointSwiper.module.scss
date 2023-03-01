@@ -1,22 +1,28 @@
 .item {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  // align-items: center;
   gap: 5rem;
   background-color: var(--color-white);
 }
 .itemImageInside {
-  width: 60rem;
-  height: 60rem;
+  // width: 60rem;
+  // height: 60rem;
+  width: 54rem;
+  height: 54rem;
+  // width: 75vh;
+  // height: 75vh;
   border-radius: 8rem;
 }
 .itemContent {
-  margin-left: -1rem;
+  // margin-left: -1rem;
+  margin: 8rem 0 0 -1rem;
 }
 .itemContentTitle {
   display: inline-flex;
   flex-direction: column;
-  margin-left: -25rem;
+  // margin-left: -25rem;
+  margin-left: -20rem;
 }
 .itemContentTitleCategory {
   display: inline-block;
@@ -43,4 +49,10 @@
 .itemContentIntroduction {
   width: 52rem;
   margin-top: 3.5rem;
+}
+.swiper-pagination {
+  background-color: pink;
+}
+.swiper-pagination-bullet {
+  background: red;
 }
