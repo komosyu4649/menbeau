@@ -17,6 +17,7 @@ type Props = Pick<MicroCMSContentsData, 'contents'>
 export const PointSwiper: React.FC<Props> = ({ contents }) => {
   return (
     <Swiper
+      className={style.container}
       modules={[EffectFade, Autoplay, Pagination]}
       effect='fade'
       slidesPerView={1}

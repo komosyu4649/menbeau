@@ -1,3 +1,5 @@
+.container {
+}
 .item {
   display: flex;
   flex-direction: row;
@@ -15,6 +17,7 @@
   border-radius: 8rem;
 }
 .itemContent {
+  height: fit-content;
   // margin-left: -1rem;
   margin: 8rem 0 0 -1rem;
 }
@@ -49,10 +52,4 @@
 .itemContentIntroduction {
   width: 52rem;
   margin-top: 3.5rem;
-}
-.swiper-pagination {
-  background-color: pink;
-}
-.swiper-pagination-bullet {
-  background: red;
 }
