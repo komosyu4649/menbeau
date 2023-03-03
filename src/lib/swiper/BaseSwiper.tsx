@@ -26,7 +26,6 @@ export const BasicSwiper: React.FC<Props> = ({
   slidesOffsetBefore,
   contents,
 }) => {
-  console.log(slidesOffsetAfter)
   const PostItem = (content: MicroCMSContent) => {
     switch (name) {
       case 'progress':
