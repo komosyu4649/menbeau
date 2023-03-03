@@ -17,12 +17,12 @@ type Props = Pick<MicroCMSContentsData, 'contents'>
 export const PointSwiper: React.FC<Props> = ({ contents }) => {
   return (
     <Swiper
-      className={style.container}
+      className={`swiperPoint ${style.container}`}
       modules={[EffectFade, Autoplay, Pagination]}
       effect='fade'
       slidesPerView={1}
       loop
-      speed={1500}
+      speed={500}
       pagination={{
         clickable: true,
       }}
@@ -35,7 +35,7 @@ export const PointSwiper: React.FC<Props> = ({ contents }) => {
         (content) =>
           content.pickup && (
             <SwiperSlide>
-              <li key={content.id} className={style.item}>
+              <div key={content.id} className={style.item}>
                 {/* img */}
                 <Link href={content.id} className={style.itemImage}>
                   <Image
@@ -58,7 +58,7 @@ export const PointSwiper: React.FC<Props> = ({ contents }) => {
                     {content.introduction}
                   </p>
                 </Link>
-              </li>
+              </div>
             </SwiperSlide>
           ),
       )}
