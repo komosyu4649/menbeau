@@ -13,7 +13,7 @@ export const HeaderKeywordMenu = () => {
       <ul className={style.list}>
         {microCMSKeywordData.contents.map((content) => (
           <li key={content.id} className={style.item}>
-            <Keyword id={content.id} name={content.name} />
+            <Keyword id={content.id} name={content.name} color='white' />
           </li>
         ))}
       </ul>
