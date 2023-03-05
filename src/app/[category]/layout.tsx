@@ -1,5 +1,6 @@
 import React from 'react'
 import style from './layout.module.scss'
+import { CategoryKv } from '@/components/CategoryKv'
 import { Sidebar } from '@/components/Sidebar'
 import layoutStyle from '@/styles/Layout.module.scss'
 
