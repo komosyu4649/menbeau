@@ -1,4 +1,5 @@
 import React from 'react'
+import style from './page.module.scss'
 import { CategoryKv } from '@/components/CategoryKv'
 import { Sidebar } from '@/components/Sidebar'
 import { MicroCMSCategoryData } from '@/lib/microcms'
@@ -17,7 +18,7 @@ export default async function Category({ params }: { params: { category: string 
   return (
     <div className={layoutStyle.lg}>
       <CategoryKv category={category} />
-      <div className=''>
+      <div className={style.main}>
         <Sidebar />
       </div>
     </div>
