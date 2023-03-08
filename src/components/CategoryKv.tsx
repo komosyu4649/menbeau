@@ -11,7 +11,7 @@ export const CategoryKv: React.FC<Props> = ({ category }) => {
   const categoriesDta: MicroCMSCategoryData = use(getMicroCMSData('categories'))
   const categoryData = categoriesDta.contents.filter((content) => content.english === category)
   return (
-    <div>
+    <div className={style.container}>
       <h1 className={style.title}>
         <span className={style.titleEn}>{categoryData[0].english}</span>
         <span className={style.titleJa}>{categoryData[0].japanese}</span>
