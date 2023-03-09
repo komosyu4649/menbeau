@@ -11,6 +11,8 @@ type Props = {
 export const CategoryKv: React.FC<Props> = ({ category }) => {
   const categoriesDta: MicroCMSCategoryData = use(getMicroCMSData('categories'))
   const categoryData = categoriesDta.contents.filter((content) => content.english === category)
+  const titleEn = categoryData[0]?.english || 'all'
+  const titleJa = categoryData[0]?.japanese || 'すべての記事'
 
   const breadcrumb = [
     {
@@ -18,16 +20,16 @@ export const CategoryKv: React.FC<Props> = ({ category }) => {
       name: 'ホーム',
     },
     {
-      url: categoryData[0].english,
-      name: categoryData[0].japanese,
+      url: titleEn,
+      name: titleJa,
     },
   ]
 
   return (
     <div className={style.container}>
       <h1 className={style.title}>
-        <span className={style.titleEn}>{categoryData[0].english}</span>
-        <span className={style.titleJa}>{categoryData[0].japanese}</span>
+        <span className={style.titleEn}>{titleEn}</span>
+        <span className={style.titleJa}>{titleJa}</span>
       </h1>
       <Breadcrumb breadcrumb={breadcrumb} />
     </div>
