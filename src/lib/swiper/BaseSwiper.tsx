@@ -5,7 +5,7 @@ import { Navigation } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { MicroCMSContent } from '../microcms'
 import style from './BaseSwiper.module.scss'
-import { PostEntertainment, PostEntertainmentItem } from '@/components/PostEntertainmentItem'
+import { PostEntertainmentItem } from '@/components/PostEntertainmentItem'
 import 'swiper/css'
 import { PostProgressItem } from '@/components/PostProgressItem'
 
