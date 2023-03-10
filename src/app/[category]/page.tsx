@@ -21,16 +21,26 @@ export default async function Category({ params }: { params: { category: string 
   const contentsData: MicroCMSCategoryData = await getMicroCMSData('contents')
   const { contents } = contentsData
   // console.log(contents)
+  // const categoryFilteredContents = (categoryName: string) =>
+  //   contents.filter((content) => content.category?.english || 'all' === categoryName)
   const categoryFilteredContents = (categoryName: string) =>
-    contents.filter((content) => content.category?.english || 'all' === categoryName)
+    contents.filter((content) => categoryName === content.category?.english)
   // console.log(categoryFilteredContents(categoryName))
+  // for (let i = 0; i < categoryFilteredContents(categoryName).length; i++) {
+  //   console.log(categoryFilteredContents(categoryName)[i].category.japanese)
+  // }
+
   return (
     <div className={layoutStyle.lg}>
       <CategoryKv category={category} />
       <div className={style.main}>
         <Sidebar />
         <CategoryMain
-          contents={categoryFilteredContents(categoryName)}
+          contents={
+            categoryFilteredContents(categoryName).length === 0
+              ? contents
+              : categoryFilteredContents(categoryName)
+          }
           categoryName={categoryName}
         />
       </div>

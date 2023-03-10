@@ -5,7 +5,7 @@ import { Navigation } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { MicroCMSContent } from '../microcms'
 import style from './BaseSwiper.module.scss'
-import { PostEntertainment } from '@/components/PostEntertainmentItem'
+import { PostEntertainment, PostEntertainmentItem } from '@/components/PostEntertainmentItem'
 import 'swiper/css'
 import { PostProgressItem } from '@/components/PostProgressItem'
 
@@ -32,7 +32,7 @@ export const BasicSwiper: React.FC<Props> = ({
         return <PostProgressItem content={content} />
         break
       case 'entertainment':
-        return <PostEntertainment content={content} />
+        return <PostEntertainmentItem content={content} />
         break
     }
   }

@@ -13,7 +13,7 @@ export const HeaderCategoryMenu = () => {
       <ul className={style.list}>
         {microCMSCategoryData.contents.map((content) => (
           <li key={content.id} className={style.item}>
-            <Link href={content.id} className={style.itemLink}>
+            <Link href={content.english} className={style.itemLink}>
               <span className={style.itemEn}>{content.english}</span>
               <span className={style.itemJa}>{content.japanese}</span>
             </Link>
