@@ -3,7 +3,7 @@ import type { GetStaticProps, NextPage } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import style from './page.module.scss'
-import { PostEntertainment } from '@/components/PostEntertainmentItem'
+import { PostEntertainmentItem } from '@/components/PostEntertainmentItem'
 import { PostInterviewItem } from '@/components/PostInterviewItem'
 import { PostKnowhowItem } from '@/components/PostKnowhowItem'
 import { PostNewItem } from '@/components/PostNewItem'
@@ -96,7 +96,7 @@ export default async function Home() {
         </h2>
         <div className={style.interviewMain}>
           <div className={style.interviewMainFeature}>
-            {categoryFilteredContents('Interview').map(
+            {categoryFilteredContents('interview').map(
               (content, index) =>
                 index === 0 && (
                   <Link
@@ -134,7 +134,7 @@ export default async function Home() {
             </Link>
           </div>
           <ul className={style.interviewMainList}>
-            {categoryFilteredContents('Interview').map(
+            {categoryFilteredContents('interview').map(
               (content, index) =>
                 index >= 1 &&
                 index <= 4 && (
@@ -211,7 +211,7 @@ export default async function Home() {
             slidesPerView={2.234}
             slidesOffsetBefore={0}
             slidesOffsetAfter={0.04}
-            contents={categoryFilteredContents('Entertainment')}
+            contents={categoryFilteredContents('entertainment')}
           />
         </div>
       </section>
@@ -223,7 +223,7 @@ export default async function Home() {
         </h2>
         <div className={style.knowhowMain}>
           <ul className={style.knowhowMainList}>
-            {categoryFilteredContents('Knowhow').map(
+            {categoryFilteredContents('knowhow').map(
               (content, index) =>
                 index < 4 && (
                   <li key={content.id} className={style.knowhowMainItem}>
@@ -245,7 +245,7 @@ export default async function Home() {
         </h2>
         <div className={style.productsMain}>
           <ul className={style.productsMainList}>
-            {categoryFilteredContents('Products').map(
+            {categoryFilteredContents('products').map(
               (content, index) =>
                 index < 4 && (
                   <li key={content.id} className={style.productsMainItem}>
@@ -272,7 +272,7 @@ export default async function Home() {
             slidesPerView={5.58}
             slidesOffsetBefore={0.04}
             slidesOffsetAfter={0.04}
-            contents={categoryFilteredContents('Progress')}
+            contents={categoryFilteredContents('progress')}
           />
           <div className={style.progressFunction}>
             <div className={style.progressFunctionArrows}>

@@ -1,0 +1,38 @@
+.container {
+}
+.interview {
+  .list {
+    // grid-template-columns: repeat(2, 38rem);
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+  }
+}
+.entertainment {
+  .list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem 1.5rem;
+  }
+}
+.knowhow {
+  .list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+.products {
+  .list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
+  }
+}
+.progress {
+  .list {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+}
+.list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
