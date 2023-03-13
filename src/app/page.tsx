@@ -100,7 +100,7 @@ export default async function Home() {
               (content, index) =>
                 index === 0 && (
                   <Link
-                    href={content.id}
+                    href={`/interview/${content.id}`}
                     key={content.id}
                     className={style.interviewMainFeatureLink}
                   >

@@ -41,6 +41,11 @@ type MicroCMSContentBase = {
   category: BaseStructure<{ japanese: string; english: string }>
   keywords: BaseStructure<
     {
+      id: string
+      createdAt: string
+      updatedAt: string
+      publishedAt: string
+      revisedAt: string
       name: string
     }[]
   >
