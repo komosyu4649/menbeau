@@ -54,35 +54,37 @@ export default async function CategoryDetail({ params }: { params: { slug: strin
           height={detailContent.thumbnail.height}
         />
         {/* content */}
-        <div className={style.content}>
+        <div className={style.headerContent}>
           {/* title */}
-          <div className={style.contentTitle}>
-            <span className={style.contentTitleCategory}>{detailContent.category.english}</span>
-            <h1 className={style.contentTitleInside}>{detailContent.title}</h1>
+          <div className={style.headerContentTitle}>
+            <span className={style.headerContentTitleCategory}>
+              {detailContent.category.english}
+            </span>
+            <h1 className={style.headerContentTitleInside}>{detailContent.title}</h1>
           </div>
           {/* information */}
-          <div className={style.contentInformation}>
+          <div className={style.headerContentInformation}>
             {/* keywordss */}
-            <div className={style.contentInformationKeywords}>
-              <ul className={style.contentInformationList}>
+            <div className={style.headerContentInformationKeywords}>
+              <ul className={style.headerContentInformationList}>
                 {detailContent.keywords.map((keyword) => (
-                  <li key={keyword.id} className={style.contentInformationItem}>
+                  <li key={keyword.id} className={style.headerContentInformationItem}>
                     <Keyword id={keyword.id} name={keyword.name} color='black' />
                   </li>
                 ))}
               </ul>
             </div>
             {/* date */}
-            <time className={style.contentInformationDate}>
+            <time className={style.headerContentInformationDate}>
               {formatDate(detailContent.publishedAt)}
             </time>
           </div>
           {/* introduction */}
-          <p className={`${textStyle.md} ${style.contentIntroduction}`}>
+          <p className={`${textStyle.md} ${style.headerContentIntroduction}`}>
             {detailContent.introduction}
           </p>
           {/* breadcrumb */}
-          <div className={style.breadcrumb}>
+          <div className={style.headerContentBreadcrumb}>
             <Breadcrumb breadcrumb={breadcrumb} />
           </div>
         </div>
