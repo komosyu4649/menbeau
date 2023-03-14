@@ -6,6 +6,8 @@ import { Keyword } from '@/components/Keyword'
 import { formatDate } from '@/lib/dayjs'
 import { MicroCMSCategoryData, MicroCMSContentsData } from '@/lib/microcms'
 import { getMicroCMSData } from '@/lib/microcms/getData'
+import layoutStyle from '@/styles/Layout.module.scss'
+import textStyle from '@/styles/Text.module.scss'
 
 export async function generateStaticParams() {
   const contentsData: MicroCMSContentsData = await getMicroCMSData('contents')
@@ -15,13 +17,14 @@ export async function generateStaticParams() {
   }))
 }
 
-export default async function CategoryDetail({ params }) {
+export default async function CategoryDetail({ params }: { params: { slug: string } }) {
   const { slug } = params
   const contentsData: MicroCMSContentsData = await getMicroCMSData('contents')
   const { contents } = contentsData
   //   console.log(contents)
   const detailContents = contents.filter((content) => slug === content.id)
   const detailContent = detailContents[0]
+  // console.log(detailContent)
 
   const breadcrumb = [
     {
@@ -39,7 +42,7 @@ export default async function CategoryDetail({ params }) {
   ]
 
   return (
-    <article className={style.container}>
+    <article className={`${layoutStyle.md} ${style.container}`}>
       {/* header */}
       <div className={style.header}>
         {/* thumbnail */}
@@ -54,8 +57,8 @@ export default async function CategoryDetail({ params }) {
         <div className={style.content}>
           {/* title */}
           <div className={style.contentTitle}>
-            <span className={style.contentTitleCategory}></span>
-            <h1 className={style.contentTitleInside}></h1>
+            <span className={style.contentTitleCategory}>{detailContent.category.english}</span>
+            <h1 className={style.contentTitleInside}>{detailContent.title}</h1>
           </div>
           {/* information */}
           <div className={style.contentInformation}>
@@ -75,12 +78,24 @@ export default async function CategoryDetail({ params }) {
             </time>
           </div>
           {/* introduction */}
-          <p className={style.contentIntroduction}>{detailContent.introduction}</p>
+          <p className={`${textStyle.md} ${style.contentIntroduction}`}>
+            {detailContent.introduction}
+          </p>
           {/* breadcrumb */}
           <div className={style.breadcrumb}>
             <Breadcrumb breadcrumb={breadcrumb} />
           </div>
         </div>
+      </div>
+      {/* body */}
+      <div className={style.body}>
+        {detailContent.mainContents.map((content, index) => (
+          <div
+            key={index}
+            className={style.bodyContents}
+            dangerouslySetInnerHTML={{ __html: content.contents }}
+          ></div>
+        ))}
       </div>
     </article>
   )
