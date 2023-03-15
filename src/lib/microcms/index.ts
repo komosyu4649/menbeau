@@ -28,15 +28,26 @@ type MicroCMSContentBase = {
   title: string
   introduction: string
   mainContents: ContentsCustomfield[]
-  related: ContentStructure<
-    {
-      thumbnail: Thumbnail
-      title: string
-      introduction: string
-      mainContents: ContentsCustomfield[]
-      related: []
-    }[]
-  >
+  related: BaseStructure<{
+    thumbnail: Thumbnail
+    title: string
+    introduction: string
+    mainContents: ContentsCustomfield[]
+    related: []
+    pickup: boolean
+    category: BaseStructure<{ japanese: string; english: string }>
+    keywords: BaseStructure<
+      {
+        id: string
+        createdAt: string
+        updatedAt: string
+        publishedAt: string
+        revisedAt: string
+        name: string
+      }[]
+    >
+    interviewee: ContentsCustomfield
+  }>[]
   pickup: boolean
   category: BaseStructure<{ japanese: string; english: string }>
   keywords: BaseStructure<
