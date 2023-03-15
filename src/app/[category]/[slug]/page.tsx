@@ -44,9 +44,9 @@ export default async function CategoryDetail({ params }: { params: { slug: strin
   ]
 
   return (
-    <div className={layoutStyle.md}>
+    <div className={`${layoutStyle.md} ${style.container}`}>
       {/* main */}
-      <article className={style.container}>
+      <article className={style.main}>
         {/* header */}
         <div className={style.header}>
           {/* thumbnail */}

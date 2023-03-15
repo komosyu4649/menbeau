@@ -1,4 +1,7 @@
 .container {
+  margin-bottom: 20rem;
+}
+.main {
   margin-top: 20rem;
 }
 .header {
@@ -117,4 +120,19 @@
     line-height: 2;
     list-style-type: disc;
   }
+}
+.relation {
+  margin-top: 12rem;
+  padding-top: 6rem;
+  border-top: 2px solid var(--color-black);
+}
+.relationTitle {
+  margin-bottom: 3rem;
+}
+.relationMain {
+}
+.relationMainList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
 }
