@@ -19,7 +19,7 @@ export const Keyword: React.FC<Props> = (props) => {
     }
   }
   return (
-    <Link href={id} className={`${selectColor(color)} ${style.main}`}>
+    <Link href={`/${id}`} className={`${selectColor(color)} ${style.main}`}>
       {name}
     </Link>
   )

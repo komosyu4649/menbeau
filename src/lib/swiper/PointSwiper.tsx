@@ -37,7 +37,10 @@ export const PointSwiper: React.FC<Props> = ({ contents }) => {
             <SwiperSlide>
               <div key={content.id} className={style.item}>
                 {/* img */}
-                <Link href={content.id} className={style.itemImage}>
+                <Link
+                  href={`/${content.category.english}/${content.id}`}
+                  className={style.itemImage}
+                >
                   <Image
                     className={style.itemImageInside}
                     src={content.thumbnail.url}

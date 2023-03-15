@@ -10,7 +10,7 @@ type Props = MicroCMSContent
 
 export const PostNewItem: React.FC<{ content: Props }> = ({ content }) => {
   return (
-    <Link href={content.id} className={style.itemLink}>
+    <Link href={`/${content.category.english}/${content.id}`} className={style.itemLink}>
       <Image
         className={style.itemImage}
         src={content.thumbnail.url}
