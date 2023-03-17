@@ -8,15 +8,17 @@ import { getMicroCMSData } from '@/lib/microcms/getData'
 import layoutStyle from '@/styles/Layout.module.scss'
 
 export async function generateStaticParams() {
-  const categoriesDta: MicroCMSCategoryData = await getMicroCMSData('categories')
-  return categoriesDta.contents.map((content) => ({
-    category: content.english || 'all',
+  const categoriesData: MicroCMSCategoryData = await getMicroCMSData('categories')
+  return categoriesData.contents.map((content) => ({
+    // category: content.english || 'all',
+    category: content.english,
   }))
 }
 
 export default async function Category({ params }: { params: { category: string } }) {
   const { category } = params
-  const categoryName: string = category || 'all'
+  // const categoryName: string = category || 'all'
+  const categoryName: string = category
   const contentsData: MicroCMSContentsData = await getMicroCMSData('contents')
   const { contents } = contentsData
   const categoryFilteredContents = (categoryName: string) =>
