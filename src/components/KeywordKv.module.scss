@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 20rem;
+}
+.title {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.titleEn {
+  color: var(--color-key);
+  font-size: 2rem;
+  font-family: var(--font-lexend);
+  font-weight: bold;
+}
+.titleJa {
+  font-size: 4.8rem;
+  font-weight: bold;
+}
+.titleJaKeyword {
+  margin-right: 2rem;
+}

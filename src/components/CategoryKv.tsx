@@ -9,8 +9,8 @@ type Props = {
 }
 
 export const CategoryKv: React.FC<Props> = ({ category }) => {
-  const categoriesDta: MicroCMSCategoryData = use(getMicroCMSData('categories'))
-  const categoryData = categoriesDta.contents.filter((content) => content.english === category)
+  const categoriesData: MicroCMSCategoryData = use(getMicroCMSData('categories'))
+  const categoryData = categoriesData.contents.filter((content) => content.english === category)
   const titleEn = categoryData[0]?.english || 'all'
   const titleJa = categoryData[0]?.japanese || 'すべての記事'
 
