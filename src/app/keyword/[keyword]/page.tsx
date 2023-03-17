@@ -1,6 +1,7 @@
 import React from 'react'
 import style from './page.module.scss'
 import { CategoryMain } from '@/components/CategoryMain'
+import { KeywordKv } from '@/components/KeywordKv'
 import { Sidebar } from '@/components/Sidebar'
 import { MicroCMSContentsData, MicroCMSKeywordsData } from '@/lib/microcms'
 import { getMicroCMSData } from '@/lib/microcms/getData'
@@ -13,13 +14,11 @@ export async function generateStaticParams() {
   }))
 }
 
-export default async function Keyword({ params }) {
+export default async function Keyword({ params }: { params: { keyword: string } }) {
   const { keyword } = params
-  // console.log(params)
   const contentData: MicroCMSContentsData = await getMicroCMSData('contents')
   const { contents } = contentData
-  // console.log(contents)
-  const keywordFilteredContents = (keyword) =>
+  const keywordFilteredContents = (keyword: string) =>
     contents.filter((content) =>
       content.keywords
         .map((contentKeyword) => {
@@ -27,9 +26,9 @@ export default async function Keyword({ params }) {
         })
         .includes(keyword),
     )
-  console.log(keywordFilteredContents(keyword))
   return (
     <div className={layoutStyle.lg}>
+      <KeywordKv keyword={keyword} />
       <div className={style.main}>
         <Sidebar />
         <CategoryMain contents={keywordFilteredContents(keyword)} categoryName='all' />
