@@ -10,22 +10,29 @@ export const getMicroCMSData = async (contentId: string) => {
   return res
 }
 
-export const getMicroCMSDataList = async (
+// 参考
+// https://blog.microcms.io/nuxt-jamstack-paging/
+// https://www.tyai-a.com/posts/microcms-filter-posts
+export async function getMicroCMSDataList(
   contentId: string,
   offsetNumber: number = 0,
   limitNumber: number = 100,
-  category?: string,
-) => {
-  const queries: { [key: string]: any } = {
-    offset: offsetNumber,
-    limit: limitNumber,
-  }
-  if (category) {
-    queries.filter = `category[equals]${category}`
-  }
+  categoryId?: string,
+) {
+  // const queries: { [key: string]: any } = {
+  //   offset: offsetNumber,
+  //   limit: limitNumber,
+  // }
+  // if (category) {
+  //   queries.filter = `category.english[equals]${category}`
+  // }
   const res = await client.getList({
     endpoint: contentId,
-    queries,
+    queries: {
+      offset: offsetNumber,
+      limit: limitNumber,
+      filters: `category[equals]${categoryId}`,
+    },
   })
   return res
 }

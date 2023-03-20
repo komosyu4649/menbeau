@@ -5,6 +5,7 @@ import { useRouter, usePathname } from 'next/navigation'
 import React from 'react'
 import style from './Pagination.module.scss'
 import { PER_PAGE } from '@/constants'
+import textStyle from '@/styles/Text.module.scss'
 
 type Props = {
   totalCount: number
@@ -13,6 +14,7 @@ type Props = {
 }
 
 export const Pagination: React.FC<Props> = ({ totalCount, pageName, currentNumber }) => {
+  // console.log(pageName)
   const router = usePathname()
   const allPageNumber: number = Math.ceil(totalCount / PER_PAGE)
   let pageNumber: number
@@ -56,7 +58,7 @@ export const Pagination: React.FC<Props> = ({ totalCount, pageName, currentNumbe
       {allPageNumber > 1 && (
         <nav className={style.container}>
           <Link
-            href={`/${pageName}/page/${pageNumber}`}
+            href={`/${pageName}/page/${pageNumber - 1}`}
             className={`${style.prev} ${style.itemLink} ${pageNumber === 1 && style.current}`}
           >
             <svg
@@ -66,7 +68,7 @@ export const Pagination: React.FC<Props> = ({ totalCount, pageName, currentNumbe
               fill='none'
               xmlns='http://www.w3.org/2000/svg'
             >
-              <path d='M7 1L1 7L7 13' stroke='white' />
+              <path d='M7 1L1 7L7 13' stroke='black' />
             </svg>
           </Link>
           <ul className={style.list}>
@@ -75,19 +77,21 @@ export const Pagination: React.FC<Props> = ({ totalCount, pageName, currentNumbe
                 {typeof page === 'number' ? (
                   <Link
                     href={`/${pageName}/page/${page}`}
-                    className={`${style.itemLink} ${page === pageNumber && style.current}`}
+                    className={`${textStyle.enMd} ${style.itemLink} ${
+                      page === pageNumber && style.current
+                    }`}
                   >
                     {page}
                   </Link>
                 ) : (
-                  <span className={style.itemDott}>{page}</span>
+                  <span className={`${textStyle.enMd} ${style.itemDott}`}>{page}</span>
                 )}
               </li>
             ))}
           </ul>
           <Link
-            href={`/${pageName}/page/${pageNumber}`}
-            className={`${style.prev} ${style.itemLink} ${
+            href={`/${pageName}/page/${pageNumber + 1}`}
+            className={`${style.next} ${style.itemLink} ${
               pageNumber === allPageNumber && style.current
             }`}
           >
@@ -98,7 +102,7 @@ export const Pagination: React.FC<Props> = ({ totalCount, pageName, currentNumbe
               fill='none'
               xmlns='http://www.w3.org/2000/svg'
             >
-              <path d='M1 13L7 7L0.999999 1' stroke='white' />
+              <path d='M1 13L7 7L0.999999 1' stroke='black' />
             </svg>
           </Link>
         </nav>
