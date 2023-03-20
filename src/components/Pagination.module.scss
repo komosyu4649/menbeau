@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  //   justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  width: 100%;
+}
+.list {
+  display: flex;
+  flex-direction: row;
+  // gap: 1rem;
+}
+.itemLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // padding: 4rem;
+  width: 7rem;
+  height: 7rem;
+}
+.current.itemLink {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  border-radius: 50%;
+  // aspect-ratio: 1;
+}
+.current.prev {
+  pointer-events: none;
+  visibility: hidden;
+}
+.current.next {
+  pointer-events: none;
+  visibility: hidden;
+}
