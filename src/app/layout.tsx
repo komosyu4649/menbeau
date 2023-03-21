@@ -1,5 +1,5 @@
 import '@/styles/index.scss'
-import { ClientCom } from '@/components/ClientCom'
+import { ClientCom } from '@/components/RecoilComponent'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import { lexend, notoSans } from '@/fonts'

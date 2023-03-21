@@ -9,6 +9,11 @@ import { PostKnowhowItem } from '@/components/PostKnowhowItem'
 import { PostNewItem } from '@/components/PostNewItem'
 import { PostProductsItem } from '@/components/PostProductsItem'
 import { PostProgressItem } from '@/components/PostProgressItem'
+import {
+  MICROCMS_CONTENTS_TYPE_CATEGORIES,
+  MICROCMS_CONTENTS_TYPE_CONTENTS,
+  MICROCMS_CONTENTS_TYPE_KEYWORDS,
+} from '@/constants'
 import { MicroCMSContentsData } from '@/lib/microcms'
 import { client } from '@/lib/microcms/apis'
 import { getMicroCMSData } from '@/lib/microcms/getData'
@@ -21,11 +26,11 @@ import textStyle from '@/styles/Text.module.scss'
 import titleStyle from '@/styles/Title.module.scss'
 
 export default async function Home() {
-  const categoriesData = await getMicroCMSData('categories')
+  const categoriesData = await getMicroCMSData(MICROCMS_CONTENTS_TYPE_CATEGORIES)
   fs.writeFileSync('public/json/microCMSCategoryData.json', JSON.stringify(categoriesData))
-  const keywordsData = await getMicroCMSData('keywords')
+  const keywordsData = await getMicroCMSData(MICROCMS_CONTENTS_TYPE_KEYWORDS)
   fs.writeFileSync('public/json/microCMSKeywordData.json', JSON.stringify(keywordsData))
-  const contentsData: MicroCMSContentsData = await getMicroCMSData('contents')
+  const contentsData: MicroCMSContentsData = await getMicroCMSData(MICROCMS_CONTENTS_TYPE_CONTENTS)
   const { contents } = contentsData
   const categoryFilteredContents = (category: string) =>
     contents.filter((content) => content.category?.english === category)

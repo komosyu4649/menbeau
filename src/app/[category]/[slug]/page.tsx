@@ -4,6 +4,7 @@ import style from './page.module.scss'
 import { Breadcrumb } from '@/components/Breadcrumb'
 import { Keyword } from '@/components/Keyword'
 import { PostNewItem } from '@/components/PostNewItem'
+import { MICROCMS_CONTENTS_TYPE_CONTENTS } from '@/constants'
 import { formatDate } from '@/lib/dayjs'
 import { MicroCMSCategoryData, MicroCMSContent, MicroCMSContentsData } from '@/lib/microcms'
 import { getMicroCMSData } from '@/lib/microcms/getData'
@@ -12,7 +13,7 @@ import textStyle from '@/styles/Text.module.scss'
 import titleStyle from '@/styles/Title.module.scss'
 
 export async function generateStaticParams() {
-  const contentsData: MicroCMSContentsData = await getMicroCMSData('contents')
+  const contentsData: MicroCMSContentsData = await getMicroCMSData(MICROCMS_CONTENTS_TYPE_CONTENTS)
   return contentsData.contents.map((content) => ({
     category: content.category?.english,
     slug: content.id,
@@ -21,7 +22,7 @@ export async function generateStaticParams() {
 
 export default async function CategoryDetail({ params }: { params: { slug: string } }) {
   const { slug } = params
-  const contentsData: MicroCMSContentsData = await getMicroCMSData('contents')
+  const contentsData: MicroCMSContentsData = await getMicroCMSData(MICROCMS_CONTENTS_TYPE_CONTENTS)
   const { contents } = contentsData
   //   console.log(contents)
   const detailContents = contents.filter((content) => slug === content.id)

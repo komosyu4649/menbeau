@@ -4,17 +4,19 @@ import { CategoryKv } from '@/components/CategoryKv'
 import { CategoryMain } from '@/components/CategoryMain'
 import { Pagination } from '@/components/Pagination'
 import { Sidebar } from '@/components/Sidebar'
-import { PER_PAGE } from '@/constants'
-import { MicroCMSCategoryData, MicroCMSContentsData } from '@/lib/microcms'
 import {
-  getCategoryContentCount,
-  getMicroCMSData,
-  getMicroCMSDataList,
-} from '@/lib/microcms/getData'
+  MICROCMS_CONTENTS_TYPE_CATEGORIES,
+  MICROCMS_CONTENTS_TYPE_CONTENTS,
+  PER_PAGE,
+} from '@/constants'
+import { MicroCMSCategoryData, MicroCMSContentsData } from '@/lib/microcms'
+import { getMicroCMSData, getMicroCMSDataList } from '@/lib/microcms/getData'
 import layoutStyle from '@/styles/Layout.module.scss'
 
 export async function generateStaticParams() {
-  const categoriesData: MicroCMSCategoryData = await getMicroCMSData('categories')
+  const categoriesData: MicroCMSCategoryData = await getMicroCMSData(
+    MICROCMS_CONTENTS_TYPE_CATEGORIES,
+  )
   return categoriesData.contents.map((content) => ({
     category: content.english,
   }))
@@ -23,11 +25,13 @@ export async function generateStaticParams() {
 export default async function Category({ params }: { params: { category: string } }) {
   const { category } = params
   const categoryName: string = category || 'all'
-  const categoriesData: MicroCMSCategoryData = await getMicroCMSData('categories')
+  const categoriesData: MicroCMSCategoryData = await getMicroCMSData(
+    MICROCMS_CONTENTS_TYPE_CATEGORIES,
+  )
   const categoryData = categoriesData.contents.filter((content) => content.english === category)
   const categoryId = categoryData[0]?.id
   const contentsData: MicroCMSContentsData = await getMicroCMSDataList(
-    'contents',
+    MICROCMS_CONTENTS_TYPE_CONTENTS,
     0,
     PER_PAGE,
     categoryId,
