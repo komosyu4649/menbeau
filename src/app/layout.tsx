@@ -1,4 +1,5 @@
 import '@/styles/index.scss'
+import { ClientCom } from '@/components/ClientCom'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import { lexend, notoSans } from '@/fonts'
@@ -12,7 +13,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       */}
       <head />
       <body>
-        <Header />
+        <ClientCom>
+          <Header />
+        </ClientCom>
         {children}
         <Footer />
       </body>

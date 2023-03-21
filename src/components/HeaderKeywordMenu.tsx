@@ -1,19 +1,25 @@
 import { use } from 'react'
 import style from './HeaderKeywordMenu.module.scss'
 import { Keyword } from './Keyword'
+import { useHeaderMenuHidden } from '@/hooks/useHeaderMenuHidden'
 import { MicroCMSKeywordsData } from '@/lib/microcms'
 import { getMicroCMSData } from '@/lib/microcms/getData'
 import microCMSKeywordData from 'public/json/microCMSKeywordData.json'
 
 export const HeaderKeywordMenu = () => {
-  // const keywordsData: MicroCMSKeywordsData = use(getMicroCMSData('keywords'))
+  const { handleClickVisibleMenu } = useHeaderMenuHidden()
 
   return (
     <div className={style.container}>
       <ul className={style.list}>
         {microCMSKeywordData.contents.map((content) => (
           <li key={content.id} className={style.item}>
-            <Keyword id={content.id} name={content.name} color='white' />
+            <Keyword
+              id={content.id}
+              name={content.name}
+              color='white'
+              onClick={handleClickVisibleMenu}
+            />
           </li>
         ))}
       </ul>
