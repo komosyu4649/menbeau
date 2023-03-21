@@ -27,7 +27,7 @@ export default async function Category({ params }: { params: { category: string 
   const categoriesData: MicroCMSCategoryData = await getMicroCMSData('categories')
   const categoryData = categoriesData.contents.filter((content) => content.english === category)
   const categoryId = categoryData[0].id
-  console.log(categoryId)
+  // console.log(categoryId)
   const contentsData: MicroCMSContentsData = await getMicroCMSDataList(
     'contents',
     0,

@@ -2,12 +2,15 @@
 
 import Link from 'next/link'
 import { Suspense, useCallback, useState } from 'react'
+import { RecoilRoot, useRecoilState } from 'recoil'
 import { ClientCom } from './ClientCom'
 import style from './Header.module.scss'
 import { HeaderCategoryMenu } from './HeaderCategoryMenu'
 import { HeaderKeywordMenu } from './HeaderKeywordMenu'
+import { useHeaderMenuHidden } from '@/hooks/useHeaderMenuHidden'
 import { MicroCMSCategoryData } from '@/lib/microcms'
 import { getMicroCMSData } from '@/lib/microcms/getData'
+import { headerMenuOpen } from '@/store/headerMenuState'
 
 /**
  * TODO: categoryとkeywordsをrscに書き換えたい。バケツリレーになるからグローバルで持っておく
@@ -33,8 +36,7 @@ export const Header: React.FC = () => {
     },
   ]
 
-  const [menuHidden, setMenuHidden] = useState(false)
-  const handleClickVisibleMenu = useCallback(() => setMenuHidden((prev) => !prev), [])
+  const { handleClickVisibleMenu, menuHidden } = useHeaderMenuHidden()
 
   return (
     <header className={style.container}>
@@ -75,7 +77,11 @@ export const Header: React.FC = () => {
                 <ul className={style.menuOthersNavList}>
                   {otherMenus.map((otherMenu) => (
                     <li key={otherMenu.name} className={style.menuOthersNavItem}>
-                      <Link href={otherMenu.href} className={style.menuOthersNavItemLink}>
+                      <Link
+                        href={otherMenu.href}
+                        className={style.menuOthersNavItemLink}
+                        onClick={handleClickVisibleMenu}
+                      >
                         {otherMenu.name}
                       </Link>
                     </li>
