@@ -1,6 +1,7 @@
 import React, { use } from 'react'
 import { Breadcrumb } from './Breadcrumb'
 import style from './CategoryKv.module.scss'
+import { MICROCMS_CONTENTS_TYPE_CATEGORIES } from '@/constants'
 import { MicroCMSCategoryData } from '@/lib/microcms'
 import { getMicroCMSData } from '@/lib/microcms/getData'
 
@@ -9,7 +10,9 @@ type Props = {
 }
 
 export const CategoryKv: React.FC<Props> = ({ category }) => {
-  const categoriesData: MicroCMSCategoryData = use(getMicroCMSData('categories'))
+  const categoriesData: MicroCMSCategoryData = use(
+    getMicroCMSData(MICROCMS_CONTENTS_TYPE_CATEGORIES),
+  )
   const categoryData = categoriesData.contents.filter((content) => content.english === category)
   const titleEn = categoryData[0]?.english || 'all'
   const titleJa = categoryData[0]?.japanese || 'すべての記事'

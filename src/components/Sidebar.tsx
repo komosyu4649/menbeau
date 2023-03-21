@@ -4,12 +4,15 @@ import { Keyword } from './Keyword'
 import style from './Sidebar.module.scss'
 import { SidebarCategory } from './SidebarCategory'
 import { SidebarKeyword } from './SidebarKeyword'
+import { MICROCMS_CONTENTS_TYPE_CATEGORIES, MICROCMS_CONTENTS_TYPE_KEYWORDS } from '@/constants'
 import { MicroCMSCategoryData, MicroCMSKeywordsData } from '@/lib/microcms'
 import { getMicroCMSData } from '@/lib/microcms/getData'
 
 export const Sidebar: React.FC = () => {
-  const categoriesData: MicroCMSCategoryData = use(getMicroCMSData('categories'))
-  const keywordsData: MicroCMSKeywordsData = use(getMicroCMSData('keywords'))
+  const categoriesData: MicroCMSCategoryData = use(
+    getMicroCMSData(MICROCMS_CONTENTS_TYPE_CATEGORIES),
+  )
+  const keywordsData: MicroCMSKeywordsData = use(getMicroCMSData(MICROCMS_CONTENTS_TYPE_KEYWORDS))
   return (
     <div className={style.container}>
       <SidebarCategory />
