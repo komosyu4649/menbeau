@@ -17,7 +17,6 @@ export async function generateStaticParams() {
   const categoriesData: MicroCMSCategoryData = await getMicroCMSData('categories')
   return categoriesData.contents.map((content) => ({
     category: content.english,
-    // category: content.english,
   }))
 }
 
@@ -26,8 +25,7 @@ export default async function Category({ params }: { params: { category: string 
   const categoryName: string = category || 'all'
   const categoriesData: MicroCMSCategoryData = await getMicroCMSData('categories')
   const categoryData = categoriesData.contents.filter((content) => content.english === category)
-  const categoryId = categoryData[0].id
-  // console.log(categoryId)
+  const categoryId = categoryData[0]?.id
   const contentsData: MicroCMSContentsData = await getMicroCMSDataList(
     'contents',
     0,
@@ -35,10 +33,6 @@ export default async function Category({ params }: { params: { category: string 
     categoryId,
   )
   const { contents, totalCount } = contentsData
-  // console.log(contents)
-  // const categoryFilteredContents = (categoryName: string) =>
-  //   contents.filter((content) => categoryName === content.category.english)
-  const categoryContentCount = await getCategoryContentCount('contents', category)
 
   return (
     <div className={`${style.container} ${layoutStyle.lg}`}>
@@ -46,21 +40,9 @@ export default async function Category({ params }: { params: { category: string 
       <div className={style.main}>
         <Sidebar />
         <div className={style.mainContents}>
-          <CategoryMain
-            contents={
-              contents
-              // categoryFilteredContents(categoryName).length === 0
-              //   ? contents
-              //   : categoryFilteredContents(categoryName)
-            }
-            categoryName={categoryName}
-          />
+          <CategoryMain contents={contents} categoryName={categoryName} />
           <div className={style.mainContentsPagination}>
-            <Pagination
-              totalCount={categoryContentCount || totalCount}
-              pageName={categoryName}
-              currentNumber={1}
-            />
+            <Pagination totalCount={totalCount} pageName={categoryName} currentNumber={1} />
           </div>
         </div>
       </div>
