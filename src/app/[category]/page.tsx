@@ -1,4 +1,3 @@
-import React from 'react'
 import style from './page.module.scss'
 import { CategoryKv } from '@/components/CategoryKv'
 import { CategoryMain } from '@/components/CategoryMain'

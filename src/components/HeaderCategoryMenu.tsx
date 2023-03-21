@@ -1,11 +1,6 @@
 import Link from 'next/link'
-import { use, useCallback, useState } from 'react'
-import { useRecoilState } from 'recoil'
 import style from './HeaderCategoryMenu.module.scss'
 import { useHeaderMenuHidden } from '@/hooks/useHeaderMenuHidden'
-import { MicroCMSCategoryData } from '@/lib/microcms'
-import { getMicroCMSData } from '@/lib/microcms/getData'
-import { headerMenuOpen } from '@/store/headerMenuState'
 import microCMSCategoryData from 'public/json/microCMSCategoryData.json'
 
 export const HeaderCategoryMenu = () => {

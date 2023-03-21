@@ -1,8 +1,4 @@
-import { useCallback, useState } from 'react'
-import { atom, useRecoilState } from 'recoil'
-
-// const [menuHidden, setMenuHidden] = useState(false)
-// const handleClickVisibleMenu = useCallback(() => setMenuHidden((prev) => !prev), [])
+import { atom } from 'recoil'
 
 export const headerMenuOpen = atom({
   key: 'header-menu-state',

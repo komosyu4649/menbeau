@@ -1,5 +1,4 @@
 .container {
-  // position: relative;
   position: fixed;
   top: 0;
   left: 0;
@@ -21,7 +20,6 @@
   width: 6.4rem;
   height: 6.4rem;
   background-color: var(--color-black);
-  // border: 2px solid var(--color-white);
   border-radius: 50%;
   z-index: 6;
 }
@@ -50,12 +48,10 @@
   height: 100vh;
   padding: 10rem 16rem;
   background-color: var(--color-key);
-  // background-color: var(--color-black);
   z-index: 5;
 }
 .menuInner {
   display: grid;
-  // grid-template-columns: 1fr 1fr 1fr;
   grid-template-columns: auto 34rem auto;
   gap: 12rem;
   width: 100%;
