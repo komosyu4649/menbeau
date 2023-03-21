@@ -40,7 +40,7 @@ export default async function Category({ params }: { params: Props }) {
   const categoryName: string = category || 'all'
   const categoriesData: MicroCMSCategoryData = await getMicroCMSData('categories')
   const categoryData = categoriesData.contents.filter((content) => content.english === category)
-  const categoryId = categoryData[0].id
+  const categoryId = categoryData[0]?.id
   const contentsData: MicroCMSContentsData = await getMicroCMSDataList(
     'contents',
     (currentNumber - 1) * PER_PAGE,
@@ -50,9 +50,7 @@ export default async function Category({ params }: { params: Props }) {
   const { contents, totalCount } = contentsData
 
   const categoryContentCount = await getCategoryContentCount('contents', category)
-
-  // const categoryFilteredContents = (categoryName: string) =>
-  //   contents.filter((content) => categoryName === content.category?.english)
+  console.log(categoryContentCount, totalCount)
 
   return (
     <div className={`${style.container} ${layoutStyle.lg}`}>
@@ -60,15 +58,7 @@ export default async function Category({ params }: { params: Props }) {
       <div className={style.main}>
         <Sidebar />
         <div className={style.mainContents}>
-          <CategoryMain
-            contents={
-              contents
-              // categoryFilteredContents(categoryName).length === 0
-              //   ? contents
-              //   : categoryFilteredContents(categoryName)
-            }
-            categoryName={categoryName}
-          />
+          <CategoryMain contents={contents} categoryName={categoryName} />
           <div className={style.mainContentsPagination}>
             <Pagination
               totalCount={categoryContentCount || totalCount}

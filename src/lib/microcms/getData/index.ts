@@ -31,7 +31,7 @@ export async function getMicroCMSDataList(
     queries: {
       offset: offsetNumber,
       limit: limitNumber,
-      filters: `category[equals]${categoryId}`,
+      filters: categoryId ? `category[equals]${categoryId}` : '',
     },
   })
   return res
