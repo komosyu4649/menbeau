@@ -14,6 +14,12 @@ export const HeaderCategoryMenu = () => {
   return (
     <div className={style.container}>
       <ul className={style.list}>
+        <li className={style.item}>
+          <Link href='/all' className={style.itemLink} onClick={handleClickVisibleMenu}>
+            <span className={style.itemEn}>all</span>
+            <span className={style.itemJa}>すべての記事</span>
+          </Link>
+        </li>
         {microCMSCategoryData.contents.map((content) => (
           <li key={content.id} className={style.item}>
             <Link
