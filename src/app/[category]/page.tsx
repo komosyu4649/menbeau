@@ -33,7 +33,6 @@ export default async function Category({ params }: { params: { category: string 
     categoryId,
   )
   const { contents, totalCount } = contentsData
-  const categoryContentCount = await getCategoryContentCount('contents', category)
 
   return (
     <div className={`${style.container} ${layoutStyle.lg}`}>
@@ -43,11 +42,7 @@ export default async function Category({ params }: { params: { category: string 
         <div className={style.mainContents}>
           <CategoryMain contents={contents} categoryName={categoryName} />
           <div className={style.mainContentsPagination}>
-            <Pagination
-              totalCount={categoryContentCount || totalCount}
-              pageName={categoryName}
-              currentNumber={1}
-            />
+            <Pagination totalCount={totalCount} pageName={categoryName} currentNumber={1} />
           </div>
         </div>
       </div>
