@@ -1,12 +1,11 @@
 import Image from 'next/image'
-import React from 'react'
 import style from './page.module.scss'
 import { Breadcrumb } from '@/components/Breadcrumb'
 import { Keyword } from '@/components/Keyword'
 import { PostNewItem } from '@/components/PostNewItem'
 import { MICROCMS_CONTENTS_TYPE_CONTENTS } from '@/constants'
 import { formatDate } from '@/lib/dayjs'
-import { MicroCMSCategoryData, MicroCMSContent, MicroCMSContentsData } from '@/lib/microcms'
+import { MicroCMSContentsData } from '@/lib/microcms'
 import { getMicroCMSData } from '@/lib/microcms/getData'
 import layoutStyle from '@/styles/Layout.module.scss'
 import textStyle from '@/styles/Text.module.scss'
@@ -24,10 +23,8 @@ export default async function CategoryDetail({ params }: { params: { slug: strin
   const { slug } = params
   const contentsData: MicroCMSContentsData = await getMicroCMSData(MICROCMS_CONTENTS_TYPE_CONTENTS)
   const { contents } = contentsData
-  //   console.log(contents)
   const detailContents = contents.filter((content) => slug === content.id)
   const detailContent = detailContents[0]
-  // console.log(detailContent)
 
   const breadcrumb = [
     {

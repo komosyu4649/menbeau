@@ -5,7 +5,7 @@ import { MICROCMS_CONTENTS_TYPE_KEYWORDS } from '@/constants'
 import { MicroCMSKeywordsData } from '@/lib/microcms'
 import { getMicroCMSData } from '@/lib/microcms/getData'
 
-export const SidebarKeyword = () => {
+export const SidebarKeyword: React.FC = () => {
   const keywordsData: MicroCMSKeywordsData = use(getMicroCMSData(MICROCMS_CONTENTS_TYPE_KEYWORDS))
   return (
     <nav>

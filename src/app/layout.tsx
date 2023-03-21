@@ -1,7 +1,7 @@
 import '@/styles/index.scss'
-import { ClientCom } from '@/components/RecoilComponent'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
+import { RecoilComponent } from '@/components/RecoilComponent'
 import { lexend, notoSans } from '@/fonts'
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -13,9 +13,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       */}
       <head />
       <body>
-        <ClientCom>
+        <RecoilComponent>
           <Header />
-        </ClientCom>
+        </RecoilComponent>
         {children}
         <Footer />
       </body>

@@ -1,4 +1,3 @@
-import React from 'react'
 import style from './page.module.scss'
 import { CategoryMain } from '@/components/CategoryMain'
 import { KeywordKv } from '@/components/KeywordKv'

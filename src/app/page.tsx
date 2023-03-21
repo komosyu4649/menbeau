@@ -1,28 +1,23 @@
 import fs from 'fs'
-import type { GetStaticProps, NextPage } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import style from './page.module.scss'
-import { PostEntertainmentItem } from '@/components/PostEntertainmentItem'
 import { PostInterviewItem } from '@/components/PostInterviewItem'
 import { PostKnowhowItem } from '@/components/PostKnowhowItem'
 import { PostNewItem } from '@/components/PostNewItem'
 import { PostProductsItem } from '@/components/PostProductsItem'
-import { PostProgressItem } from '@/components/PostProgressItem'
 import {
   MICROCMS_CONTENTS_TYPE_CATEGORIES,
   MICROCMS_CONTENTS_TYPE_CONTENTS,
   MICROCMS_CONTENTS_TYPE_KEYWORDS,
 } from '@/constants'
 import { MicroCMSContentsData } from '@/lib/microcms'
-import { client } from '@/lib/microcms/apis'
 import { getMicroCMSData } from '@/lib/microcms/getData'
 import { BasicSwiper } from '@/lib/swiper/BaseSwiper'
 import { PointSwiper } from '@/lib/swiper/PointSwiper'
 import buttonStyle from '@/styles/Button.module.scss'
 import layoutStyle from '@/styles/Layout.module.scss'
 import swiperStyle from '@/styles/Swiper.module.scss'
-import textStyle from '@/styles/Text.module.scss'
 import titleStyle from '@/styles/Title.module.scss'
 
 export default async function Home() {
@@ -40,35 +35,6 @@ export default async function Home() {
       {/* kv */}
       <section className={`${layoutStyle.default} ${style.kv}`}>
         <PointSwiper contents={contentsData.contents} />
-        {/* <ul className={style.kvList}>
-          {contentsData.contents.flatMap(
-            (content) =>
-              content.pickup && (
-                <li key={content.id} className={style.kvItem}>
-                  <Link href={content.id} className={style.kvItemImage}>
-                    <Image
-                      className={style.kvItemImageInside}
-                      src={content.thumbnail.url}
-                      alt={content.title}
-                      width={content.thumbnail.width}
-                      height={content.thumbnail.height}
-                    />
-                  </Link>
-                  <Link href={content.id} className={style.kvItemContent}>
-                    <div className={style.kvItemContentTitle}>
-                      <span className={style.kvItemContentTitleCategory}>
-                        {content.category?.english}
-                      </span>
-                      <h1 className={style.kvItemContentTitleInside}>{content.title}</h1>
-                    </div>
-                    <p className={`${textStyle.md} ${style.kvItemContentIntroduction}`}>
-                      {content.introduction}
-                    </p>
-                  </Link>
-                </li>
-              ),
-          )}
-        </ul> */}
       </section>
       {/* new contents */}
       <section className={`${layoutStyle.default} ${style.new}`}>
@@ -93,6 +59,7 @@ export default async function Home() {
           </Link>
         </div>
       </section>
+
       {/* interview */}
       <section className={`${layoutStyle.lg} ${style.interview}`}>
         <h2 className={`${titleStyle.section} ${style.interviewTitle}`}>
@@ -151,6 +118,7 @@ export default async function Home() {
           </ul>
         </div>
       </section>
+
       {/* entertainment */}
       <section className={style.entertainment}>
         <h2 className={`${titleStyle.section} ${style.entertainmentTitle}`}>
@@ -220,6 +188,7 @@ export default async function Home() {
           />
         </div>
       </section>
+
       {/* knowhow */}
       <section className={`${layoutStyle.default} ${style.knowhow}`}>
         <h2 className={`${titleStyle.section} ${style.knowhowTitle}`}>
@@ -242,6 +211,7 @@ export default async function Home() {
           </Link>
         </div>
       </section>
+
       {/* products */}
       <section className={`${layoutStyle.default} ${style.products}`}>
         <h2 className={`${titleStyle.section} ${style.productsTitle}`}>
@@ -264,6 +234,7 @@ export default async function Home() {
           </Link>
         </div>
       </section>
+
       {/* progress */}
       <section className={style.progress}>
         <h2 className={`${titleStyle.section} ${style.progressTitle}`}>

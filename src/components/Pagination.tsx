@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useRouter, usePathname } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import React from 'react'
 import style from './Pagination.module.scss'
 import { PER_PAGE } from '@/constants'
@@ -14,7 +14,6 @@ type Props = {
 }
 
 export const Pagination: React.FC<Props> = ({ totalCount, pageName, currentNumber }) => {
-  // console.log(pageName)
   const router = usePathname()
   const allPageNumber: number = Math.ceil(totalCount / PER_PAGE)
   let pageNumber: number

@@ -1,16 +1,10 @@
 'use client'
 
 import Link from 'next/link'
-import { Suspense, useCallback, useState } from 'react'
-import { RecoilRoot, useRecoilState } from 'recoil'
 import style from './Header.module.scss'
 import { HeaderCategoryMenu } from './HeaderCategoryMenu'
 import { HeaderKeywordMenu } from './HeaderKeywordMenu'
-import { RecoilComponent } from './RecoilComponent'
 import { useHeaderMenuHidden } from '@/hooks/useHeaderMenuHidden'
-import { MicroCMSCategoryData } from '@/lib/microcms'
-import { getMicroCMSData } from '@/lib/microcms/getData'
-import { headerMenuOpen } from '@/store/headerMenuState'
 
 /**
  * TODO: categoryとkeywordsをrscに書き換えたい。バケツリレーになるからグローバルで持っておく
@@ -58,7 +52,6 @@ export const Header: React.FC = () => {
       </Link>
       {/* button */}
       <button className={style.buttonToggleMenu} onClick={handleClickVisibleMenu}>
-        {/* <button className={style.buttonToggleMenu}> */}
         <span className={style.buttonToggleMenuLine}></span>
         <span className={style.buttonToggleMenuLine}></span>
       </button>
