@@ -1,3 +1,5 @@
+@use '../styles/variables.scss' as var;
+
 .list {
   display: grid;
   grid-template-columns: auto;
@@ -18,4 +20,16 @@
   font-size: 3.4rem;
   font-family: var(--font-notoSans);
   font-weight: bold;
+}
+
+@media screen and (max-width: var.$sp) {
+  .list {
+    gap: 2rem;
+  }
+  .itemEn {
+    font-size: 1.2rem;
+  }
+  .itemJa {
+    font-size: 2.4rem;
+  }
 }

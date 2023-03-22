@@ -1,3 +1,5 @@
+@use '../styles/variables.scss' as var;
+
 .container {
   position: fixed;
   top: 0;
@@ -9,6 +11,10 @@
   width: 100%;
   padding: 2.5rem 6rem;
   z-index: 5;
+}
+.logoInside {
+  width: 14.4rem;
+  height: 3.5rem;
 }
 .buttonToggleMenu {
   position: relative;
@@ -85,4 +91,51 @@
   right: 1rem;
   width: 4rem;
   height: 4rem;
+}
+
+@media screen and (max-width: var.$sp) {
+  .container {
+    justify-content: center;
+    padding: 2rem;
+  }
+  .logoInside {
+    width: 10.3rem;
+    height: 2.5rem;
+  }
+  .buttonToggleMenu {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 6rem;
+    height: 6rem;
+  }
+  .menu {
+    padding: 4rem 3.8rem;
+    overflow-y: scroll;
+  }
+  .menuInner {
+    grid-template-columns: auto;
+    gap: 5rem;
+    height: 100%;
+  }
+  .menuOthers {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 6rem;
+  }
+  .menuOthersNav {
+    order: 2;
+    margin-top: 2.5rem;
+  }
+  .menuOthersNavList {
+    gap: 1rem;
+    margin: 0;
+  }
+  .menuOthersNavItemLink {
+    font-size: 1.8rem;
+  }
+  .menuSearch {
+    order: 1;
+    margin: 0;
+  }
 }

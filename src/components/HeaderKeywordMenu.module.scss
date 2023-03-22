@@ -1,6 +1,14 @@
+@use '../styles/variables.scss' as var;
+
 .list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 1.5rem;
+}
+
+@media screen and (max-width: var.$sp) {
+  .list {
+    gap: 1rem;
+  }
 }
