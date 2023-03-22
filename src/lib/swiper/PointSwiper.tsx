@@ -21,6 +21,7 @@ export const PointSwiper: React.FC<Props> = ({ contents }) => {
       modules={[EffectFade, Autoplay, Pagination]}
       effect='fade'
       slidesPerView={1}
+      autoHeight={true}
       loop
       speed={500}
       pagination={{

@@ -1,23 +1,25 @@
-@use 'variables' as var;
+@use '../styles/variables.scss' as var;
 
 :root {
   --color-black: #231815;
   --color-key: #4d76a4;
   --color-white: #ffffff;
   --color-black-text: #000000;
+  --breakpoint-pc: 1440px;
+  --breakpoint-sp: 768px;
 }
 
 ::selection {
-  color: var.$key;
-  background: var.$white;
+  color: var(--color-key);
+  background: var(--color-white);
 }
 
 html,
 body {
   padding: 0;
   margin: 0;
-  background-color: var.$white;
-  color: var.$black-text;
+  background-color: var(--color-white);
+  color: var(--color-black-text);
 }
 
 html {

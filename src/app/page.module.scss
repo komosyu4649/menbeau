@@ -1,3 +1,5 @@
+@use '../styles/variables.scss' as var;
+
 .main {
   margin-bottom: 20rem;
 }
@@ -173,4 +175,11 @@
   position: absolute;
   top: -11rem;
   right: calc((50vw - 61.25rem) * 0.5);
+}
+
+@media screen and (max-width: var.$sp) {
+  // kv
+  .kv {
+    margin-top: 8.5rem;
+  }
 }

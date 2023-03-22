@@ -1,3 +1,5 @@
+@use '../../styles/variables.scss' as var;
+
 .container {
 }
 .item {
@@ -45,4 +47,40 @@
 .itemContentIntroduction {
   width: 52rem;
   margin-top: 3.5rem;
+}
+
+@media screen and (max-width: var.$sp) {
+  .item {
+    flex-direction: column;
+    gap: 4rem;
+  }
+  .itemImage {
+    display: flex;
+    justify-content: center;
+  }
+  .itemImageInside {
+    width: 30rem;
+    height: 30rem;
+    border-radius: 8rem;
+  }
+  .itemContent {
+    margin: 0;
+  }
+  .itemContentTitle {
+    margin: 0;
+  }
+  .itemContentTitleCategory {
+    padding: 1rem 1.6rem;
+    font-size: 1.4rem;
+    border-radius: 1.5rem 1.5rem 0 0;
+  }
+  .itemContentTitleInside {
+    padding: 1.5rem 1.6rem;
+    font-size: 2.2rem;
+    line-height: 1.5;
+    border-radius: 0 1.5rem 1.5rem 1.5rem;
+  }
+  .itemContentIntroduction {
+    width: 100%;
+  }
 }
