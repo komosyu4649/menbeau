@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Navigation } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { MicroCMSContent } from '../microcms'
@@ -37,6 +37,11 @@ export const BasicSwiper: React.FC<Props> = ({
     }
   }
 
+  const [windowWidth, setWindowWidth] = useState(0)
+  useEffect(() => {
+    setWindowWidth(window.innerWidth)
+  }, [])
+
   return (
     <div className={style.container}>
       <Swiper
@@ -47,8 +52,8 @@ export const BasicSwiper: React.FC<Props> = ({
         }}
         spaceBetween={spaceBetween}
         slidesPerView={slidesPerView}
-        slidesOffsetAfter={slidesOffsetAfter * window.innerWidth}
-        slidesOffsetBefore={slidesOffsetBefore * window.innerWidth}
+        slidesOffsetAfter={slidesOffsetAfter * windowWidth}
+        slidesOffsetBefore={slidesOffsetBefore * windowWidth}
       >
         {contents.map((content) => (
           <SwiperSlide key={content.id}>{PostItem(content)}</SwiperSlide>

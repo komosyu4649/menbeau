@@ -14,6 +14,12 @@ export const SidebarCategory: React.FC = () => {
       <h2 className={style.title}>Categories</h2>
       <div className={style.menu}>
         <ul className={style.menuList}>
+          <li className={style.menuItem}>
+            <Link href='/' className={style.menuItemLink}>
+              <span className={style.menuItemEn}>all</span>
+              <span className={style.menuItemJp}>すべての記事</span>
+            </Link>
+          </li>
           {categoriesData.contents.map((category) => (
             <li key={category.id} className={style.menuItem}>
               <Link href={category.english} className={style.menuItemLink}>
