@@ -50,7 +50,7 @@ export default async function Home() {
                 !content.pickup &&
                 index < 4 && (
                   <li key={content.id} className={style.newMainItem}>
-                    <PostNewItem content={content} />,
+                    <PostNewItem content={content} />
                   </li>
                 ),
             )}

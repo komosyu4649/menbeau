@@ -1,3 +1,5 @@
+@use '../styles/variables.scss' as var;
+
 .default {
   display: flex;
   justify-content: center;
@@ -11,4 +13,12 @@
   font-weight: bold;
   color: var(--color-white);
   border-radius: 5rem;
+}
+
+@media screen and (max-width: var.$sp) {
+  .default {
+    min-width: 20rem;
+    min-height: 5rem;
+    font-size: 1.3rem;
+  }
 }
