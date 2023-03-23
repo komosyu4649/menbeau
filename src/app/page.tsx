@@ -143,6 +143,7 @@ export default async function Home() {
                   viewBox='0 0 72 72'
                   fill='none'
                   xmlns='http://www.w3.org/2000/svg'
+                  className={style.entertainmentFunctionArrowIcon}
                 >
                   <circle cx='36' cy='36' r='34.5' stroke='#231815' strokeWidth='3' />
                   <path
@@ -161,6 +162,7 @@ export default async function Home() {
                   viewBox='0 0 72 72'
                   fill='none'
                   xmlns='http://www.w3.org/2000/svg'
+                  className={style.entertainmentFunctionArrowIcon}
                 >
                   <circle
                     cx='36'
@@ -184,7 +186,9 @@ export default async function Home() {
           <BasicSwiper
             name='entertainment'
             spaceBetween={15}
+            spSpaceBetween={10}
             slidesPerView={2.234}
+            spSlidesPerView={1.1635}
             slidesOffsetBefore={0}
             slidesOffsetAfter={0.04}
             contents={categoryFilteredContents('entertainment')}

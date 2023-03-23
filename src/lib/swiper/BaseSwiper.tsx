@@ -14,6 +14,7 @@ import { BREAK_POINT } from '@/constants'
 type Props = {
   name: string
   spaceBetween: number
+  spSpaceBetween: number
   slidesPerView: number
   spSlidesPerView?: number
   slidesOffsetAfter: number
@@ -26,6 +27,7 @@ type Props = {
 export const BasicSwiper: React.FC<Props> = ({
   name,
   spaceBetween,
+  spSpaceBetween,
   slidesPerView,
   spSlidesPerView = 1,
   slidesOffsetAfter,
@@ -61,7 +63,7 @@ export const BasicSwiper: React.FC<Props> = ({
           prevEl: `#${name}_swiper_prev`,
           nextEl: `#${name}_swiper_next`,
         }}
-        spaceBetween={spaceBetween}
+        spaceBetween={windowWidth > BREAK_POINT ? spaceBetween : spSpaceBetween}
         slidesPerView={windowWidth > BREAK_POINT ? slidesPerView : spSlidesPerView}
         slidesOffsetAfter={slidesOffsetAfter * windowWidth}
         slidesOffsetBefore={slidesOffsetBefore * windowWidth}

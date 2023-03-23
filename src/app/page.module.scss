@@ -109,6 +109,10 @@
   flex-direction: row;
   gap: 1.5rem;
 }
+.entertainmentFunctionArrowIcon {
+  width: 7.2rem;
+  height: 7.2rem;
+}
 
 // knowhow
 .knowhow {
@@ -252,5 +256,33 @@
   }
   .interviewMainItem {
     width: 30rem;
+  }
+
+  // entertainment
+  .entertainment {
+    position: relative;
+    // margin: 10rem 0 0;
+    margin: 10rem 0 0 calc((100vw - 34rem) * 0.5);
+  }
+  .entertainmentTitle {
+  }
+  .entertainmentMain {
+    grid-template-columns: auto;
+  }
+  .entertainmentFunction {
+    align-items: center;
+    margin: 0;
+    order: 1;
+  }
+  .entertainmentFunctionArrows {
+    position: absolute;
+    top: 1.5rem;
+    right: calc((100vw - 34rem) * 0.5);
+    gap: 0.5rem;
+    margin: 0;
+  }
+  .entertainmentFunctionArrowIcon {
+    width: 4rem;
+    height: 4rem;
   }
 }
