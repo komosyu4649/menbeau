@@ -201,4 +201,56 @@
   .newMainButton {
     margin: 4rem auto 0;
   }
+
+  // interview
+  .interview {
+    margin-top: 10rem;
+  }
+  .interviewMain {
+    grid-template-columns: auto;
+    margin-top: 3rem;
+  }
+  .interviewMainFeatureLink {
+    width: 100%;
+    padding: 2.5rem 2rem 3.5rem;
+  }
+  .interviewMainFeatureImage {
+    width: 24rem;
+    height: 24rem;
+  }
+  .interviewMainFeatureContent {
+    margin-top: 2rem;
+  }
+  .interviewMainFeatureContentTitle {
+    font-size: 1.8rem;
+  }
+  .interviewMainFeatureContentProfile {
+    width: 24rem;
+    margin: 1.5rem auto 0;
+    padding-top: 1.5rem;
+  }
+  .interviewMainFeatureContentProfileImage {
+    width: 4rem;
+    height: 4rem;
+  }
+  .interviewMainFeatureContentProfileName {
+    font-size: 1.4rem;
+  }
+  .interviewMainFeatureButton {
+    margin-top: 2.5rem;
+  }
+  .interviewMainContainer {
+    width: calc(100% + 3.5rem);
+    margin: 0 0 0 -1.75rem;
+    overflow: hidden;
+  }
+  .interviewMainList {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    padding: 0 2rem;
+    overflow-x: scroll;
+  }
+  .interviewMainItem {
+    width: 30rem;
+  }
 }

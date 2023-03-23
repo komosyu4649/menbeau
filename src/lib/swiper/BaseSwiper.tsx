@@ -7,24 +7,32 @@ import { MicroCMSContent } from '../microcms'
 import style from './BaseSwiper.module.scss'
 import { PostEntertainmentItem } from '@/components/PostEntertainmentItem'
 import 'swiper/css'
+import { PostInterviewItem } from '@/components/PostInterviewItem'
 import { PostProgressItem } from '@/components/PostProgressItem'
+import { BREAK_POINT } from '@/constants'
 
 type Props = {
   name: string
   spaceBetween: number
   slidesPerView: number
+  spSlidesPerView?: number
   slidesOffsetAfter: number
   slidesOffsetBefore: number
   contents: MicroCMSContent[]
+  startIndex?: number
+  endIndex?: number
 }
 
 export const BasicSwiper: React.FC<Props> = ({
   name,
   spaceBetween,
   slidesPerView,
+  spSlidesPerView = 1,
   slidesOffsetAfter,
   slidesOffsetBefore,
   contents,
+  startIndex = 0,
+  endIndex = 0,
 }) => {
   const PostItem = (content: MicroCMSContent) => {
     switch (name) {
@@ -33,6 +41,9 @@ export const BasicSwiper: React.FC<Props> = ({
         break
       case 'entertainment':
         return <PostEntertainmentItem content={content} />
+        break
+      case 'interview':
+        return <PostInterviewItem content={content} />
         break
     }
   }
@@ -51,13 +62,15 @@ export const BasicSwiper: React.FC<Props> = ({
           nextEl: `#${name}_swiper_next`,
         }}
         spaceBetween={spaceBetween}
-        slidesPerView={slidesPerView}
+        slidesPerView={windowWidth > BREAK_POINT ? slidesPerView : spSlidesPerView}
         slidesOffsetAfter={slidesOffsetAfter * windowWidth}
         slidesOffsetBefore={slidesOffsetBefore * windowWidth}
       >
-        {contents.map((content) => (
-          <SwiperSlide key={content.id}>{PostItem(content)}</SwiperSlide>
-        ))}
+        {contents.map(
+          (content, index) =>
+            index >= startIndex &&
+            index <= endIndex && <SwiperSlide key={content.id}>{PostItem(content)}</SwiperSlide>,
+        )}
       </Swiper>
     </div>
   )

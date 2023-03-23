@@ -106,17 +106,19 @@ export default async function Home() {
               インタビュー一覧
             </Link>
           </div>
-          <ul className={style.interviewMainList}>
-            {categoryFilteredContents('interview').map(
-              (content, index) =>
-                index >= 1 &&
-                index <= 4 && (
-                  <li key={content.id} className={style.interviewMainItem}>
-                    <PostInterviewItem content={content} />
-                  </li>
-                ),
-            )}
-          </ul>
+          <div className={style.interviewMainContainer}>
+            <ul className={style.interviewMainList}>
+              {categoryFilteredContents('interview').map(
+                (content, index) =>
+                  index >= 1 &&
+                  index <= 4 && (
+                    <li key={content.id} className={style.interviewMainItem}>
+                      <PostInterviewItem content={content} />
+                    </li>
+                  ),
+              )}
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -186,6 +188,8 @@ export default async function Home() {
             slidesOffsetBefore={0}
             slidesOffsetAfter={0.04}
             contents={categoryFilteredContents('entertainment')}
+            startIndex={0}
+            endIndex={3}
           />
         </div>
       </section>
@@ -246,10 +250,12 @@ export default async function Home() {
           <BasicSwiper
             name='progress'
             spaceBetween={10}
-            slidesPerView={5.58}
+            slidesPerView={1}
             slidesOffsetBefore={0.04}
             slidesOffsetAfter={0.04}
             contents={categoryFilteredContents('progress')}
+            startIndex={0}
+            endIndex={7}
           />
           <div className={style.progressFunction}>
             <div className={style.progressFunctionArrows}>
