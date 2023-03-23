@@ -36,6 +36,7 @@ export default async function Home() {
       <section className={`${layoutStyle.default} ${style.kv}`}>
         <PointSwiper contents={contentsData.contents} />
       </section>
+
       {/* new contents */}
       <section className={`${layoutStyle.default} ${style.new}`}>
         <h2 className={`${titleStyle.section} ${style.newTitle}`}>

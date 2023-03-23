@@ -1,3 +1,5 @@
+@use '../styles/variables.scss' as var;
+
 .section {
   display: flex;
   flex-direction: column;
@@ -34,4 +36,13 @@
   font-weight: bold;
   border: 3px solid var(--color-black);
   border-radius: 3rem;
+}
+
+@media screen and (max-width: var.$sp) {
+  .sectionEn {
+    font-size: 1.2rem;
+  }
+  .sectionJa {
+    font-size: 2rem;
+  }
 }

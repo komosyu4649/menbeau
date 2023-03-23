@@ -182,4 +182,19 @@
   .kv {
     margin-top: 8.5rem;
   }
+
+  // new contents
+  .new {
+    margin-top: 10rem;
+  }
+  .newMain {
+    margin-top: 3rem;
+  }
+  .newMainList {
+    grid-template-columns: auto;
+    gap: 2rem;
+  }
+  .newMainButton {
+    margin: 4rem auto 0;
+  }
 }
