@@ -48,7 +48,7 @@ export default async function Home() {
             {contentsData.contents.flatMap(
               (content, index) =>
                 !content.pickup &&
-                index < 4 && (
+                index <= 4 && (
                   <li key={content.id} className={style.newMainItem}>
                     <PostNewItem content={content} />
                   </li>
@@ -254,7 +254,7 @@ export default async function Home() {
           <BasicSwiper
             name='progress'
             spaceBetween={10}
-            slidesPerView={1}
+            slidesPerView={5.5}
             slidesOffsetBefore={0.04}
             slidesOffsetAfter={0.04}
             contents={categoryFilteredContents('progress')}
