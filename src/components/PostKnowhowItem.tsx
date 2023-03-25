@@ -18,7 +18,7 @@ export const PostKnowhowItem: React.FC<{ content: Props }> = ({ content }) => {
         height={content.thumbnail.height}
       />
       <div className={style.itemContent}>
-        <h2 className={`${titleStyle.jaMd} ${style.itemContentTitle}`}>{content.title}</h2>
+        <h2 className={`${titleStyle.jaMdSpSm} ${style.itemContentTitle}`}>{content.title}</h2>
       </div>
     </Link>
   )

@@ -18,7 +18,7 @@ export const PostProgressItem: React.FC<{ content: Props }> = ({ content }) => {
         width={content.thumbnail.width}
         height={content.thumbnail.height}
       />
-      <time className={`${titleStyle.jaMd} ${style.itemDate}`}>
+      <time className={`${titleStyle.jaMdSpSm} ${style.itemDate}`}>
         {formatDate(content.publishedAt)}
       </time>
     </Link>

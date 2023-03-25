@@ -110,6 +110,7 @@
   gap: 1.5rem;
 }
 .entertainmentFunctionArrowIcon {
+  display: block;
   width: 7.2rem;
   height: 7.2rem;
 }
@@ -182,6 +183,10 @@
 }
 
 @media screen and (max-width: var.$sp) {
+  .main {
+    margin-bottom: 10rem;
+  }
+
   // kv
   .kv {
     margin-top: 8.5rem;
@@ -268,7 +273,7 @@
   }
   .entertainmentMain {
     grid-template-columns: auto;
-    gap: 4rem;
+    gap: 3rem;
   }
   .entertainmentFunction {
     align-items: center;
@@ -285,5 +290,59 @@
   .entertainmentFunctionArrowIcon {
     width: 4rem;
     height: 4rem;
+  }
+
+  // knowhow
+  .knowhow {
+    margin-top: 10rem;
+  }
+  .knowhowMain {
+    margin-top: 3rem;
+  }
+  .knowhowMainList {
+    grid-template-columns: auto;
+    gap: 1rem;
+  }
+  .knowhowMainButton {
+    margin: 4rem auto 0;
+  }
+
+  // products
+  .products {
+    margin-top: 10rem;
+  }
+  .productsMain {
+    margin-top: 3rem;
+  }
+  .productsMainList {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 1rem;
+  }
+
+  // progress
+  .progress {
+    margin-top: 10rem;
+  }
+  .progressTitle {
+    // margin: 0;
+    margin-left: calc((100vw - 34rem) * 0.5);
+  }
+  .progressMain {
+    margin-top: 3rem;
+  }
+  .progressFunctionArrow {
+    top: 6rem;
+    width: 4rem;
+    height: 4rem;
+  }
+  .progressFunctionArrow.left {
+    left: calc((100vw - 34rem) * 0.5);
+  }
+  .progressFunctionArrow.right {
+    right: calc((100vw - 34rem) * 0.5);
+  }
+  .progressFunctionButton {
+    position: relative;
+    margin: 4rem auto 0;
   }
 }
