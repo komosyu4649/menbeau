@@ -1,24 +1,35 @@
 'use client'
 
 import Link from 'next/link'
-import React, { use } from 'react'
+import React, { use, useEffect, useState } from 'react'
 import style from './SidebarCategory.module.scss'
-import { MICROCMS_CONTENTS_TYPE_CATEGORIES } from '@/constants'
 import { useAccordion } from '@/hooks/useAccordion'
-import { MicroCMSCategoryData } from '@/lib/microcms'
-import { getMicroCMSData } from '@/lib/microcms/getData'
+import microCMSCategoryData from 'public/json/microCMSCategoryData.json'
 
 export const SidebarCategory: React.FC = () => {
-  const categoriesData: MicroCMSCategoryData = use(
-    getMicroCMSData(MICROCMS_CONTENTS_TYPE_CATEGORIES),
-  )
+  // const categoriesData: MicroCMSCategoryData = use(
+  //   getMicroCMSData(MICROCMS_CONTENTS_TYPE_CATEGORIES),
+  // )
 
-  // const { isOpen, setIsOpen, accordionRef } = useAccordion()
+  const { isOpen, setIsOpen, accordionRef } = useAccordion()
+  // const [isOpen, setIsOpen] = useState(false)
+  // const test = () => {
+  //   setIsOpen(!isOpen)
+  //   console.log(123, isOpen)
+  // }
+
   //
   return (
-    <nav className={style.container}>
-      <h2 className={style.title}>Categories</h2>
-      <div className={style.menu}>
+    <nav className={`${style.container} ${isOpen ? style.stateOpen : style.stateClose}`}>
+      <h2
+        className={style.title}
+        onClick={() => setIsOpen(!isOpen)}
+        aria-controls='sidebarCategory'
+        aria-expanded={!isOpen}
+      >
+        Categories
+      </h2>
+      <div className={style.menu} ref={accordionRef} id='sidebarCategory' aria-hidden={!isOpen}>
         <div className={style.menuInner}>
           <ul className={style.menuList}>
             <li className={style.menuItem}>
@@ -27,7 +38,7 @@ export const SidebarCategory: React.FC = () => {
                 <span className={style.menuItemJp}>すべての記事</span>
               </Link>
             </li>
-            {categoriesData.contents.map((category) => (
+            {microCMSCategoryData.contents.map((category) => (
               <li key={category.id} className={style.menuItem}>
                 <Link href={category.english} className={style.menuItemLink}>
                   <span className={style.menuItemEn}>{category.english}</span>

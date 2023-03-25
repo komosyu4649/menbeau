@@ -8,18 +8,20 @@
   font-family: var(--font-lexent);
   font-weight: bold;
   text-transform: uppercase;
-  &::before {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    content: '';
-    width: 100%;
-    height: 3px;
-    background-color: var(--color-black);
-  }
+  border-bottom: 3px solid var(--color-black);
+  // &::before {
+  //   position: absolute;
+  //   bottom: 0;
+  //   left: 0;
+  //   content: '';
+  //   width: 100%;
+  //   height: 3px;
+  //   background-color: var(--color-black);
+  // }
 }
 .menu {
   margin-left: 2rem;
+  overflow: hidden;
 }
 .menuInner {
   padding-top: 3rem;
@@ -33,10 +35,45 @@
 
 @media screen and (max-width: var.$sp) {
   .title {
-    padding-bottom: 1.5rem;
+    padding-bottom: 1rem;
     font-size: 2.2rem;
+    cursor: pointer;
+    &::before {
+      position: absolute;
+      top: calc(1.7rem - 1.5px);
+      right: 0;
+      content: '';
+      width: 1.5rem;
+      height: 3px;
+      background-color: var(--color-black);
+    }
+    &::after {
+      position: absolute;
+      top: 1rem;
+      right: calc(0.75rem - 1.5px);
+      content: '';
+      width: 3px;
+      height: 1.5rem;
+      background-color: var(--color-black);
+      opacity: 1;
+    }
   }
   .menuInner {
     padding-top: 2.5rem;
+  }
+
+  .stateOpen {
+    .title {
+      &::after {
+        opacity: 0;
+      }
+    }
+  }
+  .stateClose {
+    .title {
+      &::after {
+        opacity: 1;
+      }
+    }
   }
 }

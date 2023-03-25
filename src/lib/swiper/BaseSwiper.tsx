@@ -57,8 +57,6 @@ export const BasicSwiper: React.FC<Props> = ({
     setWindowWidth(window.innerWidth)
   }, [windowWidth])
 
-  console.log(slidesOffsetBefore, windowWidth)
-
   return (
     <div className={style.container}>
       <Swiper

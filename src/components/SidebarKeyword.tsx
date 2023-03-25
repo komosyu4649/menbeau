@@ -1,19 +1,28 @@
+'use client'
+
 import React, { use } from 'react'
 import { Keyword } from './Keyword'
 import style from './SidebarKeyword.module.scss'
-import { MICROCMS_CONTENTS_TYPE_KEYWORDS } from '@/constants'
-import { MicroCMSKeywordsData } from '@/lib/microcms'
-import { getMicroCMSData } from '@/lib/microcms/getData'
+import { useAccordion } from '@/hooks/useAccordion'
+import microCMSKeywordData from 'public/json/microCMSKeywordData.json'
 
 export const SidebarKeyword: React.FC = () => {
-  const keywordsData: MicroCMSKeywordsData = use(getMicroCMSData(MICROCMS_CONTENTS_TYPE_KEYWORDS))
+  const { isOpen, setIsOpen, accordionRef } = useAccordion()
+
   return (
-    <nav>
-      <h2 className={style.title}>keywords</h2>
-      <div className={style.menu}>
+    <nav className={`${style.container} ${isOpen ? style.stateOpen : style.stateClose}`}>
+      <h2
+        className={style.title}
+        onClick={() => setIsOpen(!isOpen)}
+        aria-controls='sidebarKeyword'
+        aria-expanded={!isOpen}
+      >
+        keywords
+      </h2>
+      <div className={style.menu} ref={accordionRef} id='sidebarKeyword' aria-hidden={!isOpen}>
         <div className={style.menuInner}>
           <ul className={style.menuList}>
-            {keywordsData.contents.map((keyword) => (
+            {microCMSKeywordData.contents.map((keyword) => (
               <li key={keyword.id} className={style.menuItem}>
                 <Keyword id={keyword.id} name={keyword.name} color='black' />
               </li>

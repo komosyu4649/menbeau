@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react'
 const openingKeyframes = (elementHeight: number): Keyframe[] => {
   return [
     {
-      height: 0,
+      height: '0px',
       offset: 0,
     },
     {
@@ -20,7 +20,7 @@ const openingKeyframes = (elementHeight: number): Keyframe[] => {
 }
 
 const closingKeyframes = (elementHeight: number): Keyframe[] => {
-  ;[
+  return [
     {
       height: 'auto',
       offset: 0,
@@ -30,7 +30,7 @@ const closingKeyframes = (elementHeight: number): Keyframe[] => {
       offset: 0.001,
     },
     {
-      height: 0,
+      height: '0px',
       offset: 1,
     },
   ]
