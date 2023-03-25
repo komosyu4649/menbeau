@@ -190,6 +190,7 @@ export default async function Home() {
             slidesPerView={2.234}
             spSlidesPerView={1.1635}
             slidesOffsetBefore={0}
+            spSlidesOffsetBefore={0.04}
             slidesOffsetAfter={0.04}
             contents={categoryFilteredContents('entertainment')}
             startIndex={0}
@@ -256,7 +257,7 @@ export default async function Home() {
             spaceBetween={10}
             slidesPerView={5.5}
             spSlidesPerView={2.25}
-            slidesOffsetBefore={5}
+            slidesOffsetBefore={0.04}
             slidesOffsetAfter={0.04}
             contents={categoryFilteredContents('progress')}
             startIndex={0}

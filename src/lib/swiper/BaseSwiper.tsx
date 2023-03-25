@@ -18,6 +18,7 @@ type Props = {
   slidesPerView: number
   spSlidesPerView?: number
   slidesOffsetBefore: number
+  spSlidesOffsetBefore?: number
   slidesOffsetAfter: number
   contents: MicroCMSContent[]
   startIndex?: number
@@ -29,8 +30,9 @@ export const BasicSwiper: React.FC<Props> = ({
   spaceBetween,
   spSpaceBetween = 10,
   slidesPerView,
-  spSlidesPerView = 1,
+  spSlidesPerView,
   slidesOffsetBefore,
+  spSlidesOffsetBefore,
   slidesOffsetAfter,
   contents,
   startIndex = 0,
@@ -65,11 +67,15 @@ export const BasicSwiper: React.FC<Props> = ({
           prevEl: `#${name}_swiper_prev`,
           nextEl: `#${name}_swiper_next`,
         }}
-        spaceBetween={windowWidth > BREAK_POINT && !spSpaceBetween ? spaceBetween : spSpaceBetween}
+        spaceBetween={windowWidth > BREAK_POINT && spSpaceBetween ? spSpaceBetween : spaceBetween}
         slidesPerView={
-          windowWidth > BREAK_POINT && !spSlidesPerView ? slidesPerView : spSlidesPerView
+          windowWidth < BREAK_POINT && spSlidesPerView ? spSlidesPerView : slidesPerView
         }
-        slidesOffsetBefore={slidesOffsetBefore * windowWidth}
+        slidesOffsetBefore={
+          windowWidth < BREAK_POINT && spSlidesOffsetBefore
+            ? spSlidesOffsetBefore * windowWidth
+            : slidesOffsetBefore * windowWidth
+        }
         slidesOffsetAfter={slidesOffsetAfter * windowWidth}
       >
         {contents.map(
