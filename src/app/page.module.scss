@@ -1,3 +1,5 @@
+@use '../styles/variables.scss' as var;
+
 .main {
   margin-bottom: 20rem;
 }
@@ -107,6 +109,11 @@
   flex-direction: row;
   gap: 1.5rem;
 }
+.entertainmentFunctionArrowIcon {
+  display: block;
+  width: 7.2rem;
+  height: 7.2rem;
+}
 
 // knowhow
 .knowhow {
@@ -173,4 +180,175 @@
   position: absolute;
   top: -11rem;
   right: calc((50vw - 61.25rem) * 0.5);
+}
+
+@media screen and (max-width: var.$sp) {
+  .main {
+    margin-bottom: 10rem;
+  }
+
+  // kv
+  .kv {
+    margin-top: 8.5rem;
+  }
+
+  // new contents
+  .new {
+    margin-top: 10rem;
+  }
+  .newMain {
+    margin-top: 3rem;
+  }
+  .newMainList {
+    grid-template-columns: auto;
+    gap: 2rem;
+    width: 30rem;
+    margin: 0 auto;
+  }
+  .newMainItem {
+  }
+  .newMainButton {
+    margin: 4rem auto 0;
+  }
+
+  // interview
+  .interview {
+    margin-top: 10rem;
+  }
+  .interviewMain {
+    grid-template-columns: auto;
+    margin-top: 3rem;
+  }
+  .interviewMainFeatureLink {
+    width: 100%;
+    padding: 2.5rem 2rem 3.5rem;
+  }
+  .interviewMainFeatureImage {
+    width: 24rem;
+    height: 24rem;
+  }
+  .interviewMainFeatureContent {
+    margin-top: 2rem;
+  }
+  .interviewMainFeatureContentTitle {
+    font-size: 1.8rem;
+  }
+  .interviewMainFeatureContentProfile {
+    width: 24rem;
+    margin: 1.5rem auto 0;
+    padding-top: 1.5rem;
+  }
+  .interviewMainFeatureContentProfileImage {
+    width: 4rem;
+    height: 4rem;
+  }
+  .interviewMainFeatureContentProfileName {
+    font-size: 1.4rem;
+  }
+  .interviewMainFeatureButton {
+    margin-top: 2.5rem;
+  }
+  .interviewMainContainer {
+    width: calc(100% + 3.5rem);
+    margin: 0 0 0 -1.75rem;
+    overflow: hidden;
+  }
+  .interviewMainList {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    padding: 0 2rem;
+    overflow-x: scroll;
+  }
+  .interviewMainItem {
+    width: 30rem;
+  }
+
+  // entertainment
+  .entertainment {
+    position: relative;
+    margin: 10rem 0 0;
+    // margin: 10rem 0 0 calc((100vw - 34rem) * 0.5);
+  }
+  .entertainmentTitle {
+    margin-left: calc((100vw - 34rem) * 0.5);
+  }
+  .entertainmentMain {
+    grid-template-columns: auto;
+    gap: 3rem;
+  }
+  .entertainmentFunction {
+    align-items: center;
+    margin: 0;
+    order: 1;
+  }
+  .entertainmentFunctionArrows {
+    position: absolute;
+    top: 1.5rem;
+    right: calc((100vw - 34rem) * 0.5);
+    gap: 0.5rem;
+    margin: 0;
+  }
+  .entertainmentFunctionArrowIcon {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  // knowhow
+  .knowhow {
+    margin-top: 10rem;
+  }
+  .knowhowMain {
+    margin-top: 3rem;
+  }
+  .knowhowMainList {
+    grid-template-columns: auto;
+    gap: 1rem;
+  }
+  .knowhowMainButton {
+    margin: 4rem auto 0;
+  }
+
+  // products
+  .products {
+    margin-top: 10rem;
+  }
+  .productsMain {
+    margin-top: 3rem;
+  }
+  .productsMainList {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 1rem;
+  }
+  .productsMainButton {
+    margin-top: 4rem;
+  }
+
+  // progress
+  .progress {
+    margin-top: 10rem;
+  }
+  .progressTitle {
+    // margin: 0;
+    margin-left: calc((100vw - 34rem) * 0.5);
+  }
+  .progressMain {
+    margin-top: 3rem;
+  }
+  .progressFunctionArrow {
+    top: 6rem;
+    width: 4rem;
+    height: 4rem;
+  }
+  .progressFunctionArrow.left {
+    left: calc((100vw - 34rem) * 0.5);
+  }
+  .progressFunctionArrow.right {
+    right: calc((100vw - 34rem) * 0.5);
+  }
+  .progressFunctionButton {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 4rem auto 0;
+  }
 }

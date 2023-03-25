@@ -36,6 +36,7 @@ export default async function Home() {
       <section className={`${layoutStyle.default} ${style.kv}`}>
         <PointSwiper contents={contentsData.contents} />
       </section>
+
       {/* new contents */}
       <section className={`${layoutStyle.default} ${style.new}`}>
         <h2 className={`${titleStyle.section} ${style.newTitle}`}>
@@ -47,9 +48,9 @@ export default async function Home() {
             {contentsData.contents.flatMap(
               (content, index) =>
                 !content.pickup &&
-                index < 4 && (
+                index <= 4 && (
                   <li key={content.id} className={style.newMainItem}>
-                    <PostNewItem content={content} />,
+                    <PostNewItem content={content} />
                   </li>
                 ),
             )}
@@ -105,17 +106,19 @@ export default async function Home() {
               インタビュー一覧
             </Link>
           </div>
-          <ul className={style.interviewMainList}>
-            {categoryFilteredContents('interview').map(
-              (content, index) =>
-                index >= 1 &&
-                index <= 4 && (
-                  <li key={content.id} className={style.interviewMainItem}>
-                    <PostInterviewItem content={content} />
-                  </li>
-                ),
-            )}
-          </ul>
+          <div className={style.interviewMainContainer}>
+            <ul className={style.interviewMainList}>
+              {categoryFilteredContents('interview').map(
+                (content, index) =>
+                  index >= 1 &&
+                  index <= 4 && (
+                    <li key={content.id} className={style.interviewMainItem}>
+                      <PostInterviewItem content={content} />
+                    </li>
+                  ),
+              )}
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -140,6 +143,7 @@ export default async function Home() {
                   viewBox='0 0 72 72'
                   fill='none'
                   xmlns='http://www.w3.org/2000/svg'
+                  className={style.entertainmentFunctionArrowIcon}
                 >
                   <circle cx='36' cy='36' r='34.5' stroke='#231815' strokeWidth='3' />
                   <path
@@ -158,6 +162,7 @@ export default async function Home() {
                   viewBox='0 0 72 72'
                   fill='none'
                   xmlns='http://www.w3.org/2000/svg'
+                  className={style.entertainmentFunctionArrowIcon}
                 >
                   <circle
                     cx='36'
@@ -181,10 +186,15 @@ export default async function Home() {
           <BasicSwiper
             name='entertainment'
             spaceBetween={15}
+            spSpaceBetween={10}
             slidesPerView={2.234}
+            spSlidesPerView={1.1635}
             slidesOffsetBefore={0}
+            spSlidesOffsetBefore={0.04}
             slidesOffsetAfter={0.04}
             contents={categoryFilteredContents('entertainment')}
+            startIndex={0}
+            endIndex={3}
           />
         </div>
       </section>
@@ -201,7 +211,7 @@ export default async function Home() {
               (content, index) =>
                 index < 4 && (
                   <li key={content.id} className={style.knowhowMainItem}>
-                    <PostKnowhowItem content={content} />,
+                    <PostKnowhowItem content={content} />
                   </li>
                 ),
             )}
@@ -224,7 +234,7 @@ export default async function Home() {
               (content, index) =>
                 index < 4 && (
                   <li key={content.id} className={style.productsMainItem}>
-                    <PostProductsItem content={content} />,
+                    <PostProductsItem content={content} />
                   </li>
                 ),
             )}
@@ -245,10 +255,13 @@ export default async function Home() {
           <BasicSwiper
             name='progress'
             spaceBetween={10}
-            slidesPerView={5.58}
+            slidesPerView={5.5}
+            spSlidesPerView={2.25}
             slidesOffsetBefore={0.04}
             slidesOffsetAfter={0.04}
             contents={categoryFilteredContents('progress')}
+            startIndex={0}
+            endIndex={7}
           />
           <div className={style.progressFunction}>
             <div className={style.progressFunctionArrows}>
@@ -256,13 +269,7 @@ export default async function Home() {
                 id='progress_swiper_prev'
                 className={`${swiperStyle.navigation} ${style.progressFunctionArrow} ${style.left} `}
               >
-                <svg
-                  width='72'
-                  height='72'
-                  viewBox='0 0 72 72'
-                  fill='none'
-                  xmlns='http://www.w3.org/2000/svg'
-                >
+                <svg viewBox='0 0 72 72' fill='none' xmlns='http://www.w3.org/2000/svg'>
                   <circle cx='36' cy='36' r='34.5' fill='white' stroke='#231815' strokeWidth='3' />
                   <path
                     d='M15.2929 35.2929C14.9024 35.6834 14.9024 36.3166 15.2929 36.7071L21.6569 43.0711C22.0474 43.4616 22.6805 43.4616 23.0711 43.0711C23.4616 42.6805 23.4616 42.0474 23.0711 41.6569L17.4142 36L23.0711 30.3431C23.4616 29.9526 23.4616 29.3195 23.0711 28.9289C22.6805 28.5384 22.0474 28.5384 21.6569 28.9289L15.2929 35.2929ZM56 35L16 35L16 37L56 37L56 35Z'
@@ -274,13 +281,7 @@ export default async function Home() {
                 id='progress_swiper_next'
                 className={`${swiperStyle.navigation} ${style.progressFunctionArrow} ${style.right}`}
               >
-                <svg
-                  width='72'
-                  height='72'
-                  viewBox='0 0 72 72'
-                  fill='none'
-                  xmlns='http://www.w3.org/2000/svg'
-                >
+                <svg viewBox='0 0 72 72' fill='none' xmlns='http://www.w3.org/2000/svg'>
                   <circle
                     cx='36'
                     cy='36'

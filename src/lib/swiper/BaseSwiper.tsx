@@ -7,24 +7,36 @@ import { MicroCMSContent } from '../microcms'
 import style from './BaseSwiper.module.scss'
 import { PostEntertainmentItem } from '@/components/PostEntertainmentItem'
 import 'swiper/css'
+import { PostInterviewItem } from '@/components/PostInterviewItem'
 import { PostProgressItem } from '@/components/PostProgressItem'
+import { BREAK_POINT } from '@/constants'
 
 type Props = {
   name: string
   spaceBetween: number
+  spSpaceBetween?: number
   slidesPerView: number
-  slidesOffsetAfter: number
+  spSlidesPerView?: number
   slidesOffsetBefore: number
+  spSlidesOffsetBefore?: number
+  slidesOffsetAfter: number
   contents: MicroCMSContent[]
+  startIndex?: number
+  endIndex?: number
 }
 
 export const BasicSwiper: React.FC<Props> = ({
   name,
   spaceBetween,
+  spSpaceBetween = 10,
   slidesPerView,
-  slidesOffsetAfter,
+  spSlidesPerView,
   slidesOffsetBefore,
+  spSlidesOffsetBefore,
+  slidesOffsetAfter,
   contents,
+  startIndex = 0,
+  endIndex = 0,
 }) => {
   const PostItem = (content: MicroCMSContent) => {
     switch (name) {
@@ -34,13 +46,18 @@ export const BasicSwiper: React.FC<Props> = ({
       case 'entertainment':
         return <PostEntertainmentItem content={content} />
         break
+      case 'interview':
+        return <PostInterviewItem content={content} />
+        break
     }
   }
 
   const [windowWidth, setWindowWidth] = useState(0)
   useEffect(() => {
     setWindowWidth(window.innerWidth)
-  }, [])
+  }, [windowWidth])
+
+  console.log(slidesOffsetBefore, windowWidth)
 
   return (
     <div className={style.container}>
@@ -50,14 +67,22 @@ export const BasicSwiper: React.FC<Props> = ({
           prevEl: `#${name}_swiper_prev`,
           nextEl: `#${name}_swiper_next`,
         }}
-        spaceBetween={spaceBetween}
-        slidesPerView={slidesPerView}
+        spaceBetween={windowWidth > BREAK_POINT && spSpaceBetween ? spSpaceBetween : spaceBetween}
+        slidesPerView={
+          windowWidth < BREAK_POINT && spSlidesPerView ? spSlidesPerView : slidesPerView
+        }
+        slidesOffsetBefore={
+          windowWidth < BREAK_POINT && spSlidesOffsetBefore
+            ? spSlidesOffsetBefore * windowWidth
+            : slidesOffsetBefore * windowWidth
+        }
         slidesOffsetAfter={slidesOffsetAfter * windowWidth}
-        slidesOffsetBefore={slidesOffsetBefore * windowWidth}
       >
-        {contents.map((content) => (
-          <SwiperSlide key={content.id}>{PostItem(content)}</SwiperSlide>
-        ))}
+        {contents.map(
+          (content, index) =>
+            index >= startIndex &&
+            index <= endIndex && <SwiperSlide key={content.id}>{PostItem(content)}</SwiperSlide>,
+        )}
       </Swiper>
     </div>
   )

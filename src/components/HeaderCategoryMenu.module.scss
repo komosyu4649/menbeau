@@ -19,3 +19,15 @@
   font-family: var(--font-notoSans);
   font-weight: bold;
 }
+
+@media screen and (max-width: var(--breakpoint-sp)) {
+  .list {
+    gap: 2rem;
+  }
+  .itemEn {
+    font-size: 1.2rem;
+  }
+  .itemJa {
+    font-size: 2.4rem;
+  }
+}

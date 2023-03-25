@@ -1,3 +1,5 @@
+@use '../styles/variables.scss' as var;
+
 .itemLink {
   display: flex;
   flex-direction: column;
@@ -39,4 +41,13 @@
   font-size: 1.4rem;
   font-weight: bold;
   color: var(--color-black);
+}
+
+@media screen and (max-width: var.$sp) {
+  .itemLink {
+    padding: 2.5rem 1.51rem 3rem;
+  }
+  .itemImageContent {
+    margin-top: 2rem;
+  }
 }

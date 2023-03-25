@@ -1,3 +1,5 @@
+@use '../styles/variables.scss' as var;
+
 .default {
   width: 116rem;
   margin-inline: auto;
@@ -13,4 +15,13 @@
 .sm {
   width: 99rem;
   margin-inline: auto;
+}
+
+@media screen and (max-width: var.$sp) {
+  .default {
+    width: 34rem;
+  }
+  .lg {
+    width: 34rem;
+  }
 }

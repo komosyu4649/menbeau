@@ -1,8 +1,7 @@
+@use '../variables.scss' as var;
+
 // point
 .swiperPoint {
-  .swiper-pagination {
-    // width: 50%;
-  }
   .swiper-horizontal > .swiper-pagination-bullets,
   .swiper-pagination-bullets.swiper-pagination-horizontal,
   .swiper-pagination-custom,
@@ -27,5 +26,24 @@
   .swiper-pagination-horizontal.swiper-pagination-bullets
     .swiper-pagination-bullet.swiper-pagination-bullet-active {
     opacity: 1;
+  }
+}
+
+@media screen and (max-width: var.$sp) {
+  // point
+  .swiperPoint {
+    .swiper-pagination {
+      // position: relative;
+      height: fit-content;
+    }
+    .swiper-horizontal > .swiper-pagination-bullets,
+    .swiper-pagination-bullets.swiper-pagination-horizontal,
+    .swiper-pagination-custom,
+    .swiper-pagination-fraction {
+      top: 31rem;
+      justify-content: center;
+      // margin: 1.5rem auto 0;
+      margin: 0 auto;
+    }
   }
 }
