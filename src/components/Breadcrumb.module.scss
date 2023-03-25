@@ -1,3 +1,5 @@
+@use '../styles/variables.scss' as var;
+
 .list {
   display: flex;
   flex-direction: row;
@@ -29,5 +31,17 @@
     height: 80%;
     background-color: var(--color-black);
     transform: rotate(20deg);
+  }
+}
+
+@media screen and (max-width: var.$sp) {
+  .list {
+    gap: 1rem 2rem;
+  }
+  .itemLink {
+    font-size: 1.2rem;
+    &::before {
+      right: -1;
+    }
   }
 }

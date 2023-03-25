@@ -1,3 +1,5 @@
+@use '../styles/variables.scss' as var;
+
 .container {
 }
 .interview {
@@ -34,4 +36,12 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
+}
+
+@media screen and (max-width: var.$sp) {
+  .list {
+    grid-template-columns: auto;
+    width: 30rem;
+    margin: 0 auto;
+  }
 }

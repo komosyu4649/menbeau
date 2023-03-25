@@ -40,7 +40,7 @@ export const Pagination: React.FC<Props> = ({ totalCount, pageName, currentNumbe
     }
     ranges.forEach((range) => {
       if (length) {
-        if (range - length === 2) {
+        if (range - length === 3) {
           rangeWithDots.push(length + 1)
         } else if (range - length !== 1) {
           rangeWithDots.push('...')
