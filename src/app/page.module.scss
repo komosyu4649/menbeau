@@ -266,10 +266,11 @@
   // entertainment
   .entertainment {
     position: relative;
-    // margin: 10rem 0 0;
-    margin: 10rem 0 0 calc((100vw - 34rem) * 0.5);
+    margin: 10rem 0 0;
+    // margin: 10rem 0 0 calc((100vw - 34rem) * 0.5);
   }
   .entertainmentTitle {
+    margin-left: calc((100vw - 34rem) * 0.5);
   }
   .entertainmentMain {
     grid-template-columns: auto;
@@ -318,6 +319,9 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem 1rem;
   }
+  .productsMainButton {
+    margin-top: 4rem;
+  }
 
   // progress
   .progress {
@@ -343,6 +347,8 @@
   }
   .progressFunctionButton {
     position: relative;
+    top: 0;
+    left: 0;
     margin: 4rem auto 0;
   }
 }

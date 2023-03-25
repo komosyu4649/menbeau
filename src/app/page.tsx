@@ -256,7 +256,7 @@ export default async function Home() {
             spaceBetween={10}
             slidesPerView={5.5}
             spSlidesPerView={2.25}
-            slidesOffsetBefore={0.04}
+            slidesOffsetBefore={5}
             slidesOffsetAfter={0.04}
             contents={categoryFilteredContents('progress')}
             startIndex={0}
