@@ -1,3 +1,5 @@
+@use '../styles/variables.scss' as var;
+
 .container {
   display: flex;
   flex-direction: row;
@@ -19,4 +21,23 @@
 .titleJa {
   font-size: 4.8rem;
   font-weight: bold;
+}
+
+@media screen and (max-width: var.$sp) {
+  .container {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 2rem;
+    margin-top: 12rem;
+  }
+  .title {
+    gap: 0.5rem;
+  }
+  .titleEn {
+    font-size: 1.2rem;
+  }
+  .titleJa {
+    font-size: 2.4rem;
+  }
 }

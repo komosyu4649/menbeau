@@ -1,3 +1,5 @@
+@use '../styles/variables.scss' as var;
+
 .container {
   display: flex;
   flex-direction: row;
@@ -29,4 +31,14 @@
 .current.next {
   pointer-events: none;
   visibility: hidden;
+}
+
+@media screen and (max-width: var.$sp) {
+  .container {
+    gap: 0;
+  }
+  .itemLink {
+    width: 4rem;
+    height: 4rem;
+  }
 }

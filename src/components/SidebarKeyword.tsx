@@ -11,13 +11,15 @@ export const SidebarKeyword: React.FC = () => {
     <nav>
       <h2 className={style.title}>keywords</h2>
       <div className={style.menu}>
-        <ul className={style.menuList}>
-          {keywordsData.contents.map((keyword) => (
-            <li key={keyword.id} className={style.menuItem}>
-              <Keyword id={keyword.id} name={keyword.name} color='black' />
-            </li>
-          ))}
-        </ul>
+        <div className={style.menuInner}>
+          <ul className={style.menuList}>
+            {keywordsData.contents.map((keyword) => (
+              <li key={keyword.id} className={style.menuItem}>
+                <Keyword id={keyword.id} name={keyword.name} color='black' />
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </nav>
   )

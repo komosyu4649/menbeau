@@ -1,3 +1,5 @@
+@use '../styles/variables.scss' as var;
+
 .md {
   font-size: 1.6rem;
   line-height: 2;
@@ -10,4 +12,10 @@
 }
 .link {
   text-decoration: underline;
+}
+
+@media screen and (max-width: var.$sp) {
+  .enMd {
+    font-size: 1.4rem;
+  }
 }
