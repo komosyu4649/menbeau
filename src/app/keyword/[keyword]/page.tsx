@@ -27,7 +27,7 @@ export default async function Keyword({ params }: { params: { keyword: string } 
         .includes(keyword),
     )
   return (
-    <div className={layoutStyle.lg}>
+    <div className={`${layoutStyle.lg} ${style.container}`}>
       <KeywordKv keyword={keyword} />
       <div className={style.main}>
         <Sidebar />
