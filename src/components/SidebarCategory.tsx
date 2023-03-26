@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import React, { use, useEffect, useState } from 'react'
 import style from './SidebarCategory.module.scss'
+import { BREAK_POINT } from '@/constants'
 import { useAccordion } from '@/hooks/useAccordion'
 import microCMSCategoryData from 'public/json/microCMSCategoryData.json'
 
@@ -12,23 +13,36 @@ export const SidebarCategory: React.FC = () => {
   // )
 
   const { isOpen, setIsOpen, accordionRef } = useAccordion()
+
   // const [isOpen, setIsOpen] = useState(false)
   // const test = () => {
   //   setIsOpen(!isOpen)
   //   console.log(123, isOpen)
   // }
 
+  const [windowWidth, setWindowWidth] = useState(0)
+  useEffect(() => {
+    setWindowWidth(window.innerWidth)
+    if (windowWidth > BREAK_POINT) {
+      setIsOpen(true)
+    }
+  }, [windowWidth])
+
   //
   return (
     <nav className={`${style.container} ${isOpen ? style.stateOpen : style.stateClose}`}>
-      <h2
-        className={style.title}
-        onClick={() => setIsOpen(!isOpen)}
-        aria-controls='sidebarCategory'
-        aria-expanded={!isOpen}
-      >
-        Categories
-      </h2>
+      {windowWidth > BREAK_POINT ? (
+        <h2 className={style.title}>Categories</h2>
+      ) : (
+        <button
+          className={style.title}
+          onClick={() => setIsOpen(!isOpen)}
+          aria-controls='sidebarCategory'
+          aria-expanded={!isOpen}
+        >
+          Categories
+        </button>
+      )}
       <div className={style.menu} ref={accordionRef} id='sidebarCategory' aria-hidden={!isOpen}>
         <div className={style.menuInner}>
           <ul className={style.menuList}>
