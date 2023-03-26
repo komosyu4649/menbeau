@@ -1,3 +1,5 @@
+@use '../styles/variables.scss' as var;
+
 .list {
   display: grid;
   grid-template-columns: auto;
@@ -20,7 +22,7 @@
   font-weight: bold;
 }
 
-@media screen and (max-width: var(--breakpoint-sp)) {
+@media screen and (max-width: var.$sp) {
   .list {
     gap: 2rem;
   }

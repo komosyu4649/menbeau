@@ -47,7 +47,7 @@ export const SidebarCategory: React.FC = () => {
         <div className={style.menuInner}>
           <ul className={style.menuList}>
             <li className={style.menuItem}>
-              <Link href='/' className={style.menuItemLink}>
+              <Link href='/all' className={style.menuItemLink}>
                 <span className={style.menuItemEn}>all</span>
                 <span className={style.menuItemJp}>すべての記事</span>
               </Link>

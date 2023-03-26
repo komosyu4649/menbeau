@@ -21,6 +21,11 @@
   font-weight: bold;
   line-height: 1.5;
 }
+.jaMdSpMd {
+  font-size: 1.8rem;
+  font-weight: bold;
+  line-height: 1.5;
+}
 .jaMdSpSm {
   font-size: 1.8rem;
   font-weight: bold;
@@ -50,7 +55,15 @@
   .sectionJa {
     font-size: 2.4rem;
   }
+  .jaMdSpMd {
+    font-size: 1.6rem;
+  }
   .jaMdSpSm {
     font-size: 1.4rem;
+  }
+  .borderLg {
+    padding: 0.5rem 1.5rem;
+    font-size: 2.4rem;
+    border-radius: 2rem;
   }
 }
