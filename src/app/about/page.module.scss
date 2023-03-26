@@ -1,3 +1,5 @@
+@use '../../styles/variables.scss' as var;
+
 .main {
   margin: 20rem auto;
 }
@@ -24,8 +26,12 @@
   gap: 6rem;
   align-items: center;
 }
+.aboutMainImage {
+  width: 48rem;
+  height: auto;
+}
 .administrator {
-  margin-top: 14rem;
+  margin-top: 12rem;
 }
 .administratorTitle {
   margin-bottom: 3rem;
@@ -37,6 +43,8 @@
   align-items: center;
 }
 .administratorMainImage {
+  width: 24rem;
+  height: 24rem;
   border-radius: 2.5rem;
 }
 .administratorMainContentTitle {
@@ -50,4 +58,49 @@
 }
 .contactTitle {
   margin-bottom: 3rem;
+}
+
+@media screen and (max-width: var.$sp) {
+  .main {
+    margin: 14rem auto 10rem;
+  }
+  .aboutTitle {
+    margin-bottom: 2.5rem;
+  }
+  .aboutTitleEn {
+    font-size: 1.2rem;
+  }
+  .aboutTitleJa {
+    font-size: 2.4rem;
+  }
+  .aboutMain {
+    grid-template-columns: auto;
+    gap: 3rem;
+  }
+  .aboutMainImage {
+    width: 30rem;
+    margin: 0 auto;
+  }
+  .administrator {
+    margin-top: 8rem;
+  }
+  .administratorTitle {
+    margin-bottom: 2.5rem;
+  }
+  .administratorMain {
+    grid-template-columns: auto;
+    gap: 1.5rem;
+  }
+  .administratorMainImage {
+    margin: 0 auto;
+  }
+  .administratorMainContentTitle {
+    margin-bottom: 1rem;
+  }
+  .contact {
+    margin-top: 8rem;
+  }
+  .contactTitle {
+    margin-bottom: 2.5rem;
+  }
 }
