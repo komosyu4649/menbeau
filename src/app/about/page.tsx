@@ -23,7 +23,7 @@ export default async function About() {
             height={360}
           />
           <div className={style.aboutMainContent}>
-            <p className={`${textStyle.md} ${style.aboutMainContentText}`}>
+            <p className={`${textStyle.mdSpSm} ${style.aboutMainContentText}`}>
               MENBEAUは男性向け美容情報を発信するWebメディアです。 <br />
               <br />
               NETFLIXで「スタートアップ夢の扉」を観て、キムソンホさんが36才にも関わらず、あまりにキレイすぎて私もキレイになりたい！と思って、美容の勉強をはじめて日々実践する中で、多くの男性にとって役立つ情報が発信できると思い、このMENBEAUを運営しています。
@@ -48,7 +48,7 @@ export default async function About() {
           />
           <div className={style.administratorMainContent}>
             <h3 className={style.administratorMainContentTitle}>komosyu</h3>
-            <p className={`${textStyle.md} ${style.administratorMainContentText}`}>
+            <p className={`${textStyle.mdSpSm} ${style.administratorMainContentText}`}>
               1996年生まれ。 <br />
               Web制作会社でのWebディベロッパーの経験から男性向けWebメディア「MENBEAU」を制作。
               <br />
@@ -61,7 +61,7 @@ export default async function About() {
       <section className={`${layoutStyle.md} ${style.contact}`}>
         <h2 className={`${titleStyle.borderMd} ${style.contactTitle}`}>お問い合わせ</h2>.
         <div className={style.contactMain}>
-          <p className={`${textStyle.md} ${style.contactMainText}`}>
+          <p className={`${textStyle.mdSpSm} ${style.contactMainText}`}>
             インタビューや商品紹介についてのご連絡は
             <a
               href='https://www.twitter.com/messages/compose?recipient_id=1583786873821966336'
