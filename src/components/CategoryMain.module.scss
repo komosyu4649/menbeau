@@ -39,9 +39,44 @@
 }
 
 @media screen and (max-width: var.$sp) {
+  .interview {
+    .list {
+      grid-template-columns: auto;
+      justify-content: unset;
+    }
+  }
+  .entertainment {
+    .list {
+      grid-template-columns: auto;
+      gap: 3rem;
+      width: 32rem;
+    }
+  }
+  .knowhow {
+    .list {
+      grid-template-columns: auto;
+      gap: 1rem;
+      width: 32rem;
+    }
+  }
+  .products {
+    .list {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem 1.5rem;
+      width: 100%;
+    }
+  }
+  .progress {
+    .list {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      width: 32rem;
+    }
+  }
   .list {
     grid-template-columns: auto;
     width: 30rem;
+    // width: 32rem;
     margin: 0 auto;
   }
 }
