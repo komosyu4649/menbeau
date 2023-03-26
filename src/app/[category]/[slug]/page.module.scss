@@ -10,7 +10,8 @@
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 5rem;
-  margin-bottom: 10rem;
+  // margin-bottom: 10rem;
+  margin-bottom: 14rem;
   padding-bottom: 8rem;
   border-bottom: 3px solid var(--color-black);
 }
@@ -72,28 +73,35 @@
 .bodyContents {
   width: 84rem;
   margin: 0 auto;
-  h1,
   h2 {
     width: fit-content;
-    margin-bottom: 2rem;
-    padding: 1.5rem 3rem;
+    margin-bottom: 5rem;
+    padding: 1.5rem 2.5rem;
     border: 3px solid var(--color-black);
     border-radius: 2rem;
+    font-size: 2.6rem;
     font-weight: bold;
   }
   h3,
   h4,
   h5,
   h6 {
+    margin-bottom: 4rem;
     padding-bottom: 2rem;
     border-bottom: 3px solid var(--color-key);
     font-weight: bold;
   }
-  h2 {
+  h3 {
     font-size: 2.4rem;
   }
-  h3 {
+  h4 {
     font-size: 2.2rem;
+  }
+  h5 {
+    font-size: 2rem;
+  }
+  h6 {
+    font-size: 1.8rem;
   }
   p + h1,
   h2,
@@ -101,10 +109,10 @@
   h4,
   h5,
   h6 {
-    margin-top: 8rem;
+    margin-top: 12rem;
   }
   p {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     font-size: 1.6rem;
     line-height: 2;
   }
@@ -149,7 +157,7 @@
   .header {
     grid-template-columns: auto;
     gap: 2rem;
-    margin-bottom: 8rem;
+    margin-bottom: 10rem;
     padding-bottom: 6rem;
     // border-bottom: 2px solid var(--color-black);
   }
@@ -175,17 +183,30 @@
   .bodyContents {
     width: 100%;
     margin: 0 auto;
-    h1,
     h2 {
-      margin-bottom: 1.5rem;
+      margin-bottom: 3rem;
       padding: 1rem 1.5rem;
       // border-radius: 2rem;
-    }
-    h2 {
       font-size: 2rem;
     }
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-bottom: 3rem;
+      padding-bottom: 1rem;
+    }
     h3 {
+      font-size: 1.9rem;
+    }
+    h4 {
       font-size: 1.8rem;
+    }
+    h5 {
+      font-size: 1.7rem;
+    }
+    h6 {
+      font-size: 1.6rem;
     }
     p + h1,
     h2,
@@ -193,19 +214,22 @@
     h4,
     h5,
     h6 {
-      margin-top: 6rem;
+      margin-top: 8rem;
     }
     p {
       font-size: 1.5rem;
     }
     img {
       width: 30rem;
-      margin: 2rem auto 0;
+      margin: 3rem auto 0;
+    }
+    li {
+      font-size: 1.5rem;
     }
   }
   .relation {
     margin-top: 8rem;
-    padding-top: 6rem;
+    padding-top: 8rem;
   }
   .relationTitle {
     margin-bottom: 2.5rem;

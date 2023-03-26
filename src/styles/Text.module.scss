@@ -4,6 +4,10 @@
   font-size: 1.6rem;
   line-height: 2;
 }
+.mdSpSm {
+  font-size: 1.6rem;
+  line-height: 2;
+}
 .enMd {
   font-size: 1.6rem;
   font-family: var(--font-lexend);
@@ -15,6 +19,9 @@
 }
 
 @media screen and (max-width: var.$sp) {
+  .mdSpSm {
+    font-size: 1.4rem;
+  }
   .enMd {
     font-size: 1.4rem;
   }
