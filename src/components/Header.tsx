@@ -1,10 +1,14 @@
 'use client'
 
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { useCallback } from 'react'
+import { useRecoilState } from 'recoil'
 import style from './Header.module.scss'
 import { HeaderCategoryMenu } from './HeaderCategoryMenu'
 import { HeaderKeywordMenu } from './HeaderKeywordMenu'
 import { useHeaderMenuHidden } from '@/hooks/useHeaderMenuHidden'
+import { searchKeyword } from '@/store/seachKeyword'
 
 /**
  * TODO: categoryとkeywordsをrscに書き換えたい。バケツリレーになるからグローバルで持っておく
@@ -31,6 +35,31 @@ export const Header: React.FC = () => {
   ]
 
   const { handleClickVisibleMenu, menuHidden } = useHeaderMenuHidden()
+
+  const [searchText, setSearchText] = useRecoilState(searchKeyword)
+  const router = useRouter()
+
+  const onChangeSearchText = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchText(e.target.value)
+  }, [])
+
+  const onSubmitSearch = useCallback(
+    (e: React.ChangeEvent<HTMLFormElement>) => {
+      e.preventDefault()
+      router.push(`search?q=${searchText}`)
+    },
+    [searchText, router],
+  )
+
+  const onKeydownSearch = useCallback(
+    (e: React.KeyboardEvent<HTMLInputElement>) => {
+      if (e.key === 'Enter') {
+        e.preventDefault()
+        router.push(`search?q=${searchText}`)
+      }
+    },
+    [searchText, router],
+  )
 
   return (
     <header className={style.container}>
@@ -82,11 +111,13 @@ export const Header: React.FC = () => {
                 </ul>
               </div>
               {/* search */}
-              <form action='' className={style.menuSearch}>
+              <form action='' className={style.menuSearch} onSubmit={onSubmitSearch}>
                 <input
                   type='text'
                   className={style.menuSearchInput}
                   placeholder='キーワードを入力してください'
+                  onChange={onChangeSearchText}
+                  onKeyDown={onKeydownSearch}
                 />
                 <button className={style.menuSearchButton}>
                   <svg
