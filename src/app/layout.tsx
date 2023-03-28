@@ -15,9 +15,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <RecoilComponent>
           <Header />
+          {children}
+          <Footer />
         </RecoilComponent>
-        {children}
-        <Footer />
       </body>
     </html>
   )
