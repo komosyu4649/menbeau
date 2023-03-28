@@ -6,28 +6,25 @@ import { useRecoilState, useRecoilValue } from 'recoil'
 import useSWR from 'swr'
 import { searchKeyword } from '@/store/seachKeyword'
 
-const fetcher = (url: string, searchText: string) => {
-  return fetch(`${url}?q=${searchText}`).then((res) => res.json())
-}
-
 // console.log(fetcher)
 
+/**
+ * TODO: これを参考に https://qiita.com/manak1/items/78623eb8f02db88eb879
+ */
 export const SearchPosts = () => {
-  const [searchText, setSearchText] = useRecoilState(searchKeyword)
+  const searchText = useRecoilValue(searchKeyword)
   // console.log(1, searchText)
-  // fetch('https://menbeau.microcms.io/api/v1/contents?q=顔顔進捗こんな感じです6', {
-  //   headers: { 'X-MICROCMS-API-KEY': process.env.NEXT_PUBLIC_MICROCMS_API_KEY },
-  // }).then((res) => res.json())
-  const test = fetch(`https://menbeau.microcms.io/api/v1/contents/?q=${searchText}`, {
-    headers: {
-      'X-MICROCMS-API-KEY': process.env.NEXT_PUBLIC_MICROCMS_API_KEY ?? '',
-    },
-  }).then((res) => res)
-  console.log(test)
+
+  // const fetcher = (url: string, searchText: string) => {
+  //   return fetch(`${url}?q=${searchText}`).then((res) => res.json())
+  // }
+  const fetcher = () => fetch('/api/search-posts')
+
+  // console.log(test)
   // .then((res) => console.log(res))
   // .then((res) => console.log(res))
-  // const searchParams = useSearchParams()
-  // const { data, error } = useSWR(['api/search-posts', searchParams.get('q')], fetcher)
+  const searchParams = useSearchParams()
+  const { data, error } = useSWR(['api/search-posts', searchParams.get('q')], fetcher)
   // console.log(data)
   return <div>SearchPosts</div>
 }
