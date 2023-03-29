@@ -1,9 +1,15 @@
 'use client'
 
+import axios from 'axios'
 import { useRouter, useSearchParams } from 'next/navigation'
-import React from 'react'
+import React, { use, useState } from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import useSWR from 'swr'
+import { PostNewItem } from './PostNewItem'
+import style from './SearchPosts.module.scss'
+import { MICROCMS_CONTENTS_TYPE_CONTENTS } from '@/constants'
+import { MicroCMSContent } from '@/lib/microcms'
+import { getMicroCMSDataSearch } from '@/lib/microcms/getData'
 import { searchKeyword } from '@/store/seachKeyword'
 
 // console.log(fetcher)
@@ -12,19 +18,37 @@ import { searchKeyword } from '@/store/seachKeyword'
  * TODO: これを参考に https://qiita.com/manak1/items/78623eb8f02db88eb879
  */
 export const SearchPosts = () => {
+  const searchParams = useSearchParams().get('q')
+  // console.log(searchParams)
+  const [searchContents, setSearchContents] = useState([])
   const searchText = useRecoilValue(searchKeyword)
-  // console.log(1, searchText)
+  // console.log(1, searchText, searchParams)
 
-  // const fetcher = (url: string, searchText: string) => {
-  //   return fetch(`${url}?q=${searchText}`).then((res) => res.json())
-  // }
-  const fetcher = () => fetch('/api/search-posts')
+  const test = searchText ? searchText : searchParams
+  console.log(test)
 
-  // console.log(test)
-  // .then((res) => console.log(res))
-  // .then((res) => console.log(res))
-  const searchParams = useSearchParams()
-  const { data, error } = useSWR(['api/search-posts', searchParams.get('q')], fetcher)
-  // console.log(data)
-  return <div>SearchPosts</div>
+  const contentsSearch = async () => {
+    const res = await axios.get('/api/search-posts', {
+      params: {
+        searchText,
+      },
+    })
+    // console.log(res.data.contents)
+    setSearchContents(res.data.contents)
+  }
+  contentsSearch()
+
+  console.log(searchContents)
+
+  return (
+    <div className={style.container}>
+      <ul className={style.list}>
+        {searchContents.map((content: MicroCMSContent) => (
+          <li key={content.id} className={style.item}>
+            <PostNewItem content={content} />
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
 }

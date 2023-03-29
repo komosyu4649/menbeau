@@ -29,3 +29,14 @@ export async function getMicroCMSDataList(
   })
   return res
 }
+
+export async function getMicroCMSDataSearch(contentId: string, searchText?: string) {
+  const res = await client.getList({
+    endpoint: contentId,
+    queries: {
+      limit: 100,
+      q: searchText ? decodeURI(searchText) : '',
+    },
+  })
+  return res
+}

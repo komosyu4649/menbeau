@@ -2,6 +2,7 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import React from 'react'
 import useSWR from 'swr'
 import { SearchPosts } from '@/components/SearchPosts'
+import layoutStyle from '@/styles/Layout.module.scss'
 
 // const fetcher = (url: string, searchText: string) => {
 //   return fetch(`${url}?q=${searchText}`).then((res) => res.json())
@@ -13,9 +14,8 @@ export default async function Search() {
   //   console.log(searchParams)
   //   const { data, error } = useSWR(['api/search-posts', router.query.q], fetcher)
   return (
-    <main>
-      <span>test</span>
+    <div className={layoutStyle.lg}>
       <SearchPosts />
-    </main>
+    </div>
   )
 }

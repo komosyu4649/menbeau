@@ -2,12 +2,14 @@
 
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { useCallback } from 'react'
+import { use, useCallback } from 'react'
 import { useRecoilState } from 'recoil'
 import style from './Header.module.scss'
 import { HeaderCategoryMenu } from './HeaderCategoryMenu'
 import { HeaderKeywordMenu } from './HeaderKeywordMenu'
+import { MICROCMS_CONTENTS_TYPE_CONTENTS } from '@/constants'
 import { useHeaderMenuHidden } from '@/hooks/useHeaderMenuHidden'
+import { getMicroCMSDataSearch } from '@/lib/microcms/getData'
 import { searchKeyword } from '@/store/seachKeyword'
 
 /**
@@ -47,6 +49,8 @@ export const Header: React.FC = () => {
     (e: React.ChangeEvent<HTMLFormElement>) => {
       e.preventDefault()
       router.push(`search?q=${searchText}`)
+      const test = use(getMicroCMSDataSearch(MICROCMS_CONTENTS_TYPE_CONTENTS, searchText))
+      console.log(test)
     },
     [searchText, router],
   )
