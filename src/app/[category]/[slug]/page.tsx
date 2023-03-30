@@ -103,23 +103,25 @@ export default async function CategoryDetail({ params }: { params: { slug: strin
         </div>
       </article>
       {/* relation */}
-      <section className={style.relation}>
-        {/* title */}
-        <h2 className={`${titleStyle.section} ${style.relationTitle}`}>
-          <span className={`${titleStyle.sectionEn} ${style.relationTitleEn}`}>relation</span>
-          <span className={`${titleStyle.sectionJa} ${style.relationTitleJa}`}>関連記事</span>
-        </h2>
-        {/* main */}
-        <div className={style.relationMain}>
-          <ul className={style.relationMainList}>
-            {detailContent.related.map((content) => (
-              <li key={content.id} className={style.relationItem}>
-                <PostNewItem content={content} />
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      {detailContent.related.length >= 1 && (
+        <section className={style.relation}>
+          {/* title */}
+          <h2 className={`${titleStyle.section} ${style.relationTitle}`}>
+            <span className={`${titleStyle.sectionEn} ${style.relationTitleEn}`}>relation</span>
+            <span className={`${titleStyle.sectionJa} ${style.relationTitleJa}`}>関連記事</span>
+          </h2>
+          {/* main */}
+          <div className={style.relationMain}>
+            <ul className={style.relationMainList}>
+              {detailContent.related.map((content) => (
+                <li key={content.id} className={style.relationItem}>
+                  <PostNewItem content={content} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
     </div>
   )
 }

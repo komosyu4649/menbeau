@@ -4,6 +4,7 @@ import { MICROCMS_CONTENTS_TYPE_CONTENTS } from '@/constants'
 import { client } from '@/lib/microcms/apis'
 
 const getSearchPosts = async (req: NextApiRequest, res: NextApiResponse) => {
+  console.log(2, req, res)
   // const { q } = req.query as { q: string }
   // const apiKey = {
   //   headers: { 'X-MICROCMS-API-KEY': process.env.NEXT_PUBLIC_MICROCMS_API_KEY ?? '' },

@@ -19,26 +19,18 @@ import { searchKeyword } from '@/store/seachKeyword'
  */
 export const SearchPosts = () => {
   const searchParams = useSearchParams().get('q')
-  // console.log(searchParams)
   const [searchContents, setSearchContents] = useState([])
   const searchText = useRecoilValue(searchKeyword)
-  // console.log(1, searchText, searchParams)
-
-  const test = searchText ? searchText : searchParams
-  console.log(test)
 
   const contentsSearch = async () => {
     const res = await axios.get('/api/search-posts', {
       params: {
-        searchText,
+        searchParams,
       },
     })
-    // console.log(res.data.contents)
     setSearchContents(res.data.contents)
   }
   contentsSearch()
-
-  console.log(searchContents)
 
   return (
     <div className={style.container}>
