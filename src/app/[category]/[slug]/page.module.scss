@@ -4,7 +4,7 @@
   margin-bottom: 20rem;
 }
 .main {
-  margin-top: 20rem;
+  margin-top: 16rem;
 }
 .header {
   display: grid;
@@ -103,13 +103,14 @@
   h6 {
     font-size: 1.8rem;
   }
-  p + h1,
-  h2,
-  h3,
+  p + h2 {
+    margin-top: 12rem;
+  }
+  p + h3,
   h4,
   h5,
   h6 {
-    margin-top: 12rem;
+    margin-top: 8rem;
   }
   p {
     margin-bottom: 3rem;
@@ -123,7 +124,7 @@
     margin: 4rem auto 0;
   }
   ul {
-    margin-left: 2rem;
+    margin: 0 0 3rem 2rem;
   }
   li {
     font-size: 1.6rem;
