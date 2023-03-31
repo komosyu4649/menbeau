@@ -49,8 +49,6 @@ export const Header: React.FC = () => {
     (e: React.ChangeEvent<HTMLFormElement>) => {
       e.preventDefault()
       router.push(`search?q=${searchText}`)
-      const test = use(getMicroCMSDataSearch(MICROCMS_CONTENTS_TYPE_CONTENTS, searchText))
-      console.log(test)
     },
     [searchText, router],
   )
