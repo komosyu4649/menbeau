@@ -12,8 +12,6 @@ import { MicroCMSContent } from '@/lib/microcms'
 import { getMicroCMSDataSearch } from '@/lib/microcms/getData'
 import { searchKeyword } from '@/store/seachKeyword'
 
-// console.log(fetcher)
-
 /**
  * TODO: これを参考に https://qiita.com/manak1/items/78623eb8f02db88eb879
  */

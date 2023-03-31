@@ -8,17 +8,7 @@ import { useAccordion } from '@/hooks/useAccordion'
 import microCMSCategoryData from 'public/json/microCMSCategoryData.json'
 
 export const SidebarCategory: React.FC = () => {
-  // const categoriesData: MicroCMSCategoryData = use(
-  //   getMicroCMSData(MICROCMS_CONTENTS_TYPE_CATEGORIES),
-  // )
-
   const { isOpen, setIsOpen, accordionRef } = useAccordion()
-
-  // const [isOpen, setIsOpen] = useState(false)
-  // const test = () => {
-  //   setIsOpen(!isOpen)
-  //   console.log(123, isOpen)
-  // }
 
   const [windowWidth, setWindowWidth] = useState(0)
   useEffect(() => {
