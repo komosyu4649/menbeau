@@ -5,7 +5,7 @@ import { Keyword } from '@/components/Keyword'
 import { PostNewItem } from '@/components/PostNewItem'
 import { MICROCMS_CONTENTS_TYPE_CONTENTS } from '@/constants'
 import { formatDate } from '@/lib/dayjs'
-import { MicroCMSContentsData } from '@/lib/microcms'
+import { MicroCMSContent, MicroCMSContentsData } from '@/lib/microcms'
 import { getMicroCMSData } from '@/lib/microcms/getData'
 import layoutStyle from '@/styles/Layout.module.scss'
 import textStyle from '@/styles/Text.module.scss'
@@ -25,6 +25,44 @@ export default async function CategoryDetail({ params }: { params: { slug: strin
   const { contents } = contentsData
   const detailContents = contents.filter((content) => slug === content.id)
   const detailContent = detailContents[0]
+
+  const DetailContent = (content: any) => {
+    // console.log(content)
+    switch (content.fieldId) {
+      case 'contents':
+        return (
+          <div
+            className={style.bodyContents}
+            dangerouslySetInnerHTML={{ __html: content.contents }}
+          ></div>
+        )
+      case 'amazonAssociate':
+        return (
+          <a
+            href={content.url}
+            target='_blank'
+            rel='noopener noreferrer'
+            className={style.bodyAmazon}
+          >
+            <Image
+              src={content.image.url}
+              width={content.image.width}
+              height={content.image.height}
+              alt={content.image.name}
+              className={style.bodyAmazonImage}
+            />
+            <span className={style.bodyAmazonInformation}>
+              <h2 className={`${titleStyle.jaMd} ${style.bodyAmazonInformationName}`}>
+                {content.name}
+              </h2>
+              <span className={`${textStyle.md} ${style.bodyAmazonInformationPrice}`}>
+                ¥{content.price}
+              </span>
+            </span>
+          </a>
+        )
+    }
+  }
 
   const breadcrumb = [
     {
@@ -94,11 +132,9 @@ export default async function CategoryDetail({ params }: { params: { slug: strin
         {/* body */}
         <div className={style.body}>
           {detailContent.mainContents.map((content, index) => (
-            <div
-              key={index}
-              className={style.bodyContents}
-              dangerouslySetInnerHTML={{ __html: content.contents }}
-            ></div>
+            <div key={index} className={style.bodyMain}>
+              {DetailContent(content)}
+            </div>
           ))}
         </div>
       </article>
