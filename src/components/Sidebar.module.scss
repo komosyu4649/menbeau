@@ -1,0 +1,15 @@
+@use '../styles/variables.scss' as var;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+  width: 28rem;
+}
+
+@media screen and (max-width: var.$sp) {
+  .container {
+    width: 100%;
+    gap: 3rem;
+  }
+}

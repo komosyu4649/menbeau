@@ -1,0 +1,74 @@
+@use '../styles/variables.scss' as var;
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.sectionEn {
+  font-size: 1.4rem;
+  font-family: var(--font-lexend);
+  font-weight: bold;
+  color: var(--color-key);
+  text-transform: uppercase;
+}
+.sectionJa {
+  font-size: 2.8rem;
+  font-weight: bold;
+}
+.jaMd {
+  font-size: 1.8rem;
+  font-weight: bold;
+  line-height: 1.5;
+}
+.jaMdSpMd {
+  font-size: 1.8rem;
+  font-weight: bold;
+  line-height: 1.5;
+}
+.jaMdSpSm {
+  font-size: 1.8rem;
+  font-weight: bold;
+  line-height: 1.5;
+}
+.borderMd {
+  display: inline-block;
+  padding: 1.5rem 3rem;
+  font-size: 2.4rem;
+  font-weight: bold;
+  border: 3px solid var(--color-black);
+  border-radius: 2rem;
+}
+.borderLg {
+  display: inline-block;
+  padding: 0.5rem 3.5rem;
+  font-size: 4.8rem;
+  font-weight: bold;
+  border: 3px solid var(--color-black);
+  border-radius: 3rem;
+}
+
+@media screen and (max-width: var.$sp) {
+  .sectionEn {
+    font-size: 1.2rem;
+  }
+  .sectionJa {
+    font-size: 2.4rem;
+  }
+  .jaMdSpMd {
+    font-size: 1.6rem;
+  }
+  .jaMdSpSm {
+    font-size: 1.4rem;
+  }
+  .borderMd {
+    padding: 0.5rem 1.5rem;
+    font-size: 2rem;
+    border-radius: 1.5rem;
+  }
+  .borderLg {
+    padding: 0.5rem 1.5rem;
+    font-size: 2.4rem;
+    border-radius: 2rem;
+  }
+}

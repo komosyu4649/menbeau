@@ -1,0 +1,17 @@
+@use '../styles/variables.scss' as var;
+
+.itemImage {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 4rem;
+}
+.itemContent {
+  margin-top: 2rem;
+}
+
+@media screen and (max-width: var.$sp) {
+  .itemContent {
+    margin-top: 1rem;
+  }
+}

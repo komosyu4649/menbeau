@@ -1,0 +1,49 @@
+@use '../styles/variables.scss' as var;
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 20rem;
+}
+.title {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.titleEn {
+  color: var(--color-key);
+  font-size: 2rem;
+  font-family: var(--font-lexend);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.titleJa {
+  font-size: 4.8rem;
+  font-weight: bold;
+}
+.titleJaKeyword {
+  margin-right: 1.5rem;
+}
+
+@media screen and (max-width: var.$sp) {
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    margin-top: 12rem;
+  }
+  .title {
+    gap: 0.5rem;
+  }
+  .titleEn {
+    font-size: 1.2rem;
+  }
+  .titleJa {
+    font-size: 2.4rem;
+  }
+  .titleJaKeyword {
+    margin-right: 1rem;
+  }
+}

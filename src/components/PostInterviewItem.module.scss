@@ -1,0 +1,53 @@
+@use '../styles/variables.scss' as var;
+
+.itemLink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 3.5rem 3rem 4rem;
+  background-color: var(--color-key);
+  border: 3px solid var(--color-black);
+  border-radius: 3rem;
+}
+.itemImage {
+  width: 18rem;
+  height: 18rem;
+}
+.itemImageContent {
+  width: 100%;
+  margin-top: 2.5rem;
+  padding: 1.5rem 2rem;
+  background-color: var(--color-white);
+}
+.itemImageContentTitle {
+  color: var(--color-black);
+}
+.itemImageContentProfile {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem auto 0;
+  padding-top: 1rem;
+  border-top: 2px solid var(--color-black);
+}
+.itemImageContentProfileImage {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+}
+.itemImageContentProfileName {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--color-black);
+}
+
+@media screen and (max-width: var.$sp) {
+  .itemLink {
+    padding: 2.5rem 1.51rem 3rem;
+  }
+  .itemImageContent {
+    margin-top: 2rem;
+  }
+}

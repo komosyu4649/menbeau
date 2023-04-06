@@ -1,0 +1,44 @@
+@use '../styles/variables.scss' as var;
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  width: 100%;
+}
+.list {
+  display: flex;
+  flex-direction: row;
+}
+.itemLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 7rem;
+  height: 7rem;
+}
+.current.itemLink {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  border-radius: 50%;
+}
+.current.prev {
+  pointer-events: none;
+  visibility: hidden;
+}
+.current.next {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+@media screen and (max-width: var.$sp) {
+  .container {
+    gap: 0;
+  }
+  .itemLink {
+    width: 4rem;
+    height: 4rem;
+  }
+}

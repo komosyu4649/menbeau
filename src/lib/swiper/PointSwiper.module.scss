@@ -1,0 +1,86 @@
+@use '../../styles/variables.scss' as var;
+
+.container {
+}
+.item {
+  display: flex;
+  flex-direction: row;
+  gap: 5rem;
+  background-color: var(--color-white);
+}
+.itemImageInside {
+  width: 56rem;
+  height: 56rem;
+  border-radius: 4rem;
+}
+.itemContent {
+  height: fit-content;
+  margin: 8rem 0 0 -1rem;
+}
+.itemContentTitle {
+  display: inline-flex;
+  flex-direction: column;
+  margin-left: -20rem;
+}
+.itemContentTitleCategory {
+  display: inline-block;
+  width: fit-content;
+  padding: 1.5rem 2.5rem;
+  background-color: var(--color-white);
+  border: 4px solid var(--color-black);
+  border-radius: 2rem 2rem 0 0;
+  font-size: 1.6rem;
+  font-family: var(--font-lexend);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.itemContentTitleInside {
+  display: inline-block;
+  margin-top: -4px;
+  padding: 2.5rem 2.5rem;
+  font-size: 3.2rem;
+  font-weight: bold;
+  background-color: var(--color-white);
+  border: 4px solid var(--color-black);
+  border-radius: 0 2rem 2rem 2rem;
+}
+.itemContentIntroduction {
+  width: 52rem;
+  margin-top: 3.5rem;
+}
+
+@media screen and (max-width: var.$sp) {
+  .item {
+    flex-direction: column;
+    gap: 4rem;
+  }
+  .itemImage {
+    display: flex;
+    justify-content: center;
+  }
+  .itemImageInside {
+    width: 30rem;
+    height: 30rem;
+    border-radius: 8rem;
+  }
+  .itemContent {
+    margin: 0;
+  }
+  .itemContentTitle {
+    margin: 0;
+  }
+  .itemContentTitleCategory {
+    padding: 1rem 1.6rem;
+    font-size: 1.4rem;
+    border-radius: 1.5rem 1.5rem 0 0;
+  }
+  .itemContentTitleInside {
+    padding: 1.5rem 1.6rem;
+    font-size: 2.2rem;
+    line-height: 1.5;
+    border-radius: 0 1.5rem 1.5rem 1.5rem;
+  }
+  .itemContentIntroduction {
+    width: 100%;
+  }
+}

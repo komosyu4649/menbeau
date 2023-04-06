@@ -1,0 +1,11 @@
+.navigation {
+  display: inline-block;
+}
+.navigation:disabled {
+  circle {
+    fill: var(--color-black);
+  }
+  path {
+    fill: var(--color-white);
+  }
+}

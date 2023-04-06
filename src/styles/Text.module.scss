@@ -1,0 +1,35 @@
+@use '../styles/variables.scss' as var;
+
+.md {
+  font-size: 1.6rem;
+  line-height: 2;
+}
+.mdSpSm {
+  font-size: 1.6rem;
+  line-height: 2;
+}
+.mdSpMd {
+  font-size: 1.6rem;
+  line-height: 2;
+}
+.enMd {
+  font-size: 1.6rem;
+  font-family: var(--font-lexend);
+  font-weight: normal;
+  line-height: 2;
+}
+.link {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: var.$sp) {
+  .mdSpMd {
+    font-size: 1.5rem;
+  }
+  .mdSpSm {
+    font-size: 1.4rem;
+  }
+  .enMd {
+    font-size: 1.4rem;
+  }
+}

@@ -1,0 +1,21 @@
+@use '../../../styles/variables.scss' as var;
+
+.main {
+  display: grid;
+  grid-template-columns: 28rem 1fr;
+  gap: 5rem;
+  margin: 10rem auto 20rem;
+}
+
+@media screen and (max-width: var.$sp) {
+  .container {
+    margin-bottom: 10rem;
+  }
+  .main {
+    grid-template-columns: auto;
+    margin: 6rem auto 0;
+  }
+  .mainContentsPagination {
+    margin-top: 4rem;
+  }
+}
