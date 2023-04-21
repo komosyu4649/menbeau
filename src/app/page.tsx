@@ -48,7 +48,7 @@ export default async function Home() {
             {contentsData.contents.flatMap(
               (content, index) =>
                 !content.pickup &&
-                index <= 4 && (
+                index < 4 && (
                   <li key={content.id} className={style.newMainItem}>
                     <PostNewItem content={content} />
                   </li>
@@ -62,65 +62,72 @@ export default async function Home() {
       </section>
 
       {/* interview */}
-      <section className={`${layoutStyle.lg} ${style.interview}`}>
-        <h2 className={`${titleStyle.section} ${style.interviewTitle}`}>
-          <span className={`${titleStyle.sectionEn} ${style.interviewTitleEn}`}>Interview</span>
-          <span className={`${titleStyle.sectionJa} ${style.interviewTitleJa}`}>インタビュー</span>
-        </h2>
-        <div className={style.interviewMain}>
-          <div className={style.interviewMainFeature}>
-            {categoryFilteredContents('interview').map(
-              (content, index) =>
-                index === 0 && (
-                  <Link
-                    href={`/interview/${content.id}`}
-                    key={content.id}
-                    className={style.interviewMainFeatureLink}
-                  >
-                    <Image
-                      className={style.interviewMainFeatureImage}
-                      src={content.thumbnail.url}
-                      alt={content.title}
-                      width={content.thumbnail.width}
-                      height={content.thumbnail.height}
-                    />
-                    <div className={style.interviewMainFeatureContent}>
-                      <h2 className={style.interviewMainFeatureContentTitle}>{content.title}</h2>
-                      <div className={style.interviewMainFeatureContentProfile}>
-                        <Image
-                          className={style.interviewMainFeatureContentProfileImage}
-                          src={content.interviewee.icon.url}
-                          alt={content.interviewee.name}
-                          width={content.interviewee.icon.width}
-                          height={content.interviewee.icon.height}
-                        />
-                        <span className={style.interviewMainFeatureContentProfileName}>
-                          {content.interviewee.name}
-                        </span>
-                      </div>
-                    </div>
-                  </Link>
-                ),
-            )}
-            <Link href='' className={`${buttonStyle.default} ${style.interviewMainFeatureButton}`}>
-              インタビュー一覧
-            </Link>
-          </div>
-          <div className={style.interviewMainContainer}>
-            <ul className={style.interviewMainList}>
+      {categoryFilteredContents('interview').length > 1 && (
+        <section className={`${layoutStyle.lg} ${style.interview}`}>
+          <h2 className={`${titleStyle.section} ${style.interviewTitle}`}>
+            <span className={`${titleStyle.sectionEn} ${style.interviewTitleEn}`}>Interview</span>
+            <span className={`${titleStyle.sectionJa} ${style.interviewTitleJa}`}>
+              インタビュー
+            </span>
+          </h2>
+          <div className={style.interviewMain}>
+            <div className={style.interviewMainFeature}>
               {categoryFilteredContents('interview').map(
                 (content, index) =>
-                  index >= 1 &&
-                  index <= 4 && (
-                    <li key={content.id} className={style.interviewMainItem}>
-                      <PostInterviewItem content={content} />
-                    </li>
+                  index === 0 && (
+                    <Link
+                      href={`/interview/${content.id}`}
+                      key={content.id}
+                      className={style.interviewMainFeatureLink}
+                    >
+                      <Image
+                        className={style.interviewMainFeatureImage}
+                        src={content.thumbnail.url}
+                        alt={content.title}
+                        width={content.thumbnail.width}
+                        height={content.thumbnail.height}
+                      />
+                      <div className={style.interviewMainFeatureContent}>
+                        <h2 className={style.interviewMainFeatureContentTitle}>{content.title}</h2>
+                        <div className={style.interviewMainFeatureContentProfile}>
+                          <Image
+                            className={style.interviewMainFeatureContentProfileImage}
+                            src={content.interviewee.icon.url}
+                            alt={content.interviewee.name}
+                            width={content.interviewee.icon.width}
+                            height={content.interviewee.icon.height}
+                          />
+                          <span className={style.interviewMainFeatureContentProfileName}>
+                            {content.interviewee.name}
+                          </span>
+                        </div>
+                      </div>
+                    </Link>
                   ),
               )}
-            </ul>
+              <Link
+                href=''
+                className={`${buttonStyle.default} ${style.interviewMainFeatureButton}`}
+              >
+                インタビュー一覧
+              </Link>
+            </div>
+            <div className={style.interviewMainContainer}>
+              <ul className={style.interviewMainList}>
+                {categoryFilteredContents('interview').map(
+                  (content, index) =>
+                    index >= 1 &&
+                    index <= 4 && (
+                      <li key={content.id} className={style.interviewMainItem}>
+                        <PostInterviewItem content={content} />
+                      </li>
+                    ),
+                )}
+              </ul>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* entertainment */}
       <section className={style.entertainment}>
