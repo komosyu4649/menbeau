@@ -29,40 +29,37 @@ export default async function Home() {
   const { contents } = contentsData
   const categoryFilteredContents = (category: string) =>
     contents.filter((content) => content.category?.english === category)
-  const newContents = contentsData.contents.filter((content, index) => !content.pickup && index < 4)
-  // console.log(newContents)
-  // interviewカテゴリーの記事の1件取得(newContetsに入っているものは除いて)
-  const interviewFirstContent = contentsData.contents.filter(
-    (content, index) =>
-      content.category?.english === 'interview' && !newContents.includes(content) && index < 1,
+  const newContents = contentsData.contents.filter(
+    (content, index) => !content.pickup && index <= 3,
   )
-  // interviewカテゴリーの記事の2件目から5件目までを取得(newContetsに入っているものは除いて)
-  const interviewOtherContents = contentsData.contents.filter(
-    (content, index) =>
+  // interviewカテゴリーの記事を取得(newContetsに入っているものは除いて)
+  const interviewContents = contentsData.contents.filter(
+    (content) =>
       content.category?.english === 'interview' &&
       !newContents.includes(content) &&
-      index < 2 &&
-      index > 5,
+      !content.pickup,
   )
   // enterrtainmentカテゴリーの記事を取得(newContetsに入っているものは除く)
   const entertainmentContents = contentsData.contents.filter(
-    (content, index) =>
-      content.category?.english === 'entertainment' && !newContents.includes(content) && index < 6,
+    (content) =>
+      content.category?.english === 'entertainment' &&
+      !newContents.includes(content) &&
+      !content.pickup,
   )
   // knowhowカテゴリーの記事を取得(newContetsに入っているものは除いて)
   const knowhowContents = contentsData.contents.filter(
-    (content, index) =>
-      content.category?.english === 'knowhow' && !newContents.includes(content) && index < 4,
+    (content) =>
+      content.category?.english === 'knowhow' && !newContents.includes(content) && !content.pickup,
   )
   // productsカテゴリーの記事を取得(newContetsに入っているものは除いて)
   const productsContents = contentsData.contents.filter(
-    (content, index) =>
-      content.category?.english === 'products' && !newContents.includes(content) && index < 4,
+    (content) =>
+      content.category?.english === 'products' && !newContents.includes(content) && !content.pickup,
   )
   // progressカテゴリーの記事を取得(newContetsに入っているものは除いて)
   const progressContents = contentsData.contents.filter(
-    (content, index) =>
-      content.category?.english === 'progress' && !newContents.includes(content) && index < 4,
+    (content) =>
+      content.category?.english === 'progress' && !newContents.includes(content) && !content.pickup,
   )
 
   return (
@@ -93,7 +90,7 @@ export default async function Home() {
       </section>
 
       {/* interview */}
-      {interviewFirstContent.length > 1 && (
+      {interviewContents.length >= 1 && (
         <section className={`${layoutStyle.lg} ${style.interview}`}>
           <h2 className={`${titleStyle.section} ${style.interviewTitle}`}>
             <span className={`${titleStyle.sectionEn} ${style.interviewTitleEn}`}>Interview</span>
@@ -104,31 +101,31 @@ export default async function Home() {
           <div className={style.interviewMain}>
             <div className={style.interviewMainFeature}>
               <Link
-                href={`/interview/${interviewFirstContent[0].id}`}
-                key={interviewFirstContent[0].id}
+                href={`/interview/${interviewContents[0].id}`}
+                key={interviewContents[0].id}
                 className={style.interviewMainFeatureLink}
               >
                 <Image
                   className={style.interviewMainFeatureImage}
-                  src={interviewFirstContent[0].thumbnail.url}
-                  alt={interviewFirstContent[0].title}
-                  width={interviewFirstContent[0].thumbnail.width}
-                  height={interviewFirstContent[0].thumbnail.height}
+                  src={interviewContents[0].thumbnail.url}
+                  alt={interviewContents[0].title}
+                  width={interviewContents[0].thumbnail.width}
+                  height={interviewContents[0].thumbnail.height}
                 />
                 <div className={style.interviewMainFeatureContent}>
                   <h2 className={style.interviewMainFeatureContentTitle}>
-                    {interviewFirstContent[0].title}
+                    {interviewContents[0].title}
                   </h2>
                   <div className={style.interviewMainFeatureContentProfile}>
                     <Image
                       className={style.interviewMainFeatureContentProfileImage}
-                      src={interviewFirstContent[0].interviewee.icon.url}
-                      alt={interviewFirstContent[0].interviewee.name}
-                      width={interviewFirstContent[0].interviewee.icon.width}
-                      height={interviewFirstContent[0].interviewee.icon.height}
+                      src={interviewContents[0].interviewee.icon.url}
+                      alt={interviewContents[0].interviewee.name}
+                      width={interviewContents[0].interviewee.icon.width}
+                      height={interviewContents[0].interviewee.icon.height}
                     />
                     <span className={style.interviewMainFeatureContentProfileName}>
-                      {interviewFirstContent[0].interviewee.name}
+                      {interviewContents[0].interviewee.name}
                     </span>
                   </div>
                 </div>
@@ -142,11 +139,14 @@ export default async function Home() {
             </div>
             <div className={style.interviewMainContainer}>
               <ul className={style.interviewMainList}>
-                {interviewOtherContents.map((content) => (
-                  <li key={content.id} className={style.interviewMainItem}>
-                    <PostInterviewItem content={content} />
-                  </li>
-                ))}
+                {interviewContents.map(
+                  (content, index) =>
+                    index >= 1 && (
+                      <li key={content.id} className={style.interviewMainItem}>
+                        <PostInterviewItem content={content} />
+                      </li>
+                    ),
+                )}
               </ul>
             </div>
           </div>
@@ -154,7 +154,7 @@ export default async function Home() {
       )}
 
       {/* entertainment */}
-      {entertainmentContents.length > 1 && (
+      {entertainmentContents.length >= 1 && (
         <section className={style.entertainment}>
           <h2 className={`${titleStyle.section} ${style.entertainmentTitle}`}>
             <span className={`${titleStyle.sectionEn} ${style.entertainmentTitleEn}`}>
@@ -238,7 +238,7 @@ export default async function Home() {
       )}
 
       {/* knowhow */}
-      {knowhowContents.length > 1 && (
+      {knowhowContents.length >= 1 && (
         <section className={`${layoutStyle.default} ${style.knowhow}`}>
           <h2 className={`${titleStyle.section} ${style.knowhowTitle}`}>
             <span className={`${titleStyle.sectionEn} ${style.knowhowTitleEn}`}>Knowhow</span>
@@ -262,7 +262,7 @@ export default async function Home() {
       )}
 
       {/* products */}
-      {productsContents.length > 1 && (
+      {productsContents.length >= 1 && (
         <section className={`${layoutStyle.default} ${style.products}`}>
           <h2 className={`${titleStyle.section} ${style.productsTitle}`}>
             <span className={`${titleStyle.sectionEn} ${style.productsTitleEn}`}>Products</span>
@@ -287,7 +287,7 @@ export default async function Home() {
       )}
 
       {/* progress */}
-      {progressContents.length > 1 && (
+      {progressContents.length >= 1 && (
         <section className={style.progress}>
           <h2 className={`${titleStyle.section} ${style.progressTitle}`}>
             <span className={`${titleStyle.sectionEn} ${style.progressTitleEn}`}>Progress</span>
