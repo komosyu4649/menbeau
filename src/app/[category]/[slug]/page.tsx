@@ -19,6 +19,18 @@ export async function generateStaticParams() {
   }))
 }
 
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+  const { slug } = params
+  const contentsData: MicroCMSContentsData = await getMicroCMSData(MICROCMS_CONTENTS_TYPE_CONTENTS)
+  const { contents } = contentsData
+  const detailContents = contents.filter((content) => slug === content.id)
+  const detailContent = detailContents[0]
+  return {
+    title: detailContent.title,
+    description: detailContent.introduction,
+  }
+}
+
 export default async function CategoryDetail({ params }: { params: { slug: string } }) {
   const { slug } = params
   const contentsData: MicroCMSContentsData = await getMicroCMSData(MICROCMS_CONTENTS_TYPE_CONTENTS)

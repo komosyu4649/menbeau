@@ -1,3 +1,4 @@
+import React, { use } from 'react'
 import style from './page.module.scss'
 import { CategoryMain } from '@/components/CategoryMain'
 import { KeywordKv } from '@/components/KeywordKv'
@@ -15,28 +16,18 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: { params: { keyword: string } }) {
-  // const { keyword } = params
-  // const contentData: MicroCMSContentsData = await getMicroCMSData(MICROCMS_CONTENTS_TYPE_CONTENTS)
-  // const { contents } = contentData
-  // const keywordFilteredContents = (keyword: string) =>
-  //   contents.filter((content) =>
-  //     content.keywords
-  //       .map((contentKeyword) => {
-  //         return contentKeyword.id
-  //       })
-  //       .includes(keyword),
-  //   )
-  console.log(params)
-  // console.log(keywordFilteredContents(keyword))
+  const { keyword } = params
+  const keywordsData: MicroCMSKeywordsData = await getMicroCMSData(MICROCMS_CONTENTS_TYPE_KEYWORDS)
+  const keywordData = keywordsData.contents.filter((content) => content.id === keyword)
+  const titleName = keywordData[0].name
   return {
-    title: `${123}の記事一覧`,
-    description: `${123}の記事一覧です`,
+    title: `${titleName}に関する記事一覧`,
+    description: `${titleName}に関する記事一覧です`,
   }
 }
 
 export default async function Keyword({ params }: { params: { keyword: string } }) {
   const { keyword } = params
-  // console.log(params)
   const contentData: MicroCMSContentsData = await getMicroCMSData(MICROCMS_CONTENTS_TYPE_CONTENTS)
   const { contents } = contentData
   const keywordFilteredContents = (keyword: string) =>

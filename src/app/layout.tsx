@@ -54,7 +54,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='ja' className={`${notoSans.className} ${notoSans.variable} ${lexend.variable}`}>
-      <head />
+      <meta content='width=device-width, initial-scale=1' name='viewport' />
       <body>
         <RecoilComponent>
           <Header />
