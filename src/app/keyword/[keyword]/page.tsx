@@ -14,8 +14,29 @@ export async function generateStaticParams() {
   }))
 }
 
+export async function generateMetadata({ params }: { params: { keyword: string } }) {
+  // const { keyword } = params
+  // const contentData: MicroCMSContentsData = await getMicroCMSData(MICROCMS_CONTENTS_TYPE_CONTENTS)
+  // const { contents } = contentData
+  // const keywordFilteredContents = (keyword: string) =>
+  //   contents.filter((content) =>
+  //     content.keywords
+  //       .map((contentKeyword) => {
+  //         return contentKeyword.id
+  //       })
+  //       .includes(keyword),
+  //   )
+  console.log(params)
+  // console.log(keywordFilteredContents(keyword))
+  return {
+    title: `${123}の記事一覧`,
+    description: `${123}の記事一覧です`,
+  }
+}
+
 export default async function Keyword({ params }: { params: { keyword: string } }) {
   const { keyword } = params
+  // console.log(params)
   const contentData: MicroCMSContentsData = await getMicroCMSData(MICROCMS_CONTENTS_TYPE_CONTENTS)
   const { contents } = contentData
   const keywordFilteredContents = (keyword: string) =>

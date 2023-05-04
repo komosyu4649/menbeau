@@ -1,9 +1,17 @@
+
 import Image from 'next/image'
 import React from 'react'
 import style from './page.module.scss'
 import layoutStyle from '@/styles/Layout.module.scss'
 import textStyle from '@/styles/Text.module.scss'
 import titleStyle from '@/styles/Title.module.scss'
+
+export async function generateMetadata() {
+  return {
+    title: 'MENBEAUについて',
+    description: 'MENBEAUは男性向け美容情報を発信するWebメディアです',
+  }
+}
 
 export default async function About() {
   return (
