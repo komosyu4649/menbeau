@@ -21,6 +21,19 @@ export async function generateStaticParams() {
   }))
 }
 
+export async function generateMetadata({ params }: { params: { category: string } }) {
+  const { category } = params
+  const categoriesData: MicroCMSCategoryData = await getMicroCMSData(
+    MICROCMS_CONTENTS_TYPE_CATEGORIES,
+  )
+  const categoryData = categoriesData.contents.filter((content) => content.english === category)
+  const categoryName = categoryData[0]?.japanese
+  return {
+    title: `${categoryName ? `${categoryName}に関する記事一覧` : 'すべての記事一覧'}`,
+    description: `${categoryName ? `${categoryName}に関する記事一覧です` : 'すべての記事一覧です'}`,
+  }
+}
+
 export default async function Category({ params }: { params: { category: string } }) {
   const { category } = params
   const categoryName: string = category || 'all'
