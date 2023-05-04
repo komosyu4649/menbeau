@@ -113,7 +113,7 @@ export const Header: React.FC = () => {
                 </ul>
               </div>
               {/* search */}
-              <form action='' className={style.menuSearch} onSubmit={onSubmitSearch}>
+              {/* <form action='' className={style.menuSearch} onSubmit={onSubmitSearch}>
                 <input
                   type='text'
                   className={style.menuSearchInput}
@@ -142,7 +142,7 @@ export const Header: React.FC = () => {
                     />
                   </svg>
                 </button>
-              </form>
+              </form> */}
             </div>
           </div>
         </nav>
