@@ -57,10 +57,10 @@ export default async function CategoryDetail({ params }: { params: { slug: strin
             className={style.bodyAmazon}
           >
             <Image
-              src={content.image.url}
-              width={content.image.width}
-              height={content.image.height}
-              alt={content.image.name}
+              src={content.image?.url}
+              width={content.image?.width}
+              height={content.image?.height}
+              alt={content.image?.name}
               className={style.bodyAmazonImage}
             />
             <span className={style.bodyAmazonInformation}>
