@@ -51,7 +51,10 @@ export const PointSwiper: React.FC<Props> = ({ contents }) => {
                   />
                 </Link>
                 {/* content */}
-                <Link href={content.id} className={style.itemContent}>
+                <Link
+                  href={`/${content.category.english}/${content.id}`}
+                  className={style.itemContent}
+                >
                   <div className={style.itemContentTitle}>
                     <span className={style.itemContentTitleCategory}>
                       {content.category?.english}

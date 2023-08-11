@@ -19,6 +19,7 @@ import { searchKeyword } from '@/store/seachKeyword'
 export const Header: React.FC = () => {
   type OtherMenu = {
     href: string
+    target?: boolean
     name: string
   }
   const otherMenus: OtherMenu[] = [
@@ -31,7 +32,8 @@ export const Header: React.FC = () => {
       name: 'MINBIYOについて',
     },
     {
-      href: '/contact/',
+      href: 'https://twitter.com/messages/compose?recipient_id=1583786873821966336',
+      target: true,
       name: 'お問い合わせ',
     },
   ]
@@ -101,13 +103,24 @@ export const Header: React.FC = () => {
                 <ul className={style.menuOthersNavList}>
                   {otherMenus.map((otherMenu) => (
                     <li key={otherMenu.name} className={style.menuOthersNavItem}>
-                      <Link
-                        href={otherMenu.href}
-                        className={style.menuOthersNavItemLink}
-                        onClick={handleClickVisibleMenu}
-                      >
-                        {otherMenu.name}
-                      </Link>
+                      {otherMenu.target ? (
+                        <a
+                          href={otherMenu.href}
+                          target='_blank'
+                          className={style.menuOthersNavItemLink}
+                          onClick={handleClickVisibleMenu}
+                        >
+                          {otherMenu.name}
+                        </a>
+                      ) : (
+                        <Link
+                          href={otherMenu.href}
+                          className={style.menuOthersNavItemLink}
+                          onClick={handleClickVisibleMenu}
+                        >
+                          {otherMenu.name}
+                        </Link>
+                      )}
                     </li>
                   ))}
                 </ul>
