@@ -29,9 +29,8 @@ export default async function Home() {
   const { contents } = contentsData
   const categoryFilteredContents = (category: string) =>
     contents.filter((content) => content.category?.english === category)
-  const newContents = contentsData.contents.filter(
-    (content, index) => !content.pickup && index <= 4,
-  )
+  const newContents = contentsData.contents.filter((content, index) => !content.pickup && index < 4)
+
   // interviewカテゴリーの記事を取得(newContetsに入っているものは除いて)
   const interviewContents = contentsData.contents.filter(
     (content) =>
